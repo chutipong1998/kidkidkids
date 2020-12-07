@@ -1,0 +1,65 @@
+.bg-choose-checkpoint {
+    --background: url(../../../assets/icon/sky.jpg) 0 0/100% 100% no-repeat;
+}
+
+#container {
+    text-align: center;
+  
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  #container strong {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  
+  #container p {
+    font-size: 16px;
+    line-height: 22px;
+  
+    color: #8c8c8c;
+  
+    margin: 0;
+  }
+  
+  #container a {
+    text-decoration: none;
+  }
+
+.btn {
+    height: 100px;
+    width: 100px;
+    border-radius: 10%;
+    text-align: center;
+    display: inline-block;
+    // font-size: 20px;
+    cursor: pointer;
+}
+
+.pass {
+//   padding-top: 5px;
+  font-size: 60px;
+  color: white;
+  background-color: hsl(328, 67%, 66%);
+  border: 3px solid rgb(235, 163, 187);
+}
+
+.disable {
+  font-size: 24px;
+}
+
+.back {
+  padding: 2%;
+}
+
+.btn-back {
+  color: white;
+  background-color: orange;
+  width: auto;
+  height: auto;
+  font-size: 20px;
+}

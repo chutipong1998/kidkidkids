@@ -1,0 +1,31 @@
+<ion-content padding class="bg-all-quiz">
+  <ion-row>
+    <ion-col>
+      <div class="back">
+        <button class="btn-back" (click)="goback()">
+          <ion-icon name="arrow-back-outline"></ion-icon> BACK
+        </button>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <div id="container" style="margin-top: 3%;">
+    <ion-row>
+      <ion-col>
+        <a class="btn" routerLink="/choose-checkpoint" style="padding-top: 45px;">เกมลากวาง</a>
+      </ion-col>
+      <ion-col>
+        <a class="btn" routerLink="/choose-checkpoint">เกมฟังเสียงเพื่อตอบคำถาม</a>
+      </ion-col>
+    </ion-row>
+    <div style="padding: 10px;"></div>
+    <ion-row>
+      <ion-col>
+        <a class="btn" routerLink="/choose-checkpoint">เกมเรียงลำดับตัวเลข</a>
+      </ion-col>
+      <ion-col>
+        <a class="btn" routerLink="/choose-checkpoint">เกมจับคู่เสียงของสัตว์</a>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

@@ -1,0 +1,49 @@
+<ion-content padding class="bg-choose-checkpoint">
+  <ion-row>
+    <ion-col style="height: fit-content;">
+      <div class="back">
+        <button class="btn-back" (click)="goback()">
+          <ion-icon name="arrow-back-outline"></ion-icon> BACK
+        </button>
+      </div>
+    </ion-col>
+  
+    <ion-col>
+    </ion-col>
+  
+    <ion-col style="text-align: right; padding-right: 20px;">
+      <div>
+        <span>SCORE : 0</span>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <div id="container" style="margin-top: 4%;">
+    <ion-row>
+      <ion-col *ngFor="let itemTop of showTop; let i = index;">
+        <button class="btn pass" (click)="getValue(i+1)" (click)="playKnowledge()"><img src="{{ itemTop.alphabet }}" alt="" srcset=""></button>
+      </ion-col>
+    </ion-row>
+    <div style="padding: 20px;"></div>
+    <ion-row>
+      <ion-col *ngFor="let itemUnder of showUnder; let i = index;">
+        <button class="btn pass" (click)="getValue(i+4)" routerLink="/play-knowledge"><img src="{{ itemUnder.alphabet }}" alt="" srcset=""></button>
+      </ion-col>
+    </ion-row>
+    <ion-row> 
+      <ion-col>
+      </ion-col>
+    
+      <ion-col>
+      </ion-col>
+    
+      <ion-col style="text-align: right; padding-right: 20px;">
+        <div class="back">
+          <button class="btn-back" href="/">
+            NEXT <ion-icon name="arrow-forward-outline"></ion-icon>
+          </button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

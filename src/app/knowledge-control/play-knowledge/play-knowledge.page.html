@@ -1,0 +1,41 @@
+<ion-content padding class="bg-choose-checkpoint">
+  <ion-row>
+    <ion-col>
+      <div class="back">
+        <a class="btn-back" (click)="goback()">
+          <ion-icon name="arrow-back-outline"></ion-icon> BACK
+        </a>
+      </div>
+    </ion-col>
+  
+    <ion-col>
+    </ion-col>
+  
+    <ion-col style="text-align: right; padding-right: 20px;">
+      <div>
+        <p>SCORE : 0</p>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <div id="container">
+    <ion-row>
+      <ion-col>
+        <div class="btn pass"><img src="{{show.alphabet}}" alt="" srcset=""></div>
+      </ion-col>
+    </ion-row>
+    <div style="padding: 20px;"></div>
+    <ion-row>
+      <ion-col>
+        <button style="background: none;" class="thai"><img src="../../../assets/img/speaker-purple.png" alt="" srcset=""></button>
+        <p>กดเพื่อฟังเสียงภาษาไทย
+        </p>
+      </ion-col>
+      <ion-col>
+        <button style="background: none;" class="eng"><img src="../../../assets/img/speaker-pink.png" alt="" srcset=""></button>
+        <p>กดเพื่อฟังเสียงภาษาอังกฤษ
+        </p>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

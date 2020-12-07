@@ -1,0 +1,34 @@
+<ion-content padding class="bg-all-knowledge">
+  <ion-row>
+    <ion-col>
+      <div class="back">
+        <button class="btn-back" (click)="goback()">
+          <ion-icon name="arrow-back-outline"></ion-icon> BACK
+        </button>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <div id="container">
+    <ion-row>
+      <ion-col>
+        <button class="btn" routerLink="/alphabet-category">ตัวอักษร</button>
+      </ion-col>
+      <ion-col>
+        <button class="btn" (click)="getValue('number')" value="number" routerLink="/choose-knowledge">ตัวเลข</button>
+      </ion-col>
+    </ion-row>
+    <div style="padding: 20px;"></div>
+    <ion-row>
+      <ion-col>
+        <button class="btn" (click)="getValue('fruit')" value="fruit" routerLink="/choose-knowledge">ผลไม้</button>
+      </ion-col>
+      <ion-col>
+        <button class="btn" (click)="getValue('vehicle')" value="vehicle" routerLink="/choose-knowledge">ยานพาหนะ</button>
+      </ion-col>
+      <ion-col>
+        <button class="btn" (click)="getValue('animal')" value="animal" routerLink="/choose-knowledge">สัตว์</button>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
