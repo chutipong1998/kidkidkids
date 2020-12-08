@@ -11,20 +11,20 @@ export class HomePage {
 
   constructor(private screenOrientation: ScreenOrientation, private nativeAudio: NativeAudio) {
     // get current
-    // console.log(this.screenOrientation.type); // logs the current orientation, example: 'landscape'
+    console.log(this.screenOrientation.type); // logs the current orientation, example: 'landscape'
 
-    // // set to landscape
-    // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+    // set to landscape
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
 
-    // // allow user rotate
-    // this.screenOrientation.unlock();
+    // allow user rotate
+    this.screenOrientation.unlock();
 
-    // // detect orientation changes
-    // this.screenOrientation.onChange().subscribe(
-    //   () => {
-    //     console.log('Orientation Changed');
-    //   }
-    // );
+    // detect orientation changes
+    this.screenOrientation.onChange().subscribe(
+      () => {
+        console.log('Orientation Changed');
+      }
+    );
 
     this.nativeAudio.preloadSimple('uniqueId1', '../../assets/audio/Claudio.mp3').then((res) => {
       console.log(res);
