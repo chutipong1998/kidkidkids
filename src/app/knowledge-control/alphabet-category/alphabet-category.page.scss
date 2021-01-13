@@ -1,5 +1,5 @@
 .bg-main-page {
-    --background: url(../../../assets/icon/sky.jpg) 0 0/100% 100% no-repeat;
+    --background: url(../../../assets/img/background/bg3.jpg) 0 0/100% 100% no-repeat;
 }
 
 #container {
@@ -33,15 +33,16 @@
 .btn {
     height: 140px;
     width: 170px;
-    border-radius: 50%;
-    background-color: green; /* Green */
+    // border-radius: 50%;
+    // background-color: green; /* Green */
+    background: none;
     border: none;
-    color: white;
-    padding-top: 34px;
+    // color: white;
+    // padding-top: 34px;
     text-align: center;
     display: inline-block;
     font-size: 24px;
-    border: 3px solid darkgreen;
+    // border: 3px solid darkgreen;
     cursor: pointer;
 }
 
@@ -55,4 +56,14 @@
   width: auto;
   height: auto;
   font-size: 20px;
+}
+
+.eng {
+  margin-top: 7%;
+  margin-left: 9%;
+}
+
+.thai {
+  margin-top: 7%;
+  margin-right: 5%;
 }

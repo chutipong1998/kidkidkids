@@ -1,0 +1,134 @@
+[
+    {
+        "id": 1,
+        "name_state": "ลากวาง",
+        "category": [
+            {
+                "id": 1,
+                "name": "สัตว์",
+                "score_state1": 0,
+                "score_state2": 0,
+                "score_state3": 0,
+                "score_state4": 0,
+                "score_state5": 0,
+                "score_state6": 0,
+                "score_state7": 0,
+                "score_state8": 0,
+                "score_state9": 0,
+                "score_state10": 0,
+                "total_score": 0
+            },
+            {
+                "id": 2,
+                "name": "ตัวเลข",
+                "score_state1": 0,
+                "score_state2": 0,
+                "score_state3": 0,
+                "score_state4": 0,
+                "score_state5": 0,
+                "score_state6": 0,
+                "score_state7": 0,
+                "score_state8": 0,
+                "score_state9": 0,
+                "score_state10": 0,
+                "total_score": 0
+            },
+            {
+                "id": 3,
+                "name": "ผลไม้",
+                "score_state1": 0,
+                "score_state2": 0,
+                "score_state3": 0,
+                "score_state4": 0,
+                "score_state5": 0,
+                "score_state6": 0,
+                "score_state7": 0,
+                "score_state8": 0,
+                "score_state9": 0,
+                "score_state10": 0,
+                "total_score": 0
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name_state": "ฟังเสียงเพื่อตอบคำถาม",
+        "category": [
+            {
+                "id": 1,
+                "name": "สัตว์",
+                "score_state1": 0,
+                "score_state2": 0,
+                "score_state3": 0,
+                "score_state4": 0,
+                "score_state5": 0,
+                "score_state6": 0,
+                "score_state7": 0,
+                "score_state8": 0,
+                "score_state9": 0,
+                "score_state10": 0,
+                "total_score": 0
+            },
+            {
+                "id": 2,
+                "name": "ตัวอักษรภาษาไทย",
+                "score_state1": 0,
+                "score_state2": 0,
+                "score_state3": 0,
+                "score_state4": 0,
+                "score_state5": 0,
+                "score_state6": 0,
+                "score_state7": 0,
+                "score_state8": 0,
+                "score_state9": 0,
+                "score_state10": 0,
+                "total_score": 0
+            },
+            {
+                "id": 3,
+                "name": "ผลไม้",
+                "score_state1": 0,
+                "score_state2": 0,
+                "score_state3": 0,
+                "score_state4": 0,
+                "score_state5": 0,
+                "score_state6": 0,
+                "score_state7": 0,
+                "score_state8": 0,
+                "score_state9": 0,
+                "score_state10": 0,
+                "total_score": 0
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name_state": "เรียงลำดับตัวเลข",
+        "score_state1": 0,
+        "score_state2": 0,
+        "score_state3": 0,
+        "score_state4": 0,
+        "score_state5": 0,
+        "score_state6": 0,
+        "score_state7": 0,
+        "score_state8": 0,
+        "score_state9": 0,
+        "score_state10": 0,
+        "total_score": 0
+    },
+    {
+        "id": 4,
+        "name_state": "จับคู่เสียงของสัตว์",
+        "score_state1": 0,
+        "score_state2": 0,
+        "score_state3": 0,
+        "score_state4": 0,
+        "score_state5": 0,
+        "score_state6": 0,
+        "score_state7": 0,
+        "score_state8": 0,
+        "score_state9": 0,
+        "score_state10": 0,
+        "total_score": 0
+    }
+]

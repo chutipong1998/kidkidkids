@@ -1,5 +1,5 @@
 .bg-home {
-  --background: url(../../assets/icon/sky.jpg) 0 0/100% 100% no-repeat;
+  --background: url(../../assets/img/background/bg_10.gif) 0 0/100% 100% no-repeat;
 }
 
 #container {
@@ -8,7 +8,7 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: 50%;
+  top: 66%;
   transform: translateY(-50%);
 }
 
@@ -30,13 +30,14 @@
   text-decoration: none;
 }
 
-.btn {height: 100px;
-  width: 100px;
+.btn {
+  height: 120px;
+  width: 120px;
   border-radius: 50%;
   background-color: palevioletred; /* Green */
   border: none;
   color: white;
-  padding-top: 34px;
+  // padding-top: 34px;
   text-align: center;
   display: inline-block;
   font-size: 20px;

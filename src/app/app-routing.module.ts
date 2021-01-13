@@ -55,6 +55,10 @@ const routes: Routes = [
     path: 'alphabet-category',
     loadChildren: () => import('./knowledge-control/alphabet-category/alphabet-category.module').then( m => m.AlphabetCategoryPageModule)
   },
+  {
+    path: 'choose-quiz',
+    loadChildren: () => import('./quiz-control/choose-quiz/choose-quiz.module').then( m => m.ChooseQuizPageModule)
+  },
 ];
 
 @NgModule({
