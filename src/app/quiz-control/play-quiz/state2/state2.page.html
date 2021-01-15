@@ -25,18 +25,30 @@
       </ion-col>
     </ion-row>
     <ion-row>
+      <!-- <div *ngFor="let dev of listen; let i = index;">
+        <h2>{{ dev.id }}</h2>
+      </div> -->
+      <ion-col class="col-buttom" *ngFor="let dev of state; let i = index;">
+        <button (click)="getAns(i+1)">
+          <img class="img" src="{{ dev.alphabet }}" alt="">
+        </button>
+      </ion-col>
+      <!-- <img class="img" src="../../../../assets/img/animal/dog.png" alt=""> -->
       <ion-col class="col-buttom">
-        <img class="img" src="../../../../assets/img/animal/dog.png" alt="">
+        <button>
+          <img class="img" src="../../../../assets/img/animal/Pig.png" alt="">
+        </button>
+      </ion-col>
+      <!-- <ion-col class="col-buttom">
+        <button>
+          <img class="img" src="../../../../assets/img/animal/bird.png" alt="">
+        </button>
       </ion-col>
       <ion-col class="col-buttom">
-        <img class="img" src="../../../../assets/img/animal/Pig.png" alt="">
-      </ion-col>
-      <ion-col class="col-buttom">
-        <img class="img" src="../../../../assets/img/animal/bird.png" alt="">
-      </ion-col>
-      <ion-col class="col-buttom">
-        <img class="img" src="../../../../assets/img/animal/horse.png" alt="">
-      </ion-col>
+        <button>
+          <img class="img" src="../../../../assets/img/animal/horse.png" alt="">
+        </button>
+      </ion-col> -->
     </ion-row>
   </div>
 </ion-content>

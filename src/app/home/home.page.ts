@@ -6,7 +6,7 @@ import { File } from '@ionic-native/file/ngx';
 import { Platform } from '@ionic/angular';
 
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
-import { DatabaseService, Dev } from '../services/database.service';
+import { DatabaseService, Alphabet } from '../services/database.service';
 
 @Component({
   selector: 'app-home',
@@ -26,7 +26,7 @@ export class HomePage implements OnInit {
 
   setData: any;
 
-  developers: Dev[] = [];
+  developers: Alphabet[] = [];
 
   developer = {};
 
@@ -36,7 +36,6 @@ export class HomePage implements OnInit {
     private screenOrientation: ScreenOrientation, 
     private file: File, 
     private platform: Platform, 
-    private sqlite: SQLite,
     private db: DatabaseService
   ) {
     // get current
@@ -54,30 +53,6 @@ export class HomePage implements OnInit {
     //     console.log('Orientation Changed');
     //   }
     // );
-
-    // this.sqlite.create({
-    //   name: 'data.db',
-    //   location: 'default'
-    // })
-    //   .then((db: SQLiteObject) => {
-    //     // db.executeSql('create table danceMoves(id integer primary key AUTOINCREMENT, descicao TEX)')
-    //     db.executeSql('CREATE TABLE DemoTable (name, score)')
-    //       .then(() => console.log('Executed SQL'))
-    //       .catch(e => console.log(e));
-    //     db.executeSql('INSERT INTO DemoTable VALUES (?, ?)', ['Alice', 101])
-    //       .then(() => console.log('row 1 ='))
-    //       .catch(e => console.log(e));
-    //     db.executeSql('INSERT INTO DemoTable VALUES (?, ?)', ['Betty', 202])
-    //       .then(() => console.log('row 2 ='))
-    //       .catch(e => console.log(e));
-
-    //     db.executeSql('SELECT * FROM DemoTable', [])
-    //       .then(data => {
-    //         console.log(data);
-            
-    //       })
-    //   })
-    //   .catch(e => console.log(e));
 
     // this.nativeAudio.preloadSimple('uniqueId1', '../../assets/audio/Claudio.mp3').then((res) => {
     //   console.log(res);
@@ -114,20 +89,22 @@ export class HomePage implements OnInit {
 
     // private nativeAudio: NativeAudio
 
-    // this.file.writeFile(this.file.dataDirectory, 'data.json', 'hello,world,', {replace: true}).then(() => {
-    //   console.log('succes');
-    // });
+    this.writeJSON();
+    
+  }
 
-    // this.x = this.file.checkDir(this.file.dataDirectory, 'assets/data');
-    // console.log(this.x);
+  ngOnInit() {
+    this.db.getDatabaseState().subscribe(ready => {
+      if(ready) {
+        this.db.getAlps().subscribe(devs => {
+          console.log('dev change:', devs);
+          this.developers = devs;
+        })
+      }
+    })
+  }
 
-    // this.platform.ready().then(() => {});
-
-    // this.createFile();
-    // this.writeJSON();
-    // this.writeJSON('data1.json', {a:'foo', b:'bar'});
-    // console.log(this.writeJSON('data1.json', {a:'foo', b:'bar'}));
-
+  writeJSON() {
     this.platform.ready().then(() => {
       // make sure this is on a device, not an emulation (e.g. chrome tools device mode)
       if(!this.platform.is('cordova')) {
@@ -277,7 +254,6 @@ export class HomePage implements OnInit {
         this.file.writeFile(fileDir, filename, jsonString, {replace: true}) ;
 
         this.file.readAsText(this.file.externalApplicationStorageDirectory, "result.json").then(fileStr => {
-          // console.log("file = ",fileStr);
           this.x = JSON.parse(String(fileStr));
           // alert(this.x.ID)
           console.log('file',this.x);
@@ -286,8 +262,6 @@ export class HomePage implements OnInit {
           console.log('it messed up wow');
           console.log(err);
         });
-        // this.readData();
-        // this.writeJSON();
       }
       else {
         // exit otherwise, but you could add further types here e.g. Windows
@@ -295,42 +269,7 @@ export class HomePage implements OnInit {
       }
     });
 
-    
-    // console.log("file = ",fileStr);
-    // var fileObj = JSON.parse(String(fileStr));
-    // console.log(fileObj);
-    // this.setData(fileObj);
-    // }).catch(err => {
-      //   console.log('it messed up wow');
-      //   console.log(err);
-      // });
-      
-    // var x = this.file.readAsText(this.file.externalApplicationStorageDirectory, "result.json")
-    // this.readData();
-
-    // var x = this.file.readAsText(this.file.applicationDirectory, "data.json")
-    // console.log('x =', x);
-    // console.log('x');
-    // this.writeJSON();
-    // this.storageDirectory = this.file.applicationDirectory; 
-    // console.log('storageDirectory:',this.storageDirectory);
   }
-
-  // createFile() {
-  //   this.file.createFile(this.file.dataDirectory, 'data1.json', true);
-  // }
-
-  // writeJSON() {
-  //   var jsonString = JSON.stringify({
-  //     ID: "Q1",
-  //     Result1: "Yes",
-  //     Result2: "No"});  
-  //   var fileDir = this.file.applicationDirectory; 
-  //   // var fileDir = this.file.externalApplicationStorageDirectory; 
-  //   var filename = "result.json";
-  //   return this.file.writeFile(fileDir, filename, jsonString, {replace: true}) ;
-
-  //   }
 
   // readData() {
   //   this.sqlite.create({
@@ -352,16 +291,7 @@ export class HomePage implements OnInit {
   //     .catch(e => console.log(e));
   // }
 
-  ngOnInit() {
-    this.db.getDatabaseState().subscribe(ready => {
-      if(ready) {
-        this.db.getDevs().subscribe(devs => {
-          console.log('dev change:', devs);
-          this.developers = devs;
-        })
-      }
-    })
-  }
+  
 
   // addDeveloper() {
   //   let alphabets = this.developer['alphabet'].split(',');
