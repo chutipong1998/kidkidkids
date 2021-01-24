@@ -17,6 +17,7 @@
             <ion-col *ngFor="let m of dataString; let j = index;" style="padding-left: 56px; padding-right: 56px;">
               <div *ngIf="j < 3">
                 <div class="btn passs" (click)="getValue(dataString[i].data[j])" (click)="playKnowledge()"><img class="img-a" src="{{ dataString[i].data[j].alphabet }}" alt="" srcset=""></div>
+                <!-- <div class="btn passs" (click)="getValue(dataString[i].data[j])" (click)="playKnowledge()"><img class="img-a" src="../../../assets/img/number/1.png" alt="" srcset=""></div> -->
               </div>
             </ion-col>
           </ion-row>
@@ -25,6 +26,7 @@
           <ion-col *ngFor="let m of dataString; let j = index;" style="padding-left: 56px; padding-right: 56px;">
             <div *ngIf="j < 3">
               <div class="btn pass" (click)="getValue(dataString[i].data[j+3])" (click)="playKnowledge()"><img class="img-a" src="{{ dataString[i].data[j+3].alphabet }}" alt="" srcset=""></div>
+              <!-- <div class="btn pass" (click)="getValue(dataString[i].data[j+3])" (click)="playKnowledge()"><img class="img-a" src="../../../assets/img/number/1.png" alt="" srcset=""></div> -->
               </div>
             </ion-col>
           </ion-row>
