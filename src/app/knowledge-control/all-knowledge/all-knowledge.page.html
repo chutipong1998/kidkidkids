@@ -2,9 +2,9 @@
   <ion-row>
     <ion-col>
       <div class="back">
-        <button class="btn-back" (click)="goback()">
+        <a class="btn-back" (click)="goback()">
           <ion-icon name="arrow-back-outline"></ion-icon> BACK
-        </button>
+        </a>
       </div>
     </ion-col>
   </ion-row>
@@ -12,22 +12,22 @@
   <div id="container">
     <ion-row>
       <ion-col>
-        <button style="margin-right: 3%;" class="btn" routerLink="/alphabet-category">ตัวอักษร</button>
+        <a style="margin-right: 3%;" class="btn" routerLink="/alphabet-category">ตัวอักษร</a>
       </ion-col>
       <ion-col>
-        <button style="margin-left: 9%;" class="btn" (click)="getValue('number')" value="number" routerLink="/choose-knowledge">ตัวเลข</button>
+        <a style="margin-left: 9%; padding-top: 27px;" class="btn" (click)="getValue('number')" value="number" routerLink="/choose-knowledge">ตัวเลข</a>
       </ion-col>
     </ion-row>
     <!-- <div style="padding: 20px;"></div> -->
     <ion-row style="margin-top: 55px;">
       <ion-col>
-        <button style="margin-left: 5%;" class="btn" (click)="getValue('fruit')" value="fruit" routerLink="/choose-knowledge">ผลไม้</button>
+        <a style="margin-left: 5%;" class="btn" (click)="getValue('fruit')" value="fruit" routerLink="/choose-knowledge">ผลไม้</a>
       </ion-col>
       <ion-col>
-        <button style="margin-left: 9%;" class="btn" (click)="getValue('vehicle')" value="vehicle" routerLink="/choose-knowledge">ยานพาหนะ</button>
+        <a style="margin-left: 9%;" class="btn" (click)="getValue('vehicle')" value="vehicle" routerLink="/choose-knowledge">ยานพาหนะ</a>
       </ion-col>
       <ion-col>
-        <button class="btn" (click)="getValue('animal')" value="animal" routerLink="/choose-knowledge">สัตว์</button>
+        <a class="btn" (click)="getValue('animal')" value="animal" routerLink="/choose-knowledge">สัตว์</a>
       </ion-col>
     </ion-row>
   </div>

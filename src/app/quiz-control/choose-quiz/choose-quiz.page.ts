@@ -12,4 +12,8 @@ export class ChooseQuizPage implements OnInit {
   ngOnInit() {
   }
 
+  getQuiz(i: string) {
+    localStorage.setItem('category', i);
+  }
+
 }

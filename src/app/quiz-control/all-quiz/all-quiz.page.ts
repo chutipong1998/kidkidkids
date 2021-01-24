@@ -17,4 +17,8 @@ export class AllQuizPage implements OnInit {
     this.navCtrl.pop();
   }
 
+  getQuiz(i: string) {
+    localStorage.setItem('quiz', i);
+  }
+
 }

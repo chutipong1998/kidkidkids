@@ -61,9 +61,15 @@
 }
 
 .btn-back {
-  color: white;
   background-color: orange;
-  width: 16px;
-  height: auto;
-  font-size: 20px;
+  border-radius: 4px;
+  border: none;
+  color: white;
+  padding: 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  width: 85px;
+  cursor: pointer;
 }

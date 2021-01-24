@@ -37,25 +37,18 @@
     // background-color: green; /* Green */
     background: none;
     border: none;
-    // color: white;
-    // padding-top: 34px;
+    color: rgb(165, 101, 42);
+    text-shadow:1px 1px 0 burlywood;
+    padding-top: 45px;
     text-align: center;
     display: inline-block;
-    font-size: 24px;
+    font-size: 20px;
     // border: 3px solid darkgreen;
     cursor: pointer;
 }
 
 .back {
   padding: 2%;
-}
-
-.btn-back {
-  color: white;
-  background-color: orange;
-  width: auto;
-  height: auto;
-  font-size: 20px;
 }
 
 .eng {
@@ -66,4 +59,18 @@
 .thai {
   margin-top: 7%;
   margin-right: 5%;
+}
+
+.btn-back {
+  background-color: orange;
+  border-radius: 4px;
+  border: none;
+  color: white;
+  padding: 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  width: 85px;
+  cursor: pointer;
 }

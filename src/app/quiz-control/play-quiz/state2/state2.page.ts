@@ -12,18 +12,21 @@ export class State2Page implements OnInit {
 
   state: Listen[] = [];
 
+  level: string;
+
   // developer = {};
 
   constructor(private db: DatabaseService) { }
 
   ngOnInit() {
+    this.level = localStorage.getItem('state');
     this.db.getDatabaseState().subscribe(ready => {
       if(ready) {
         this.db.getLisAnimal().subscribe(res => {
           console.log('listen change:', res);
           // this.listen = res;
           for (let i = 0; i < res.length; i++) {
-            if (res[i].state === '2') {
+            if (res[i].state === this.level) {
               this.state.push(res[i]);
             }
             

@@ -2,19 +2,19 @@
   <ion-row>
     <ion-col style="height: fit-content;">
       <div class="back">
-        <button class="btn-back" (click)="goback()">
+        <a class="btn-back" (click)="goback()">
           <ion-icon name="arrow-back-outline"></ion-icon> BACK
-        </button>
+        </a>
       </div>
     </ion-col>
   </ion-row>
   <div id="container">
     <ion-row>
       <ion-col>
-        <button class="btn eng" (click)="getValue('englishAlphabet')" routerLink="/choose-knowledge">ตัวอักษร<br>ภาษาอังกฤษ</button>
+        <a class="btn eng" (click)="getValue('englishAlphabet')" routerLink="/choose-knowledge">ตัวอักษร<br>ภาษาอังกฤษ</a>
       </ion-col>
       <ion-col>
-        <button class="btn thai" (click)="getValue('thaiAlphabet')" routerLink="/choose-knowledge">ตัวอักษร<br>ภาษาไทย</button>
+        <a class="btn thai" (click)="getValue('thaiAlphabet')" routerLink="/choose-knowledge">ตัวอักษร<br>ภาษาไทย</a>
       </ion-col>
     </ion-row>
   </div>

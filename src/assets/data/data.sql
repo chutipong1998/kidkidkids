@@ -2,14 +2,16 @@ CREATE TABLE IF NOT EXISTS "ENGLISH_ALPHABET" (
 	"id"	TEXT NOT NULL UNIQUE,
 	"name"	TEXT NOT NULL,
 	"alphabet"	TEXT,
-	"sound"	TEXT,
+	"thai_sound"	TEXT,
+	"english_sound"	TEXT,
 	PRIMARY KEY("id")
 );
 CREATE TABLE IF NOT EXISTS "THAI_ALPHABET" (
 	"id"	TEXT NOT NULL UNIQUE,
 	"name"	TEXT NOT NULL,
 	"alphabet"	TEXT,
-	"sound"	TEXT,
+	"thai_sound"	TEXT,
+	"english_sound"	TEXT,
 	PRIMARY KEY("id")
 );
 CREATE TABLE IF NOT EXISTS "NUMBER" (
@@ -114,76 +116,93 @@ CREATE TABLE IF NOT EXISTS "MATCHANIMALSOUND" (
 	"answer"	TEXT NOT NULL,
 	PRIMARY KEY("id")
 );
-INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng01','englishAlphabet','../../../assets/img/letters/eng/a.png',NULL);
-INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng02','englishAlphabet','../../../assets/img/letters/eng/b.png',NULL);
-INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng03','englishAlphabet','../../../assets/img/letters/eng/c.png',NULL);
-INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng04','englishAlphabet','../../../assets/img/letters/eng/d.png',NULL);
-INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng05','englishAlphabet','../../../assets/img/letters/eng/e.png',NULL);
-INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng06','englishAlphabet','../../../assets/img/letters/eng/f.png',NULL);
-INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng07','englishAlphabet','../../../assets/img/letters/eng/a.png',NULL);
-INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng08','englishAlphabet','../../../assets/img/letters/eng/b.png',NULL);
-INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng09','englishAlphabet','../../../assets/img/letters/eng/c.png',NULL);
-INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng10','englishAlphabet','../../../assets/img/letters/eng/d.png',NULL);
-INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng11','englishAlphabet','../../../assets/img/letters/eng/e.png',NULL);
-INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng12','englishAlphabet','../../../assets/img/letters/eng/f.png',NULL);
-INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng13','englishAlphabet','../../../assets/img/letters/eng/a.png',NULL);
-INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng14','englishAlphabet','../../../assets/img/letters/eng/b.png',NULL);
-INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng15','englishAlphabet','../../../assets/img/letters/eng/c.png',NULL);
-INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng16','englishAlphabet','../../../assets/img/letters/eng/d.png',NULL);
-INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng17','englishAlphabet','../../../assets/img/letters/eng/e.png',NULL);
-INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng18','englishAlphabet','../../../assets/img/letters/eng/f.png',NULL);
-INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng19','englishAlphabet','../../../assets/img/letters/eng/a.png',NULL);
-INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng20','englishAlphabet','../../../assets/img/letters/eng/b.png',NULL);
-INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng21','englishAlphabet','../../../assets/img/letters/eng/c.png',NULL);
-INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng22','englishAlphabet','../../../assets/img/letters/eng/d.png',NULL);
-INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng23','englishAlphabet','../../../assets/img/letters/eng/e.png',NULL);
-INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng24','englishAlphabet','../../../assets/img/letters/eng/f.png',NULL);
-INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng25','englishAlphabet','../../../assets/img/letters/eng/a.png',NULL);
-INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng26','englishAlphabet','../../../assets/img/letters/eng/b.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai01','thaiAlphabet','../../../assets/img/letters/thai/kai.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai02','thaiAlphabet','../../../assets/img/letters/thai/khai.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai03','thaiAlphabet','../../../assets/img/letters/thai/khuad.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai04','thaiAlphabet','../../../assets/img/letters/thai/cway.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai05','thaiAlphabet','../../../assets/img/letters/thai/kon.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai06','thaiAlphabet','../../../assets/img/letters/thai/kang.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai07','thaiAlphabet','../../../assets/img/letters/thai/kai.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai08','thaiAlphabet','../../../assets/img/letters/thai/khai.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai09','thaiAlphabet','../../../assets/img/letters/thai/khuad.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai10','thaiAlphabet','../../../assets/img/letters/thai/cway.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai11','thaiAlphabet','../../../assets/img/letters/thai/kon.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai12','thaiAlphabet','../../../assets/img/letters/thai/kang.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai13','thaiAlphabet','../../../assets/img/letters/thai/kai.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai14','thaiAlphabet','../../../assets/img/letters/thai/khai.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai15','thaiAlphabet','../../../assets/img/letters/thai/khuad.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai16','thaiAlphabet','../../../assets/img/letters/thai/cway.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai17','thaiAlphabet','../../../assets/img/letters/thai/kon.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai18','thaiAlphabet','../../../assets/img/letters/thai/kang.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai19','thaiAlphabet','../../../assets/img/letters/thai/kai.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai20','thaiAlphabet','../../../assets/img/letters/thai/khai.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai21','thaiAlphabet','../../../assets/img/letters/thai/khuad.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai22','thaiAlphabet','../../../assets/img/letters/thai/cway.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai23','thaiAlphabet','../../../assets/img/letters/thai/kon.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai24','thaiAlphabet','../../../assets/img/letters/thai/kang.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai25','thaiAlphabet','../../../assets/img/letters/thai/kai.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai26','thaiAlphabet','../../../assets/img/letters/thai/khai.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai27','thaiAlphabet','../../../assets/img/letters/thai/khuad.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai28','thaiAlphabet','../../../assets/img/letters/thai/cway.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai29','thaiAlphabet','../../../assets/img/letters/thai/kon.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai30','thaiAlphabet','../../../assets/img/letters/thai/kang.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai31','thaiAlphabet','../../../assets/img/letters/thai/kai.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai32','thaiAlphabet','../../../assets/img/letters/thai/khai.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai33','thaiAlphabet','../../../assets/img/letters/thai/khuad.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai34','thaiAlphabet','../../../assets/img/letters/thai/cway.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai35','thaiAlphabet','../../../assets/img/letters/thai/kon.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai36','thaiAlphabet','../../../assets/img/letters/thai/kang.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai37','thaiAlphabet','../../../assets/img/letters/thai/kai.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai38','thaiAlphabet','../../../assets/img/letters/thai/khai.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai39','thaiAlphabet','../../../assets/img/letters/thai/khuad.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai40','thaiAlphabet','../../../assets/img/letters/thai/cway.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai41','thaiAlphabet','../../../assets/img/letters/thai/kon.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai42','thaiAlphabet','../../../assets/img/letters/thai/kang.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai43','thaiAlphabet','../../../assets/img/letters/thai/kai.png',NULL);
-INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai44','thaiAlphabet','../../../assets/img/letters/thai/khai.png',NULL);
+CREATE TABLE IF NOT EXISTS "DATA" (
+	"id"	TEXT NOT NULL UNIQUE,
+	"name_state"	TEXT NOT NULL,
+	"category"	TEXT,
+	"score_state1"	INTEGER NOT NULL,
+	"score_state2"	INTEGER NOT NULL,
+	"score_state3"	INTEGER NOT NULL,
+	"score_state4"	INTEGER NOT NULL,
+	"score_state5"	INTEGER NOT NULL,
+	"score_state6"	INTEGER NOT NULL,
+	"score_state7"	INTEGER NOT NULL,
+	"score_state8"	INTEGER NOT NULL,
+	"score_state9"	INTEGER NOT NULL,
+	"score_state10"	INTEGER NOT NULL,
+	"total_score"	INTEGER NOT NULL,
+	PRIMARY KEY("id")
+);
+INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng01','englishAlphabet','../../../assets/img/letters/eng/Aa.png',NULL,NULL);
+INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng02','englishAlphabet','../../../assets/img/letters/eng/Bb.png',NULL,NULL);
+INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng03','englishAlphabet','../../../assets/img/letters/eng/Cc.png',NULL,NULL);
+INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng04','englishAlphabet','../../../assets/img/letters/eng/Dd.png',NULL,NULL);
+INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng05','englishAlphabet','../../../assets/img/letters/eng/Ee.png',NULL,NULL);
+INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng06','englishAlphabet','../../../assets/img/letters/eng/Ff.png',NULL,NULL);
+INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng07','englishAlphabet','../../../assets/img/letters/eng/Gg.png',NULL,NULL);
+INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng08','englishAlphabet','../../../assets/img/letters/eng/Hh.png',NULL,NULL);
+INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng09','englishAlphabet','../../../assets/img/letters/eng/Ii.png',NULL,NULL);
+INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng10','englishAlphabet','../../../assets/img/letters/eng/Jj.png',NULL,NULL);
+INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng11','englishAlphabet','../../../assets/img/letters/eng/Kk.png',NULL,NULL);
+INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng12','englishAlphabet','../../../assets/img/letters/eng/Ll.png',NULL,NULL);
+INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng13','englishAlphabet','../../../assets/img/letters/eng/Mm.png',NULL,NULL);
+INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng14','englishAlphabet','../../../assets/img/letters/eng/Nn.png',NULL,NULL);
+INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng15','englishAlphabet','../../../assets/img/letters/eng/Oo.png',NULL,NULL);
+INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng16','englishAlphabet','../../../assets/img/letters/eng/Pp.png',NULL,NULL);
+INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng17','englishAlphabet','../../../assets/img/letters/eng/Qq.png',NULL,NULL);
+INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng18','englishAlphabet','../../../assets/img/letters/eng/Rr.png',NULL,NULL);
+INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng19','englishAlphabet','../../../assets/img/letters/eng/Ss.png',NULL,NULL);
+INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng20','englishAlphabet','../../../assets/img/letters/eng/Tt.png',NULL,NULL);
+INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng21','englishAlphabet','../../../assets/img/letters/eng/Uu.png',NULL,NULL);
+INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng22','englishAlphabet','../../../assets/img/letters/eng/Vv.png',NULL,NULL);
+INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng23','englishAlphabet','../../../assets/img/letters/eng/Ww.png',NULL,NULL);
+INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng24','englishAlphabet','../../../assets/img/letters/eng/Xx.png',NULL,NULL);
+INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng25','englishAlphabet','../../../assets/img/letters/eng/Xx.png',NULL,NULL);
+INSERT or IGNORE INTO "ENGLISH_ALPHABET" VALUES ('eng26','englishAlphabet','../../../assets/img/letters/eng/Xx.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai01','thaiAlphabet','../../../assets/img/letters/thai/1.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai02','thaiAlphabet','../../../assets/img/letters/thai/2.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai03','thaiAlphabet','../../../assets/img/letters/thai/3.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai04','thaiAlphabet','../../../assets/img/letters/thai/4.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai05','thaiAlphabet','../../../assets/img/letters/thai/5.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai06','thaiAlphabet','../../../assets/img/letters/thai/6.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai07','thaiAlphabet','../../../assets/img/letters/thai/7.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai08','thaiAlphabet','../../../assets/img/letters/thai/8.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai09','thaiAlphabet','../../../assets/img/letters/thai/9.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai10','thaiAlphabet','../../../assets/img/letters/thai/10.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai11','thaiAlphabet','../../../assets/img/letters/thai/11.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai12','thaiAlphabet','../../../assets/img/letters/thai/12.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai13','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai14','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai15','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai16','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai17','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai18','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai19','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai20','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai21','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai22','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai23','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai24','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai25','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai26','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai27','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai28','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai29','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai30','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai31','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai32','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai33','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai34','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai35','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai36','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai37','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai38','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai39','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai40','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai41','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai42','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai43','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
+INSERT or IGNORE INTO "THAI_ALPHABET" VALUES ('thai44','thaiAlphabet','../../../assets/img/letters/thai/13.png',NULL,NULL);
 INSERT or IGNORE INTO "NUMBER" VALUES ('num01','number','../../../assets/img/number/one.png',NULL,NULL);
 INSERT or IGNORE INTO "NUMBER" VALUES ('num02','number','../../../assets/img/number/two.png',NULL,NULL);
 INSERT or IGNORE INTO "NUMBER" VALUES ('num03','number','../../../assets/img/number/three.png',NULL,NULL);
@@ -204,6 +223,11 @@ INSERT or IGNORE INTO "ANIMAL" VALUES ('animal07','animal','../../../assets/img/
 INSERT or IGNORE INTO "ANIMAL" VALUES ('animal08','animal','../../../assets/img/animal/dog.png',NULL,NULL);
 INSERT or IGNORE INTO "ANIMAL" VALUES ('animal09','animal','../../../assets/img/animal/horse.png',NULL,NULL);
 INSERT or IGNORE INTO "ANIMAL" VALUES ('animal10','animal','../../../assets/img/animal/monkey.png',NULL,NULL);
+INSERT or IGNORE INTO "ANIMAL" VALUES ('animal11','animal','../../../assets/img/animal/bird.png',NULL,NULL);
+INSERT or IGNORE INTO "ANIMAL" VALUES ('animal12','animal','../../../assets/img/animal/dog.png',NULL,NULL);
+INSERT or IGNORE INTO "ANIMAL" VALUES ('animal13','animal','../../../assets/img/animal/horse.png',NULL,NULL);
+INSERT or IGNORE INTO "ANIMAL" VALUES ('animal14','animal','../../../assets/img/animal/monkey.png',NULL,NULL);
+INSERT or IGNORE INTO "ANIMAL" VALUES ('animal15','animal','../../../assets/img/animal/elephant.png',NULL,NULL);
 INSERT or IGNORE INTO "FRUIT" VALUES ('fruit01','fruit','../../../assets/img/fruit/apple.png',NULL,NULL);
 INSERT or IGNORE INTO "FRUIT" VALUES ('fruit02','fruit','../../../assets/img/fruit/orange.png',NULL,NULL);
 INSERT or IGNORE INTO "FRUIT" VALUES ('fruit03','fruit','../../../assets/img/fruit/strawberry.png',NULL,NULL);
@@ -214,6 +238,11 @@ INSERT or IGNORE INTO "FRUIT" VALUES ('fruit07','fruit','../../../assets/img/fru
 INSERT or IGNORE INTO "FRUIT" VALUES ('fruit08','fruit','../../../assets/img/fruit/orange.png',NULL,NULL);
 INSERT or IGNORE INTO "FRUIT" VALUES ('fruit09','fruit','../../../assets/img/fruit/strawberry.png',NULL,NULL);
 INSERT or IGNORE INTO "FRUIT" VALUES ('fruit10','fruit','../../../assets/img/fruit/mango.png',NULL,NULL);
+INSERT or IGNORE INTO "FRUIT" VALUES ('fruit11','fruit','../../../assets/img/fruit/apple.png',NULL,NULL);
+INSERT or IGNORE INTO "FRUIT" VALUES ('fruit12','fruit','../../../assets/img/fruit/orange.png',NULL,NULL);
+INSERT or IGNORE INTO "FRUIT" VALUES ('fruit13','fruit','../../../assets/img/fruit/strawberry.png',NULL,NULL);
+INSERT or IGNORE INTO "FRUIT" VALUES ('fruit14','fruit','../../../assets/img/fruit/mango.png',NULL,NULL);
+INSERT or IGNORE INTO "FRUIT" VALUES ('fruit15','fruit','../../../assets/img/fruit/watermelon.png',NULL,NULL);
 INSERT or IGNORE INTO "VEHICLE" VALUES ('vhc01','vehicle','../../../assets/img/vehicle/ship.png',NULL,NULL);
 INSERT or IGNORE INTO "VEHICLE" VALUES ('vhc02','vehicle','../../../assets/img/vehicle/bus.png',NULL,NULL);
 INSERT or IGNORE INTO "VEHICLE" VALUES ('vhc03','vehicle','../../../assets/img/vehicle/taxi.png',NULL,NULL);
@@ -224,6 +253,11 @@ INSERT or IGNORE INTO "VEHICLE" VALUES ('vhc07','vehicle','../../../assets/img/v
 INSERT or IGNORE INTO "VEHICLE" VALUES ('vhc08','vehicle','../../../assets/img/vehicle/bus.png',NULL,NULL);
 INSERT or IGNORE INTO "VEHICLE" VALUES ('vhc09','vehicle','../../../assets/img/vehicle/taxi.png',NULL,NULL);
 INSERT or IGNORE INTO "VEHICLE" VALUES ('vhc10','vehicle','../../../assets/img/vehicle/bike.png',NULL,NULL);
+INSERT or IGNORE INTO "VEHICLE" VALUES ('vhc11','vehicle','../../../assets/img/vehicle/ship.png',NULL,NULL);
+INSERT or IGNORE INTO "VEHICLE" VALUES ('vhc12','vehicle','../../../assets/img/vehicle/bus.png',NULL,NULL);
+INSERT or IGNORE INTO "VEHICLE" VALUES ('vhc13','vehicle','../../../assets/img/vehicle/taxi.png',NULL,NULL);
+INSERT or IGNORE INTO "VEHICLE" VALUES ('vhc14','vehicle','../../../assets/img/vehicle/bike.png',NULL,NULL);
+INSERT or IGNORE INTO "VEHICLE" VALUES ('vhc15','vehicle','../../../assets/img/vehicle/Motorcycles.png',NULL,NULL);
 INSERT or IGNORE INTO "DRAGDROPANIMAL" VALUES ('1001','ลากวาง','1','สัตว์','../../../../assets/img/animal/elephant.png','1');
 INSERT or IGNORE INTO "DRAGDROPANIMAL" VALUES ('1002','ลากวาง','1','สัตว์','../../../../assets/img/animal/giraffe.png','1');
 INSERT or IGNORE INTO "DRAGDROPANIMAL" VALUES ('2001','ลากวาง','2','สัตว์','../../../../assets/img/animal/dog.png','2');
@@ -348,37 +382,37 @@ INSERT or IGNORE INTO "LISTENANIMAL" VALUES ('1101','ฟังเสียงเ
 INSERT or IGNORE INTO "LISTENANIMAL" VALUES ('1102','ฟังเสียงเพื่อตอบคำถาม','10','สัตว์','../../../../assets/img/animal/giraffe.png','3');
 INSERT or IGNORE INTO "LISTENANIMAL" VALUES ('1103','ฟังเสียงเพื่อตอบคำถาม','10','สัตว์','../../../../assets/img/animal/dog.png','3');
 INSERT or IGNORE INTO "LISTENANIMAL" VALUES ('1104','ฟังเสียงเพื่อตอบคำถาม','10','สัตว์','../../../../assets/img/animal/giraffe.png','3');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('1001','ฟังเสียงเพื่อตอบคำถาม','1','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/kai.png','1');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('1002','ฟังเสียงเพื่อตอบคำถาม','1','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/khai.png','1');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('2001','ฟังเสียงเพื่อตอบคำถาม','2','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/khuad.png','1');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('2002','ฟังเสียงเพื่อตอบคำถาม','2','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/cway.png','1');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('3001','ฟังเสียงเพื่อตอบคำถาม','3','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/kon.png','2');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('3002','ฟังเสียงเพื่อตอบคำถาม','3','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/kang.png','2');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('4001','ฟังเสียงเพื่อตอบคำถาม','4','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/kai.png','2');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('4002','ฟังเสียงเพื่อตอบคำถาม','4','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/khai.png','2');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('4003','ฟังเสียงเพื่อตอบคำถาม','4','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/khuad.png','2');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('5001','ฟังเสียงเพื่อตอบคำถาม','5','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/khai.png','3');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('5002','ฟังเสียงเพื่อตอบคำถาม','5','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/khuad.png','3');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('5003','ฟังเสียงเพื่อตอบคำถาม','5','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/cway.png','3');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('6001','ฟังเสียงเพื่อตอบคำถาม','6','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/khuad.png','3');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('6002','ฟังเสียงเพื่อตอบคำถาม','6','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/cway.png','3');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('6003','ฟังเสียงเพื่อตอบคำถาม','6','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/kon.png','3');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('7001','ฟังเสียงเพื่อตอบคำถาม','7','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/cway.png','4');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('7002','ฟังเสียงเพื่อตอบคำถาม','7','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/kon.png','4');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('7003','ฟังเสียงเพื่อตอบคำถาม','7','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/kang.png','4');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('7004','ฟังเสียงเพื่อตอบคำถาม','7','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/kai.png','4');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('8001','ฟังเสียงเพื่อตอบคำถาม','8','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/kon.png','3');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('8002','ฟังเสียงเพื่อตอบคำถาม','8','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/kang.png','3');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('8003','ฟังเสียงเพื่อตอบคำถาม','8','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/kai.png','3');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('8004','ฟังเสียงเพื่อตอบคำถาม','8','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/khai.png','3');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('9001','ฟังเสียงเพื่อตอบคำถาม','9','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/kang.png','2');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('9002','ฟังเสียงเพื่อตอบคำถาม','9','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/kai.png','2');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('9003','ฟังเสียงเพื่อตอบคำถาม','9','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/khai.png','2');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('9004','ฟังเสียงเพื่อตอบคำถาม','9','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/khuad.png','2');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('1101','ฟังเสียงเพื่อตอบคำถาม','10','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/kai.png','1');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('1102','ฟังเสียงเพื่อตอบคำถาม','10','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/khai.png','1');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('1103','ฟังเสียงเพื่อตอบคำถาม','10','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/khuad.png','1');
-INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('1104','ฟังเสียงเพื่อตอบคำถาม','10','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/cway.png','1');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('1001','ฟังเสียงเพื่อตอบคำถาม','1','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/1.png','1');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('1002','ฟังเสียงเพื่อตอบคำถาม','1','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/2.png','1');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('2001','ฟังเสียงเพื่อตอบคำถาม','2','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/3.png','1');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('2002','ฟังเสียงเพื่อตอบคำถาม','2','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/4.png','1');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('3001','ฟังเสียงเพื่อตอบคำถาม','3','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/7.png','2');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('3002','ฟังเสียงเพื่อตอบคำถาม','3','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/8.png','2');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('4001','ฟังเสียงเพื่อตอบคำถาม','4','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/11.png','2');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('4002','ฟังเสียงเพื่อตอบคำถาม','4','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/12.png','2');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('4003','ฟังเสียงเพื่อตอบคำถาม','4','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/13.png','2');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('5001','ฟังเสียงเพื่อตอบคำถาม','5','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/15.png','3');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('5002','ฟังเสียงเพื่อตอบคำถาม','5','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/16.png','3');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('5003','ฟังเสียงเพื่อตอบคำถาม','5','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/17.png','3');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('6001','ฟังเสียงเพื่อตอบคำถาม','6','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/19.png','3');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('6002','ฟังเสียงเพื่อตอบคำถาม','6','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/20.png','3');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('6003','ฟังเสียงเพื่อตอบคำถาม','6','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/21.png','3');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('7001','ฟังเสียงเพื่อตอบคำถาม','7','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/26.png','4');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('7002','ฟังเสียงเพื่อตอบคำถาม','7','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/27.png','4');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('7003','ฟังเสียงเพื่อตอบคำถาม','7','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/28.png','4');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('7004','ฟังเสียงเพื่อตอบคำถาม','7','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/29.png','4');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('8001','ฟังเสียงเพื่อตอบคำถาม','8','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/31.png','3');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('8002','ฟังเสียงเพื่อตอบคำถาม','8','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/32.png','3');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('8003','ฟังเสียงเพื่อตอบคำถาม','8','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/33.png','3');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('8004','ฟังเสียงเพื่อตอบคำถาม','8','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/34.png','3');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('9001','ฟังเสียงเพื่อตอบคำถาม','9','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/36.png','2');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('9002','ฟังเสียงเพื่อตอบคำถาม','9','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/37.png','2');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('9003','ฟังเสียงเพื่อตอบคำถาม','9','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/38.png','2');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('9004','ฟังเสียงเพื่อตอบคำถาม','9','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/39.png','2');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('1101','ฟังเสียงเพื่อตอบคำถาม','10','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/41.png','1');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('1102','ฟังเสียงเพื่อตอบคำถาม','10','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/42.png','1');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('1103','ฟังเสียงเพื่อตอบคำถาม','10','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/43.png','1');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('1104','ฟังเสียงเพื่อตอบคำถาม','10','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/44.png','1');
 INSERT or IGNORE INTO "LISTENFRUIT" VALUES ('1001','ฟังเสียงเพื่อตอบคำถาม','1','ผลไม้','../../../../assets/img/fruit/apple.png','1');
 INSERT or IGNORE INTO "LISTENFRUIT" VALUES ('1002','ฟังเสียงเพื่อตอบคำถาม','1','ผลไม้','../../../../assets/img/fruit/orange.png','1');
 INSERT or IGNORE INTO "LISTENFRUIT" VALUES ('2001','ฟังเสียงเพื่อตอบคำถาม','2','ผลไม้','../../../../assets/img/fruit/strawberry.png','2');
@@ -472,3 +506,11 @@ INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('1101','จับคู่เ�
 INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('1102','จับคู่เสียงของสัตว์','10','../../../../assets/img/animal/giraffe.png','4');
 INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('1103','จับคู่เสียงของสัตว์','10','../../../../assets/img/animal/dog.png','4');
 INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('1104','จับคู่เสียงของสัตว์','10','../../../../assets/img/animal/monkey.png','4');
+INSERT or IGNORE INTO "DATA" VALUES ('1001','ลากวาง','สัตว์',0,0,0,0,0,0,0,0,0,0,0);
+INSERT or IGNORE INTO "DATA" VALUES ('1002','ลากวาง','ตัวเลข',0,0,0,0,0,0,0,0,0,0,0);
+INSERT or IGNORE INTO "DATA" VALUES ('1003','ลากวาง','ผลไม้',0,0,0,0,0,0,0,0,0,0,0);
+INSERT or IGNORE INTO "DATA" VALUES ('2001','ฟังเสียงเพื่อตอบคำถาม','สัตว์',0,0,0,0,0,0,0,0,0,0,0);
+INSERT or IGNORE INTO "DATA" VALUES ('2002','ฟังเสียงเพื่อตอบคำถาม','ตัวอักษรภาษาไทย',0,0,0,0,0,0,0,0,0,0,0);
+INSERT or IGNORE INTO "DATA" VALUES ('2003','ฟังเสียงเพื่อตอบคำถาม','ผลไม้',0,0,0,0,0,0,0,0,0,0,0);
+INSERT or IGNORE INTO "DATA" VALUES ('3001','เรียงลำดับตัวเลข',NULL,0,0,0,0,0,0,0,0,0,0,0);
+INSERT or IGNORE INTO "DATA" VALUES ('3002','จับคู่เสียงของสัตว์',NULL,0,0,0,0,0,0,0,0,0,0,0);

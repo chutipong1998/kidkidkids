@@ -29,6 +29,10 @@
   #container a {
     text-decoration: none;
   }
+  .img-a{
+    border-radius: 5px;
+    // border: 3px solid lightblue;
+  }
 
 .btn {
     height: 100px;
@@ -36,6 +40,7 @@
     border-radius: 10%;
     text-align: center;
     display: inline-block;
+    background: none;
     // font-size: 20px;
     cursor: pointer;
 }
@@ -44,8 +49,8 @@
 //   padding-top: 5px;
   font-size: 60px;
   color: white;
-  background-color: hsl(328, 67%, 66%);
-  border: 3px solid rgb(235, 163, 187);
+  // background-color: hsl(328, 67%, 66%);
+  // border: 3px solid rgb(235, 163, 187);
 }
 
 .disable {
@@ -57,9 +62,15 @@
 }
 
 .btn-back {
-  color: white;
   background-color: orange;
-  width: auto;
-  height: auto;
-  font-size: 20px;
+  border-radius: 4px;
+  border: none;
+  color: white;
+  padding: 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  width: 85px;
+  cursor: pointer;
 }

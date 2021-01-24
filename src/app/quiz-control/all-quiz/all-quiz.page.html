@@ -12,19 +12,19 @@
   <div id="container" style="margin-top: 3%;">
     <ion-row>
       <ion-col>
-        <a class="btn" routerLink="/choose-checkpoint" style="padding-top: 45px;">ลากวาง</a>
+        <a class="btn" routerLink="/choose-checkpoint" (click)="getQuiz('ลากวาง')" style="padding-top: 45px;">ลากวาง</a>
       </ion-col>
       <ion-col>
-        <a class="btn" routerLink="/choose-quiz">ฟังเสียงเพื่อตอบคำถาม</a>
+        <a class="btn" routerLink="/choose-quiz" (click)="getQuiz('ฟังเสียงเพื่อตอบคำถาม')">ฟังเสียงเพื่อตอบคำถาม</a>
       </ion-col>
     </ion-row>
     <div style="padding: 10px;"></div>
     <ion-row>
       <ion-col>
-        <a class="btn" routerLink="/choose-checkpoint">เรียงลำดับตัวเลข</a>
+        <a class="btn" routerLink="/choose-checkpoint" (click)="getQuiz('เรียงลำดับตัวเลข')">เรียงลำดับตัวเลข</a>
       </ion-col>
       <ion-col>
-        <a class="btn" routerLink="/choose-checkpoint">จับคู่เสียงของสัตว์</a>
+        <a class="btn" routerLink="/choose-checkpoint" (click)="getQuiz('จับคู่เสียงของสัตว์')">จับคู่เสียงของสัตว์</a>
       </ion-col>
     </ion-row>
   </div>

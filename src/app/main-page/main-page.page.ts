@@ -18,7 +18,7 @@ export class MainPagePage implements OnInit {
     fetch('./assets/data/data.json').then(res => res.json())
     .then(json => {
       this.data = json;
-      console.log(this.data);
+      // console.log(this.data);
       // console.log(this.data[0].question);
     });
   }

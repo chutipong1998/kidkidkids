@@ -30,7 +30,8 @@
     text-decoration: none;
   }
 
-.btn {height: 100px;
+.btn {
+  height: 100px;
   width: 200px;
   // border-radius: 50%;
   background: none;
@@ -38,7 +39,7 @@
   border: none;
   color: rgb(165, 101, 42);
   text-shadow:1px 1px 0 burlywood;
-  // padding-top: 34px;
+  padding-top: 34px;
   text-align: center;
   display: inline-block;
   font-size: 20px;
@@ -56,14 +57,16 @@
 }
 
 .home {
-  margin: 1%;
+  margin-top: 2%;
   margin-left: 3%;
-  height: 35px;
-  width: 35px;
+  padding-top: 6px;
+  padding-left: 2px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
   text-align: center;
   display: inline-block;
-  font-size: 20px;
+  font-size: 25px;
   color: white;
   background-color: orange;
   cursor: pointer;
