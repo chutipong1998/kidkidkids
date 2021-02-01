@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-main-page',
@@ -9,9 +10,13 @@ export class MainPagePage implements OnInit {
 
   data: any;
 
-  constructor() { this.read_data() }
+  constructor(public navCtrl: NavController) { this.read_data() }
 
   ngOnInit() {
+  }
+
+  goback() {
+    this.navCtrl.pop();
   }
 
   read_data(){

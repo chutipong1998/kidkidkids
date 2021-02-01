@@ -14,6 +14,8 @@ export class State2Page implements OnInit {
 
   level: string;
 
+  
+
   // developer = {};
 
   constructor(private db: DatabaseService) { }
@@ -22,6 +24,9 @@ export class State2Page implements OnInit {
     this.level = localStorage.getItem('state');
     this.db.getDatabaseState().subscribe(ready => {
       if(ready) {
+        // if (condition) {
+          
+        // }
         this.db.getLisAnimal().subscribe(res => {
           console.log('listen change:', res);
           // this.listen = res;

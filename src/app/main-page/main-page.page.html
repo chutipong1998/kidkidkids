@@ -1,9 +1,13 @@
 <ion-content padding class="bg-main-page">
-  <ion-row style="height: 14%;">
+  <ion-row style="height: 18%;">
     <ion-col style="height: fit-content;">
-      <a class="home" routerLink="/home"><ion-icon name="home"></ion-icon></a>
+      <div>
+      </div>
+      <a class="home" routerLink="/home"><ion-icon name="home" (click)="goback()"></ion-icon></a>
     </ion-col>
   </ion-row>
+
+  <!-- routerLink="/home" (click)="goback()" -->
 
   <div id="container">
     <ion-row>

@@ -21,6 +21,7 @@ import {SQLite} from '@ionic-native/sqlite/ngx';
 import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
 
 import { HttpClientModule } from '@angular/common/http';
+import { NavigationBar } from '@ionic-native/navigation-bar/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,6 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
     File,
     SQLite,
     SQLitePorter,
+    NavigationBar,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

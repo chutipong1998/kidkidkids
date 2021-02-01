@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+// import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 // import { NativeAudio } from '@ionic-native/native-audio/ngx';
 
 // import { File } from '@ionic-native/file/ngx';
@@ -39,27 +39,27 @@ export class HomePage implements OnInit {
   // private db: SQLiteObject;
 
   constructor(
-    private screenOrientation: ScreenOrientation, 
+    // private screenOrientation: ScreenOrientation, 
     // private file: File, 
     // private platform: Platform, 
     private db: DatabaseKnowledgeService,
     // private json: JsonService
   ) {
     // get current
-    console.log(this.screenOrientation.type); // logs the current orientation, example: 'landscape'
+    // console.log(this.screenOrientation.type); // logs the current orientation, example: 'landscape'
 
-    // set to landscape
-    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+    // // set to landscape
+    // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
 
-    // allow user rotate
-    this.screenOrientation.unlock();
+    // // allow user rotate
+    // this.screenOrientation.unlock();
 
-    // detect orientation changes
-    this.screenOrientation.onChange().subscribe(
-      () => {
-        console.log('Orientation Changed');
-      }
-    );
+    // // detect orientation changes
+    // this.screenOrientation.onChange().subscribe(
+    //   () => {
+    //     console.log('Orientation Changed');
+    //   }
+    // );
 
     // this.platform.ready().then(() => {
     //   // make sure this is on a device, not an emulation (e.g. chrome tools device mode)

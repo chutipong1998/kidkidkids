@@ -62,6 +62,7 @@
 }
 
 .btn-back {
+  // font-family: 'sanamdeklen' !important;
   background-color: orange;
   border-radius: 4px;
   border: none;
@@ -70,7 +71,15 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 18px;
-  width: 85px;
+  font-size: 22px;
+  width: 105px;
+  font-family: 'Sanamdeklen';
+  font-weight: bold;
+  height: 31px;
   cursor: pointer;
+}
+
+.center {
+  margin-left: 5%;
+  margin-right: 5%;
 }

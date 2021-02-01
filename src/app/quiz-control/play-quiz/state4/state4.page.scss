@@ -31,22 +31,22 @@
 //   }
 
 .img1 {
-    width: 40%;
-    height: auto;
-}
-
-.img2 {
     width: 30%;
     height: auto;
 }
 
+.img2 {
+    width: 20%;
+    height: auto;
+}
+
 .img3 {
-    width: 50%;
+    width: 40%;
     height: auto;
 }
 
 .img4 {
-    width: 55%;
+    width: 45%;
     height: auto;
 }
 
@@ -78,14 +78,15 @@
 }
 
 .btn {
+    padding-top: 2%;
     margin: 1%;
     margin-left: 3%;
-    height: 35px;
-    width: 35px;
+    height: 45px;
+    width: 45px;
     border-radius: 50%;
     text-align: center;
     display: inline-block;
-    font-size: 20px;
+    font-size: 30px;
     color: white;
     background-color: orange;
     cursor: pointer;

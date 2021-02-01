@@ -2,15 +2,17 @@
     --background: url(../../../../assets/img/background/bg.jpg) 0 0/100% 100% no-repeat;
 }
 
-// #container {
-//     text-align: center;
+#container {
+    font-family: 'Sanamdeklen';
+    font-weight: bold;
+    // text-align: center;
   
-//     position: absolute;
-//     left: 0;
-//     right: 0;
-//     top: 50%;
-//     transform: translateY(-50%);
-//   }
+    // position: absolute;
+    // left: 0;
+    // right: 0;
+    // top: 50%;
+    // transform: translateY(-50%);
+  }
   
 //   #container strong {
 //     font-size: 20px;
@@ -31,7 +33,7 @@
 //   }
 
 .img {
-    width: 55%;
+    width: 30%;
     height: auto;
 }
 
@@ -60,14 +62,15 @@
 }
 
 .btn {
+    padding-top: 2%;
     margin: 1%;
     margin-left: 3%;
-    height: 35px;
-    width: 35px;
+    height: 45px;
+    width: 45px;
     border-radius: 50%;
     text-align: center;
     display: inline-block;
-    font-size: 20px;
+    font-size: 30px;
     color: white;
     background-color: orange;
     cursor: pointer;
@@ -87,11 +90,11 @@
     height: auto;
 }
 
-.img {
-    width: 70%;
-    height: auto;
-}
-
 .txt {
     margin-top: 1%;
+}
+
+.header {
+    font-family: 'Sanamdeklen';
+    font-weight: bold;
 }

@@ -61,6 +61,7 @@
 }
 
 .btn-back {
+  margin: 4%;
   background-color: orange;
   border-radius: 4px;
   border: none;
@@ -69,7 +70,15 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 18px;
-  width: 85px;
+  font-size: 22px;
+  width: 105px;
+  font-family: 'Sanamdeklen';
+  font-weight: bold;
+  height: 31px;
   cursor: pointer;
+}
+
+.speaker {
+  font-family: 'Sanamdeklen';
+  font-weight: bold;
 }

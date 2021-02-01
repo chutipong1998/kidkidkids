@@ -1,7 +1,7 @@
 <ion-content padding class="bg-choose-checkpoint">
-  <ion-row style="height: 14%;">
+  <ion-row class="header" style="height: 14%;">
     <ion-col style="height: fit-content;">
-      <button class="btn" routerLink="/all-quiz"><ion-icon name="home"></ion-icon></button>
+      <a class="btn" routerLink="/all-quiz"><ion-icon name="home"></ion-icon></a>
     </ion-col>
 
     <ion-col style="height: fit-content;">
@@ -21,7 +21,7 @@
     <ion-row>
       <ion-col class="col-mid">
         <img class="img-speaker" src="../../../../assets/img/speaker.png" alt="" srcset="">
-        <p class="txt">กดเพื่อฟังเสียง</p>
+        <h5 class="txt">กดเพื่อฟังเสียง</h5>
       </ion-col>
     </ion-row>
     <ion-row>
@@ -29,9 +29,9 @@
         <h2>{{ dev.id }}</h2>
       </div> -->
       <ion-col class="col-buttom" *ngFor="let dev of state; let i = index;">
-        <button (click)="getAns(i+1)">
+        <a (click)="getAns(i+1)">
           <img class="img" src="{{ dev.alphabet }}" alt="">
-        </button>
+        </a>
       </ion-col>
       <!-- <img class="img" src="../../../../assets/img/animal/dog.png" alt=""> -->
       <!-- <ion-col class="col-buttom">

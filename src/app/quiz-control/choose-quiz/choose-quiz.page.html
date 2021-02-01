@@ -2,9 +2,9 @@
   <ion-row>
     <ion-col>
       <div class="back">
-        <button class="btn-back" routerLink="/all-quiz">
+        <a class="btn-back" routerLink="/all-quiz">
           <ion-icon name="arrow-back-outline"></ion-icon> BACK
-        </button>
+        </a>
       </div>
     </ion-col>
   </ion-row>
@@ -12,7 +12,7 @@
   <div id="container" style="margin-top: 3%;">
     <ion-row>
       <ion-col>
-        <a class="btn" routerLink="/choose-checkpoint" (click)="getQuiz('สัตว์')" style="padding-top: 45px;">สัตว์</a>
+        <a class="btn" routerLink="/choose-checkpoint" (click)="getQuiz('สัตว์')" style="padding-top: 10%;">สัตว์</a>
       </ion-col>
       <ion-col>
         <a class="btn" (click)="getQuiz('ตัวอักษรภาษาไทย')" routerLink="/choose-checkpoint">ตัวอักษร</a>

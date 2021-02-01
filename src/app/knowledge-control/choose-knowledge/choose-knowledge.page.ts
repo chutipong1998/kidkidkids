@@ -10,200 +10,200 @@ import { DatabaseKnowledgeService } from 'src/app/services/database/knowledge/da
 })
 export class ChooseKnowledgePage implements OnInit {
 
-  mock = [
-    {
-      id: 1,
-      name: 'thaiAlphabet',
-      datatop: [
-        {
-          id: 1,
-          alphabet: '../../../assets/img/letters/thai/1.png'
-        },
-        {
-          id: 2,
-          alphabet: '../../../assets/img/letters/thai/1.png'
-        },
-        {
-          id: 3,
-          alphabet: '../../../assets/img/letters/thai/1.png'
-        },
-      ],
-      databuttom: [
-        {
-          id: 4,
-          alphabet: '../../../assets/img/letters/thai/1.png'
-        },
-        {
-          id: 5,
-          alphabet: '../../../assets/img/letters/thai/1.png'
-        },
-        {
-          id: 6,
-          alphabet: '../../../assets/img/letters/thai/1.png'
-        },
-      ]
-    },
-    {
-      id: 2,
-      name: 'englishAlphabet',
-      datatop: [
-        {
-          id: 1,
-          alphabet: '../../../assets/img/letters/eng/Gg.png'
-        },
-        {
-          id: 2,
-          alphabet: '../../../assets/img/letters/eng/Hh.png'
-        },
-        {
-          id: 3,
-          alphabet: '../../../assets/img/letters/eng/Ii.png'
-        },
-      ],
-      databuttom: [
-        {
-          id: 4,
-          alphabet: '../../../assets/img/letters/eng/Jj.png'
-        },
-        {
-          id: 5,
-          alphabet: '../../../assets/img/letters/eng/Kk.png'
-        },
-        {
-          id: 6,
-          alphabet: '../../../assets/img/letters/eng/Ff.png'
-        },
-      ]
-    },
-    {
-      id: 3,
-      name: 'number',
-      datatop: [
-        {
-          id: 1,
-          alphabet: '../../../assets/img/number/one.png'
-        },
-        {
-          id: 2,
-          alphabet: '../../../assets/img/number/two.png'
-        },
-        {
-          id: 3,
-          alphabet: '../../../assets/img/number/three.png'
-        },
-      ],
-      databuttom: [
-        {
-          id: 4,
-          alphabet: '../../../assets/img/number/four.png'
-        },
-        {
-          id: 5,
-          alphabet: '../../../assets/img/number/five.png'
-        },
-        {
-          id: 6,
-          alphabet: '../../../assets/img/number/six.png'
-        },
-      ]
-    },
-    {
-      id: 4,
-      name: 'animal',
-      datatop: [
-        {
-          id: 1,
-          alphabet: '../../../assets/img/animal/bird.png'
-        },
-        {
-          id: 2,
-          alphabet: '../../../assets/img/animal/dog.png'
-        },
-        {
-          id: 3,
-          alphabet: '../../../assets/img/animal/horse.png'
-        },
-      ],
-      databuttom: [
-        {
-          id: 4,
-          alphabet: '../../../assets/img/animal/monkey.png'
-        },
-        {
-          id: 5,
-          alphabet: '../../../assets/img/animal/elephant.png'
-        },
-        {
-          id: 6,
-          alphabet: '../../../assets/img/animal/Pig.png'
-        },
-      ]
-    },
-    {
-      id: 5,
-      name: 'fruit',
-      datatop: [
-        {
-          id: 1,
-          alphabet: '../../../assets/img/fruit/apple.png'
-        },
-        {
-          id: 2,
-          alphabet: '../../../assets/img/fruit/orange.png'
-        },
-        {
-          id: 3,
-          alphabet: '../../../assets/img/fruit/strawberry.png'
-        },
-      ],
-      databuttom: [
-        {
-          id: 4,
-          alphabet: '../../../assets/img/fruit/mango.png'
-        },
-        {
-          id: 5,
-          alphabet: '../../../assets/img/fruit/watermelon.png'
-        },
-        {
-          id: 6,
-          alphabet: '../../../assets/img/fruit/banana.png'
-        },
-      ]
-    },
-    {
-      id: 6,
-      name: 'vehicle',
-      datatop: [
-        {
-          id: 1,
-          alphabet: '../../../assets/img/vehicle/ship.png'
-        },
-        {
-          id: 2,
-          alphabet: '../../../assets/img/vehicle/bus.png'
-        },
-        {
-          id: 3,
-          alphabet: '../../../assets/img/vehicle/taxi.png'
-        },
-      ],
-      databuttom: [
-        {
-          id: 4,
-          alphabet: '../../../assets/img/vehicle/bike.png'
-        },
-        {
-          id: 5,
-          alphabet: '../../../assets/img/vehicle/Motorcycles.png'
-        },
-        {
-          id: 6,
-          alphabet: '../../../assets/img/vehicle/plane.png'
-        },
-      ]
-    },
-  ]
+  // mock = [
+  //   {
+  //     id: 1,
+  //     name: 'thaiAlphabet',
+  //     datatop: [
+  //       {
+  //         id: 1,
+  //         alphabet: '../../../assets/img/letters/thai/1.png'
+  //       },
+  //       {
+  //         id: 2,
+  //         alphabet: '../../../assets/img/letters/thai/1.png'
+  //       },
+  //       {
+  //         id: 3,
+  //         alphabet: '../../../assets/img/letters/thai/1.png'
+  //       },
+  //     ],
+  //     databuttom: [
+  //       {
+  //         id: 4,
+  //         alphabet: '../../../assets/img/letters/thai/1.png'
+  //       },
+  //       {
+  //         id: 5,
+  //         alphabet: '../../../assets/img/letters/thai/1.png'
+  //       },
+  //       {
+  //         id: 6,
+  //         alphabet: '../../../assets/img/letters/thai/1.png'
+  //       },
+  //     ]
+  //   },
+  //   {
+  //     id: 2,
+  //     name: 'englishAlphabet',
+  //     datatop: [
+  //       {
+  //         id: 1,
+  //         alphabet: '../../../assets/img/letters/eng/Gg.png'
+  //       },
+  //       {
+  //         id: 2,
+  //         alphabet: '../../../assets/img/letters/eng/Hh.png'
+  //       },
+  //       {
+  //         id: 3,
+  //         alphabet: '../../../assets/img/letters/eng/Ii.png'
+  //       },
+  //     ],
+  //     databuttom: [
+  //       {
+  //         id: 4,
+  //         alphabet: '../../../assets/img/letters/eng/Jj.png'
+  //       },
+  //       {
+  //         id: 5,
+  //         alphabet: '../../../assets/img/letters/eng/Kk.png'
+  //       },
+  //       {
+  //         id: 6,
+  //         alphabet: '../../../assets/img/letters/eng/Ff.png'
+  //       },
+  //     ]
+  //   },
+  //   {
+  //     id: 3,
+  //     name: 'number',
+  //     datatop: [
+  //       {
+  //         id: 1,
+  //         alphabet: '../../../assets/img/number/one.png'
+  //       },
+  //       {
+  //         id: 2,
+  //         alphabet: '../../../assets/img/number/two.png'
+  //       },
+  //       {
+  //         id: 3,
+  //         alphabet: '../../../assets/img/number/three.png'
+  //       },
+  //     ],
+  //     databuttom: [
+  //       {
+  //         id: 4,
+  //         alphabet: '../../../assets/img/number/four.png'
+  //       },
+  //       {
+  //         id: 5,
+  //         alphabet: '../../../assets/img/number/five.png'
+  //       },
+  //       {
+  //         id: 6,
+  //         alphabet: '../../../assets/img/number/six.png'
+  //       },
+  //     ]
+  //   },
+  //   {
+  //     id: 4,
+  //     name: 'animal',
+  //     datatop: [
+  //       {
+  //         id: 1,
+  //         alphabet: '../../../assets/img/animal/bird.png'
+  //       },
+  //       {
+  //         id: 2,
+  //         alphabet: '../../../assets/img/animal/dog.png'
+  //       },
+  //       {
+  //         id: 3,
+  //         alphabet: '../../../assets/img/animal/horse.png'
+  //       },
+  //     ],
+  //     databuttom: [
+  //       {
+  //         id: 4,
+  //         alphabet: '../../../assets/img/animal/monkey.png'
+  //       },
+  //       {
+  //         id: 5,
+  //         alphabet: '../../../assets/img/animal/elephant.png'
+  //       },
+  //       {
+  //         id: 6,
+  //         alphabet: '../../../assets/img/animal/Pig.png'
+  //       },
+  //     ]
+  //   },
+  //   {
+  //     id: 5,
+  //     name: 'fruit',
+  //     datatop: [
+  //       {
+  //         id: 1,
+  //         alphabet: '../../../assets/img/fruit/apple.png'
+  //       },
+  //       {
+  //         id: 2,
+  //         alphabet: '../../../assets/img/fruit/orange.png'
+  //       },
+  //       {
+  //         id: 3,
+  //         alphabet: '../../../assets/img/fruit/strawberry.png'
+  //       },
+  //     ],
+  //     databuttom: [
+  //       {
+  //         id: 4,
+  //         alphabet: '../../../assets/img/fruit/mango.png'
+  //       },
+  //       {
+  //         id: 5,
+  //         alphabet: '../../../assets/img/fruit/watermelon.png'
+  //       },
+  //       {
+  //         id: 6,
+  //         alphabet: '../../../assets/img/fruit/banana.png'
+  //       },
+  //     ]
+  //   },
+  //   {
+  //     id: 6,
+  //     name: 'vehicle',
+  //     datatop: [
+  //       {
+  //         id: 1,
+  //         alphabet: '../../../assets/img/vehicle/ship.png'
+  //       },
+  //       {
+  //         id: 2,
+  //         alphabet: '../../../assets/img/vehicle/bus.png'
+  //       },
+  //       {
+  //         id: 3,
+  //         alphabet: '../../../assets/img/vehicle/taxi.png'
+  //       },
+  //     ],
+  //     databuttom: [
+  //       {
+  //         id: 4,
+  //         alphabet: '../../../assets/img/vehicle/bike.png'
+  //       },
+  //       {
+  //         id: 5,
+  //         alphabet: '../../../assets/img/vehicle/Motorcycles.png'
+  //       },
+  //       {
+  //         id: 6,
+  //         alphabet: '../../../assets/img/vehicle/plane.png'
+  //       },
+  //     ]
+  //   },
+  // ]
 
   // d = [
   //   {
@@ -441,14 +441,15 @@ export class ChooseKnowledgePage implements OnInit {
       console.log('ind =', i);
       for (let j = 0; j < 6; j++) {
         if (data[j + (6*i)] !== undefined) {
-          if (i == 0) {
-            this.info.push(data[j])
-          } else {
-            this.info.push(data[j + (6*i)])
-          }
+          this.info.push(data[j + (6*i)])
+          // if (i == 0) {
+          //   this.info.push(data[j])
+          // } else {
+          //   this.info.push(data[j + (6*i)])
+          // }
         } else {
           const d = {
-            id: 1,
+            id: j+1,
             alphabet: ''
           };
           this.info.push(d);
@@ -464,35 +465,35 @@ export class ChooseKnowledgePage implements OnInit {
         }
       }
     }
-    console.log('string =', this.dataString.length);
-    console.log('data string:', this.dataString);
-    for (let j = 0; j < this.dataString.length; j++) {
-      if (this.dataString.length < 3) {
-        for (let i = 0; i < 6; i++) {
-          const d = {
-            id: i+1,
-            alphabet: ''
-          };
-          this.info.push(d);
-          if (this.info.length == 6) {
-            const dataObj = {
-              id: 3,
-              data: this.info,
-            };
-            this.dataString.push(dataObj)
-            this.info = []
-          }
-          // const dataObj = {
-          //   id: i+1,
-          //   data: {
-          //     id: i+1,
-          //     alphabet: ''
-          //   },
-          // };
-          // this.dataString.push(dataObj)
-        }
-      }
-    }
+    // console.log('string =', this.dataString.length);
+    // console.log('data string:', this.dataString);
+    // for (let j = 0; j < this.dataString.length; j++) {
+    //   if (this.dataString.length < 3) {
+    //     for (let i = 0; i < 6; i++) {
+    //       const d = {
+    //         id: i+1,
+    //         alphabet: ''
+    //       };
+    //       this.info.push(d);
+    //       if (this.info.length == 6) {
+    //         const dataObj = {
+    //           id: 3,
+    //           data: this.info,
+    //         };
+    //         this.dataString.push(dataObj)
+    //         this.info = []
+    //       }
+    //       // const dataObj = {
+    //       //   id: i+1,
+    //       //   data: {
+    //       //     id: i+1,
+    //       //     alphabet: ''
+    //       //   },
+    //       // };
+    //       // this.dataString.push(dataObj)
+    //     }
+    //   }
+    // }
   }
 
   getData(topic: any) {
