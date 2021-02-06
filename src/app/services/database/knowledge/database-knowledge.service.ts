@@ -23,10 +23,6 @@ export interface Data {
   score_state4: number,
   score_state5: number,
   score_state6: number,
-  score_state7: number,
-  score_state8: number,
-  score_state9: number,
-  score_state10: number,
   total_score: number
 }
 
@@ -251,10 +247,6 @@ export class DatabaseKnowledgeService {
             score_state4: data.rows.item(i).score_state4,
             score_state5: data.rows.item(i).score_state5,
             score_state6: data.rows.item(i).score_state6,
-            score_state7: data.rows.item(i).score_state7,
-            score_state8: data.rows.item(i).score_state8,
-            score_state9: data.rows.item(i).score_state9,
-            score_state10: data.rows.item(i).score_state10,
             total_score: data.rows.item(i).total_score
           });
         }

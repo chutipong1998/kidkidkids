@@ -12,8 +12,8 @@
     </ion-col>
   
     <ion-col style="text-align: right; padding-right: 20px;">
-      <div class="score">
-        <p>SCORE : 0</p>
+      <div class="score" *ngFor="let d of data">
+        <p>SCORE : {{ d.total_score }}</p>
       </div>
     </ion-col>
   </ion-row>
@@ -21,38 +21,38 @@
   <div id="container">
     <ion-row>
       <ion-col>
-        <a class="btn pass" routerLink="/state1" (click)="getState('1')">1</a>
+        <a class="btn pass" (click)="getState('1')" (click)="gotostate()">1</a>
       </ion-col>
       <ion-col>
-        <button class="btn pass" routerLink="/state2" (click)="getState('2')">2</button>
+        <a class="btn disable" (click)="getState('2')" (click)="gotostate()" disabled="true"><ion-icon name="lock-closed"></ion-icon></a>
       </ion-col>
       <ion-col>
-        <button class="btn pass" routerLink="/state3" (click)="getState('3')">3</button>
+        <a class="btn disable" (click)="getState('3')" (click)="gotostate()" disabled="true"><ion-icon name="lock-closed"></ion-icon></a>
       </ion-col>
-      <ion-col>
+      <!-- <ion-col>
         <button class="btn pass" routerLink="/state4" (click)="getState('4')">4</button>
       </ion-col>
       <ion-col>
         <button class="btn disable" routerLink="/state1" (click)="getState('5')" disabled="true"><ion-icon name="lock-closed"></ion-icon></button>
-      </ion-col>
+      </ion-col> -->
     </ion-row>
-    <div style="padding: 20px;"></div>
+    <div style="padding: 30px;"></div>
     <ion-row>
       <ion-col>
-        <button class="btn disable" routerLink="/state1" (click)="getState('6')" disabled="true"><ion-icon name="lock-closed"></ion-icon></button>
+        <a class="btn disable" (click)="getState('4')" (click)="gotostate()" disabled="true"><ion-icon name="lock-closed"></ion-icon></a>
       </ion-col>
       <ion-col>
-        <button class="btn disable" routerLink="/state1" (click)="getState('7')" disabled="true"><ion-icon name="lock-closed"></ion-icon></button>
+        <a class="btn disable" (click)="getState('5')" (click)="gotostate()" disabled="true"><ion-icon name="lock-closed"></ion-icon></a>
       </ion-col>
       <ion-col>
-        <button class="btn disable" routerLink="/state1" (click)="getState('8')" disabled="true"><ion-icon name="lock-closed"></ion-icon></button>
+        <a class="btn disable" (click)="getState('6')" (click)="gotostate()" disabled="true"><ion-icon name="lock-closed"></ion-icon></a>
       </ion-col>
-      <ion-col>
+      <!-- <ion-col>
         <button class="btn disable" routerLink="/state1" (click)="getState('9')" disabled="true"><ion-icon name="lock-closed"></ion-icon></button>
       </ion-col>
       <ion-col>
         <button class="btn disable" routerLink="/state1" (click)="getState('10')" disabled="true"><ion-icon name="lock-closed"></ion-icon></button>
-      </ion-col>
+      </ion-col> -->
     </ion-row>
   </div>
 </ion-content>

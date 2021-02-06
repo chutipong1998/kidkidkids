@@ -136,7 +136,7 @@ export class HomePage implements OnInit {
           this.datas = devs;
         })
       }
-    })
+    });
   }
 
   // writeJSON() {

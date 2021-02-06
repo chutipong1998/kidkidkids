@@ -4,7 +4,7 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
-import { NavigationBar } from '@ionic-native/navigation-bar/ngx';
+// import { NavigationBar } from '@ionic-native/navigation-bar/ngx';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +18,7 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private screenOrientation: ScreenOrientation,
-    private navigationBar: NavigationBar,
+    // private navigationBar: NavigationBar,
   ) {
     this.initializeApp();
   }
@@ -49,11 +49,13 @@ export class AppComponent {
       this.statusBar.backgroundColorByHexString("#ffffff");
       this.splashScreen.hide();
 
+      (window as any).navigationbar.setUp(true);
+
       // this.androidFullScreen.isImmersiveModeSupported()
       // .then(() => console.log('Immersive mode supported'))
       // .catch(err => console.log(err));
-      let autoHide: boolean = true;
-      this.navigationBar.setUp(autoHide);
+      // let autoHide: boolean = true;
+      // this.navigationBar.setUp(true);
     });
   }
 
