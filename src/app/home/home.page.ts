@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DatabaseKnowledgeService, Knowledge } from '../services/database/knowledge/database-knowledge.service';
+import { Data, DatabaseQuizService } from '../services/database/Quiz/database-quiz.service';
 // import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 // import { NativeAudio } from '@ionic-native/native-audio/ngx';
 
@@ -8,7 +10,6 @@ import { Component, OnInit } from '@angular/core';
 // import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 // import { DatabaseService, Alphabet } from '../services/database/service/database.service';
 // import { JsonService } from '../services/writejson/json.service';
-import { Data, DatabaseKnowledgeService } from '../services/database/knowledge/database-knowledge.service';
 
 @Component({
   selector: 'app-home',
@@ -31,6 +32,7 @@ export class HomePage implements OnInit {
   // developers: Knowledge[] = [];
 
   datas: Data[] = []
+  knows: Knowledge[] = []
 
   // developer = {};
 
@@ -42,7 +44,8 @@ export class HomePage implements OnInit {
     // private screenOrientation: ScreenOrientation, 
     // private file: File, 
     // private platform: Platform, 
-    private db: DatabaseKnowledgeService,
+    private db: DatabaseQuizService,
+    private knowdb: DatabaseKnowledgeService
     // private json: JsonService
   ) {
     // get current
@@ -137,6 +140,14 @@ export class HomePage implements OnInit {
         })
       }
     });
+
+    this.knowdb.getDatabaseState().subscribe(ready => {
+      if (ready) {
+        this.knowdb.getEngAlps().subscribe(res => {
+          this.knows = res;
+        })
+      }
+    })
   }
 
   // writeJSON() {

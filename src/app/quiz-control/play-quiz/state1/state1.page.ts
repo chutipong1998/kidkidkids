@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { DragulaService } from 'ng2-dragula';
+import { DatabaseKnowledgeService } from 'src/app/services/database/knowledge/database-knowledge.service';
+import { DatabaseQuizService } from 'src/app/services/database/Quiz/database-quiz.service';
 
 @Component({
   selector: 'app-state1',
@@ -45,7 +47,12 @@ export class State1Page implements OnInit {
   todo = { value: '', color: '' };
   selectedQuadrant = 'q1';
 
-  constructor(private dragulaService: DragulaService, private toastController: ToastController) {
+  score: number;
+  dataScore: any = [];
+
+  state: string;
+
+  constructor(private dragulaService: DragulaService, private toastController: ToastController, private db: DatabaseQuizService) {
     this.dragulaService.drag('bag')
     .subscribe(({ name, el, source }) => {
       el.setAttribute('color', 'danger');
@@ -70,6 +77,19 @@ export class State1Page implements OnInit {
   }
 
   ngOnInit() {
+    this.state = localStorage.getItem('state');
+    console.log('state =', this.state);
+
+    this.dataScore = JSON.parse(localStorage.getItem('score'));
+    console.log('datasc =', this.dataScore);
+
+    this.chkScore(this.state, this.dataScore)
+
+    // this.db.getDatabaseState().subscribe(ready => {
+    //   if(ready) {
+    //     this.getScore(this.quiz, this.category);
+    //   }
+    // });
   }
 
   addTodo() {
@@ -89,6 +109,24 @@ export class State1Page implements OnInit {
     }
     this[this.selectedQuadrant].push(this.todo);
     this.todo = { value: '', color: '' };
+  }
+
+  chkScore(state: string, datascore: any) {
+    for (let i = 0; i < datascore.length; i++) {
+      if (state == '1') {
+        this.score = datascore[i].score_state1
+      } else if (state == '2') {
+        this.score = datascore[i].score_state2
+      } else if (state == '3') {
+        this.score = datascore[i].score_state3
+      } else if (state == '4') {
+        this.score = datascore[i].score_state4
+      } else if (state == '5') {
+        this.score = datascore[i].score_state5
+      } else if (state == '6') {
+        this.score = datascore[i].score_state6
+      }
+    }
   }
 
 }

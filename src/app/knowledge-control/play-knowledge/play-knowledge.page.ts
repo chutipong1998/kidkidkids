@@ -12,8 +12,8 @@ export class PlayKnowledgePage implements OnInit {
 
   constructor(public navCtrl: NavController) {
     let s = localStorage.getItem('list');
+    console.log('s =', s);
     this.show = JSON.parse(s)
-    console.log('list = ' + this.show.alphabet);
   }
 
   ngOnInit() {

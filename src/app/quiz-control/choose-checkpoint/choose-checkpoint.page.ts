@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import { DatabaseKnowledgeService, Data } from 'src/app/services/database/knowledge/database-knowledge.service';
+import { Data, DatabaseQuizService } from 'src/app/services/database/Quiz/database-quiz.service';
 
 @Component({
   selector: 'app-choose-checkpoint',
@@ -16,9 +16,8 @@ export class ChooseCheckpointPage implements OnInit {
   category: string;
 
   url: string;
-  
 
-  constructor(public navCtrl: NavController, private route: Router, private db: DatabaseKnowledgeService) { }
+  constructor(public navCtrl: NavController, private route: Router, private db: DatabaseQuizService) { }
 
   ngOnInit() {
     this.quiz = localStorage.getItem('quiz');
@@ -30,7 +29,7 @@ export class ChooseCheckpointPage implements OnInit {
       if(ready) {
         this.getData(this.quiz, this.category);
       }
-    })
+    });
     
   }
 
@@ -50,18 +49,16 @@ export class ChooseCheckpointPage implements OnInit {
           if (res[i].name_state == quiz) {
             if (res[i].category == category) {
               this.data.push(res[i]);
-              // localStorage.setItem('quiz', null)
               // localStorage.setItem('category', '')
             }
           }
         } else {
           if (res[i].name_state == this.quiz) {
             this.data.push(res[i]);
-            // localStorage.setItem('quiz', '')
-
           }
         }
       }
+      localStorage.setItem('score', JSON.stringify(this.data))
       console.log('data =', this.data);
     });
   }

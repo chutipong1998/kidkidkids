@@ -11,17 +11,23 @@ export class ChooseQuizPage implements OnInit {
 
   quiz: string;
 
-  constructor(private route: Router, private db: DatabaseQuizService) { }
+  topic: string;
+
+  class: string;
+
+  constructor(private route: Router) { }
 
   ngOnInit() {
     this.quiz = localStorage.getItem('quiz');
     console.log('quiz =', this.quiz);
 
-    this.db.getDatabaseState().subscribe(ready => {
-      if(ready) {
-        this.getDataQuiz(this.quiz);
-      }
-    });
+    if (this.quiz === 'ลากวาง') {
+      this.topic = 'ตัวเลข';
+      this.class = 'btn';
+    } else if (this.quiz === 'ฟังเสียงเพื่อตอบคำถาม') {
+      this.topic = 'ตัวอักษรภาษาไทย';
+      this.class = 'thai-alp';
+    }
   }
 
   getQuiz(i: string) {
@@ -31,15 +37,6 @@ export class ChooseQuizPage implements OnInit {
   gotoAllQuiz() {
     localStorage.setItem('category', '')
     this.route.navigateByUrl('/all-quiz');
-  }
-
-  getDataQuiz(quiz: string) {
-    if (quiz === 'ลากวาง') {
-      this.db.getDragNumber().subscribe(res => {
-        console.log('res:', res);
-        // this.datas = devs;
-      });
-    }
   }
 
 }

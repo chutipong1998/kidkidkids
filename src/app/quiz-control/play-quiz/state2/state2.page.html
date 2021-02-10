@@ -8,13 +8,13 @@
     </ion-col>
 
     <ion-col style="text-align: right; height: fit-content;">
-      <p class="score">SCORE : 0</p>
+      <p class="score">SCORE : {{ score }}</p>
     </ion-col>
   </ion-row>
 
   <div id="container">
     <ion-row>
-      <ion-col class="col-top">
+      <ion-col class="col-top" >
         <h1>เสียงนี้คือ</h1>
       </ion-col>
     </ion-row>
@@ -24,15 +24,22 @@
         <h5 class="txt">กดเพื่อฟังเสียง</h5>
       </ion-col>
     </ion-row>
-    <ion-row>
+    <ion-row *ngFor="let n of list; let i = index;">
       <!-- <div *ngFor="let dev of listen; let i = index;">
         <h2>{{ dev.id }}</h2>
       </div> -->
-      <ion-col class="col-buttom" *ngFor="let dev of state; let i = index;">
-        <a (click)="getAns(i+1)">
-          <img class="img" src="{{ dev.alphabet }}" alt="">
-        </a>
+      <ion-col class="col-buttom" *ngFor="let dev of list[i].data; let j = index;">
+        <div *ngIf="i < 1">
+          <a (click)="getAns(j+1)">
+            <img class="img" src="{{ list[i].data[j].alphabet }}" alt="">
+          </a>
+        </div>
       </ion-col>
+
+      <!-- <ion-col class="col-buttom" *ngFor="let d of list; let i = index;">
+        <p>{{ d.id }}</p>
+      </ion-col> -->
+
       <!-- <img class="img" src="../../../../assets/img/animal/dog.png" alt=""> -->
       <!-- <ion-col class="col-buttom">
         <button>
@@ -44,6 +51,11 @@
           <img class="img" src="../../../../assets/img/animal/horse.png" alt="">
         </button>
       </ion-col> -->
+    </ion-row>
+    <ion-row>
+      <ion-col style="text-align: right;">
+        <ion-button>NEXT</ion-button>
+      </ion-col>
     </ion-row>
   </div>
 </ion-content>

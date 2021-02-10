@@ -15,14 +15,27 @@ export interface Listen {
 }
 
 export interface Dragdrop {
-    id: string,
-    name_state: string,
-    state: string,
-    category: string
-    alphabet: string,
-    shadow_image: string,
-    answer: string
-  }
+  id: string,
+  name_state: string,
+  state: string,
+  category: string
+  alphabet: string,
+  shadow_image: string,
+  answer: string
+}
+
+export interface Data {
+  id: string,
+  name_state: string,
+  category: string
+  score_state1: number,
+  score_state2: number,
+  score_state3: number,
+  score_state4: number,
+  score_state5: number,
+  score_state6: number,
+  total_score: number
+}
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +51,7 @@ export class DatabaseQuizService {
   draganimal = new BehaviorSubject([]);
   dragfruit = new BehaviorSubject([]);
   dragnumber = new BehaviorSubject([]);
+  data = new BehaviorSubject([]);
 
   constructor(
     private plt: Platform,
@@ -72,6 +86,8 @@ export class DatabaseQuizService {
           this.loadDragDropFruit();
           this.loadDragDropNumber();
           this.dbReady.next(true);
+          // ส่วนเก็บคะแนน
+          this.loadData();
         })
         .catch(e => console.error(e));
     });
@@ -103,6 +119,10 @@ export class DatabaseQuizService {
 
   getDragNumber(): Observable<Dragdrop[]> {
     return this.dragnumber.asObservable();
+  }
+
+  getData(): Observable<Data[]> {
+    return this.data.asObservable();
   }
 
   loadLisanimals() {
@@ -233,5 +253,38 @@ export class DatabaseQuizService {
       }
       this.dragnumber.next(dragnumber);
     });
+  }
+
+  // ส่วนเก็บคะแนน
+  loadData() {
+    return this.database.executeSql('SELECT * FROM DATA', []).then(data => {
+      let datas: Data[] = [];
+      
+      if (data.rows.length > 0) {
+        for (var i = 0; i < data.rows.length; i++) {
+ 
+          datas.push({ 
+            id: data.rows.item(i).id,
+            name_state: data.rows.item(i).name_state,
+            category: data.rows.item(i).category,
+            score_state1: data.rows.item(i).score_state1,
+            score_state2: data.rows.item(i).score_state2,
+            score_state3: data.rows.item(i).score_state3,
+            score_state4: data.rows.item(i).score_state4,
+            score_state5: data.rows.item(i).score_state5,
+            score_state6: data.rows.item(i).score_state6,
+            total_score: data.rows.item(i).total_score
+          });
+        }
+      }
+      this.data.next(datas);
+    });
+  }
+
+  updateData(datas: Data) {
+    let data = [datas.score_state1];
+    return this.database.executeSql(`UPDATE DATA SET score_state1 = ? WHERE id = ${datas.id}`, data).then(data => {
+      this.loadData();
+    })
   }
 }

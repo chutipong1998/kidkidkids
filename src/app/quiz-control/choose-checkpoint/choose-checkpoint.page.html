@@ -18,16 +18,26 @@
     </ion-col>
   </ion-row>
 
-  <div id="container">
+  <div id="container" *ngFor="let sc of data">
     <ion-row>
       <ion-col>
         <a class="btn pass" (click)="getState('1')" (click)="gotostate()">1</a>
       </ion-col>
       <ion-col>
-        <a class="btn disable" (click)="getState('2')" (click)="gotostate()" disabled="true"><ion-icon name="lock-closed"></ion-icon></a>
+        <div *ngIf="sc.score_state1 === 0; else Score1">
+          <button class="btn disable" disabled="true"><ion-icon name="lock-closed"></ion-icon></button>
+        </div>
+        <ng-template #Score1>
+          <a class="btn pass" (click)="getState('2')" (click)="gotostate()">2</a>
+        </ng-template>
       </ion-col>
       <ion-col>
-        <a class="btn disable" (click)="getState('3')" (click)="gotostate()" disabled="true"><ion-icon name="lock-closed"></ion-icon></a>
+        <div *ngIf="sc.score_state2 === 0; else Score2">
+          <button class="btn disable" disabled="true"><ion-icon name="lock-closed"></ion-icon></button>
+        </div>
+        <ng-template #Score2>
+          <a class="btn pass" (click)="getState('3')" (click)="gotostate()">3</a>
+        </ng-template>
       </ion-col>
       <!-- <ion-col>
         <button class="btn pass" routerLink="/state4" (click)="getState('4')">4</button>
@@ -39,13 +49,28 @@
     <div style="padding: 30px;"></div>
     <ion-row>
       <ion-col>
-        <a class="btn disable" (click)="getState('4')" (click)="gotostate()" disabled="true"><ion-icon name="lock-closed"></ion-icon></a>
+        <div *ngIf="sc.score_state3 === 0; else Score3">
+          <button class="btn disable" disabled="true"><ion-icon name="lock-closed"></ion-icon></button>
+        </div>
+        <ng-template #Score3>
+          <a class="btn pass" (click)="getState('4')" (click)="gotostate()">4</a>
+        </ng-template>
       </ion-col>
       <ion-col>
-        <a class="btn disable" (click)="getState('5')" (click)="gotostate()" disabled="true"><ion-icon name="lock-closed"></ion-icon></a>
+        <div *ngIf="sc.score_state4 === 0; else Score4">
+          <button class="btn disable" disabled="true"><ion-icon name="lock-closed"></ion-icon></button>
+        </div>
+        <ng-template #Score4>
+          <a class="btn pass" (click)="getState('5')" (click)="gotostate()">5</a>
+        </ng-template>
       </ion-col>
       <ion-col>
-        <a class="btn disable" (click)="getState('6')" (click)="gotostate()" disabled="true"><ion-icon name="lock-closed"></ion-icon></a>
+        <div *ngIf="sc.score_state5 === 0; else Score5">
+          <button class="btn disable" disabled="true"><ion-icon name="lock-closed"></ion-icon></button>
+        </div>
+        <ng-template #Score5>
+          <a class="btn pass" (click)="getState('6')" (click)="gotostate()">6</a>
+        </ng-template>
       </ion-col>
       <!-- <ion-col>
         <button class="btn disable" routerLink="/state1" (click)="getState('9')" disabled="true"><ion-icon name="lock-closed"></ion-icon></button>

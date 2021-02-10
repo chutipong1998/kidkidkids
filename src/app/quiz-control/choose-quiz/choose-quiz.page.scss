@@ -33,17 +33,31 @@
   }
 
 .btn {
-    height: 120px;
-    width: 150px;
-    border-radius: 50%;
-    background-color: palevioletred; /* Green */
-    border: none;
-    color: white;
-    padding-top: 35px;
-    text-align: center;
-    display: inline-block;
-    font-size: 30px;
-    cursor: pointer;
+  height: 120px;
+  width: 150px;
+  border-radius: 50%;
+  background-color: palevioletred; /* Green */
+  border: none;
+  color: white;
+  padding-top: 35px;
+  text-align: center;
+  display: inline-block;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.thai-alp {
+  height: 120px;
+  width: 150px;
+  border-radius: 50%;
+  background-color: palevioletred; /* Green */
+  border: none;
+  color: white;
+  padding-top: 29px;
+  text-align: center;
+  display: inline-block;
+  font-size: 26px;
+  cursor: pointer;
 }
 
 .back {

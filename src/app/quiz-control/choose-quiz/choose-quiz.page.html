@@ -15,7 +15,8 @@
         <a class="btn" routerLink="/choose-checkpoint" (click)="getQuiz('สัตว์')" style="padding-top: 10%;">สัตว์</a>
       </ion-col>
       <ion-col>
-        <a class="btn" (click)="getQuiz('ตัวอักษรภาษาไทย')" routerLink="/choose-checkpoint">ตัวอักษร</a>
+        <a class="{{ class }}" (click)="getQuiz(topic)" routerLink="/choose-checkpoint">{{ topic }}</a>
+        <!-- <a class="{{ cls }}" (click)="getQuiz(toppic)" routerLink="/choose-checkpoint">{{ toppic }}</a> -->
       </ion-col>
     </ion-row>
     <div style="padding: 10px;"></div>

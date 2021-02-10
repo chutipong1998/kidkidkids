@@ -432,7 +432,7 @@ export class ChooseKnowledgePage implements OnInit {
   }
 
   showData(data: any) {
-    console.log('data =', data.length);
+    console.log('data =', data);
     console.log('data/6 =', data.length/6);
 
     console.log('mod2 =', 44%6);
@@ -454,7 +454,7 @@ export class ChooseKnowledgePage implements OnInit {
           };
           this.info.push(d);
         }
-
+        // console.log('info =', this.info);
         if (this.info.length == 6) {
           const dataObj = {
             id: i+1,
