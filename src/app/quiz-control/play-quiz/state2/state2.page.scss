@@ -2,6 +2,10 @@
     --background: url(../../../../assets/img/background/bg.jpg) 0 0/100% 100% no-repeat;
 }
 
+.my-custom-class {
+    --background: #ff0000;
+}
+
 #container {
     font-family: 'Sanamdeklen';
     font-weight: bold;

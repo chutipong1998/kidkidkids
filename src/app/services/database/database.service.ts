@@ -282,9 +282,9 @@ export class DatabaseService {
     });
   }
 
-  updateData(datas: Data) {
-    let data = [datas.score_state1];
-    return this.database.executeSql(`UPDATE DATA SET score_state1 = ? WHERE id = ${datas.id}`, data).then(data => {
+  updateData(id, scoreState, score) {
+    // let data = [datas.score_state1];
+    return this.database.executeSql(`UPDATE DATA SET ${scoreState} = ? WHERE id = ${id}`, score).then(data => {
       this.loadData();
     })
   }
@@ -320,7 +320,7 @@ export class DatabaseService {
   // }
  
   // updateDeveloper(dev: Alphabet) {
-  //   let data = [dev.name, JSON.stringify(dev.alphabet), dev.sound];
+  //   let data = [JSON.stringify(dev.alphabet)];
   //   return this.database.executeSql(`UPDATE ENGLISH_ALPHABET SET id = ?, name = ?, alphabet = ?, sound = ? WHERE id = ${dev.id}`, data).then(data => {
   //     this.loadEnglishAlphabets();
   //   })

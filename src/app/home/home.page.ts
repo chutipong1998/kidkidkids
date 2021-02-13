@@ -11,6 +11,8 @@ import { Data, DatabaseQuizService } from '../services/database/Quiz/database-qu
 // import { DatabaseService, Alphabet } from '../services/database/service/database.service';
 // import { JsonService } from '../services/writejson/json.service';
 
+import { NativeAudio } from '@ionic-native/native-audio/ngx';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -45,7 +47,8 @@ export class HomePage implements OnInit {
     // private file: File, 
     // private platform: Platform, 
     private db: DatabaseQuizService,
-    private knowdb: DatabaseKnowledgeService
+    private knowdb: DatabaseKnowledgeService,
+    private nativeAudio: NativeAudio
     // private json: JsonService
   ) {
     // get current
@@ -92,46 +95,55 @@ export class HomePage implements OnInit {
     // });
 
 
-    // this.nativeAudio.preloadSimple('uniqueId1', '../../assets/audio/Claudio.mp3').then((res) => {
+    // this.nativeAudio.preloadSimple('test1', 'assets/audio/Claudio.mp3').then((res) => {
+    //   console.log('loading1...');
     //   console.log(res);
     // }, (err) => {
+    //   console.log('error');
     //   console.log(err);
     // });
 
-    // this.nativeAudio.preloadComplex('uniqueId2', '../../assets/audio/Cinema.mp3', 1, 1, 0).then((res) => {
+    // this.nativeAudio.preloadComplex('test2', 'assets/audio/bg_audio.mp3', 1, 1, 0).then((res) => {
+    //   console.log('loading2...');
     //   console.log(res);
     // }, (err) => {
+    //   console.log('error');
     //   console.log(err);
     // });
 
-    // this.nativeAudio.play('uniqueId1').then((res) => {
+    // เล่นรอบเดียว
+    // this.nativeAudio.play('test1', () => console.log('uniqueId1 is done playing'));
+
+    // this.nativeAudio.loop('test2').then((res) => {
+    //   console.log('playing test2');
     //   console.log(res);
     // }, (err) => {
+    //   console.log('test2 error');
     //   console.log(err);
     // });
-
-    // this.nativeAudio.loop('uniqueId2').then((res) => {
-    //   console.log(res);
-    // }, (err) => {
-    //   console.log(err);
-    // });
-
-    // this.nativeAudio
-    //   .preloadComplex('track1', '../../assets/audio/Claudio.mp3', 1, 1, 0)
-    //   .then(this.onSuccessPreloading, this.onError);
-
-    // this.nativeAudio.play('track1').then(this.onSuccessPreloading, this.onError);
 
     // var audio = new Audio('../../assets/audio/audio_hero_Story-Time_SIPML_Q-0216.mp3');
     // audio.play();
-
-    // private nativeAudio: NativeAudio
-
-    // this.writeJSON();
     
   }
 
   ngOnInit() {
+    // load audio
+    this.nativeAudio.preloadComplex('test2', 'assets/audio/bg_audio.mp3', 1, 1, 0).then((res) => {
+      console.log('loading2...');
+      console.log(res);
+      this.nativeAudio.loop('test2').then((res) => {
+        console.log('playing test2');
+        console.log(res);
+      }, (err) => {
+        console.log('test2 error');
+        console.log(err);
+      });
+    }, (err) => {
+      console.log('error');
+      console.log(err);
+    });
+
     this.db.getDatabaseState().subscribe(ready => {
       if(ready) {
         this.db.getData().subscribe(devs => {

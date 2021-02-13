@@ -1,4 +1,6 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 import { DatabaseQuizService, Listen } from 'src/app/services/database/Quiz/database-quiz.service';
 
 @Component({
@@ -10,7 +12,8 @@ export class State2Page implements OnInit {
 
   listen: Listen[] = [];
 
-  state: Listen[] = [];
+  state: string;
+  newScore: number;
 
   list: any = [];
   lst: any = [];
@@ -25,7 +28,7 @@ export class State2Page implements OnInit {
 
   // developer = {};
 
-  constructor(private db: DatabaseQuizService) { }
+  constructor(private db: DatabaseQuizService, private alertCtrl: AlertController, private route: Router) { }
 
   ngOnInit() {
     this.level = localStorage.getItem('state');
@@ -45,29 +48,49 @@ export class State2Page implements OnInit {
   }
 
   getAns(i: string) {
+    let alp;
     console.log(i);
-    console.log('ans =', this.state[0].answer);
-    if (this.state[0].answer == i) {
+    console.log('ans =', this.list[0].data[Number(i)-1].alphabet);
+    if (this.list[0].data[0].answer == i) {
       console.log('ถูกต้อง');
+      alp = this.list[0].data[Number(i)-1].alphabet;
+      console.log(alp);
+      if (this.list.length > 1) {
+        this.next(alp);
+      } else {
+        this.correct(alp);
+      }
     } else {
       console.log('ผิด');
     }
   }
 
+  chkData() {
+    this.list.splice(0, 1);
+    console.log('del.');
+    console.log(this.list);
+  }
+
   chkScore(state: string, datascore: any) {
     for (let i = 0; i < datascore.length; i++) {
       if (state == '1') {
-        this.score = datascore[i].score_state1
+        this.score = datascore[i].score_state1;
+        this.state = 'score_state1';
       } else if (state == '2') {
-        this.score = datascore[i].score_state2
+        this.score = datascore[i].score_state2;
+        this.state = 'score_state2';
       } else if (state == '3') {
-        this.score = datascore[i].score_state3
+        this.score = datascore[i].score_state3;
+        this.state = 'score_state3';
       } else if (state == '4') {
-        this.score = datascore[i].score_state4
+        this.score = datascore[i].score_state4;
+        this.state = 'score_state4';
       } else if (state == '5') {
-        this.score = datascore[i].score_state5
+        this.score = datascore[i].score_state5;
+        this.state = 'score_state5';
       } else if (state == '6') {
-        this.score = datascore[i].score_state6
+        this.score = datascore[i].score_state6;
+        this.state = 'score_state6';
       }
     }
   }
@@ -77,34 +100,31 @@ export class State2Page implements OnInit {
       this.db.getLisAnimal().subscribe(res => {
         for (let i = 0; i < res.length; i++) {
           if (res[i].state === this.level) {
-            this.state.push(res[i]);
+            this.listen.push(res[i]);
           }
         }
-        this.pushData(this.state)
+        this.pushData(this.listen)
+        localStorage.setItem('category', '')
       });
     } else if (category == 'ตัวอักษรภาษาไทย') {
       this.db.getLisThaiAlp().subscribe(res => {
-        console.log('log thai =', res);
-        // this.listen = res;
         for (let i = 0; i < res.length; i++) {
           if (res[i].state === this.level) {
-            this.state.push(res[i]);
+            this.listen.push(res[i]);
           }
-          
         }
-        console.log('thaiAlp =', this.state);
+        this.pushData(this.listen)
+        localStorage.setItem('category', '')
       });
     } else if (category == 'ผลไม้') {
       this.db.getLisFruit().subscribe(res => {
-        console.log('log fru =', res);
-        // this.listen = res;
         for (let i = 0; i < res.length; i++) {
           if (res[i].state === this.level) {
-            this.state.push(res[i]);
+            this.listen.push(res[i]);
           }
-          
         }
-        console.log('fruit =', this.state);
+        this.pushData(this.listen)
+        localStorage.setItem('category', '')
       });
     }
   }
@@ -150,6 +170,93 @@ export class State2Page implements OnInit {
       console.log(this.list);
     }
   }
+
+  async correct(msg_img) {
+    let alert = await this.alertCtrl.create({
+      header: 'ยินดีด้วย คุณตอบถูก',
+      // subHeader: 'คุณตอบถูก',
+      message: 'คำตอบคือ :  ' + `<img src="${msg_img}" alt="g-maps" style="border-radius: 2px; text-align: center;">`,
+      cssClass: 'my-custom-class',
+      buttons: [
+        {
+          text: 'ตกลง',
+          role: 'ok',
+          handler: () => {
+            let score = 100;
+            this.updateData(this.dataScore[0].id, this.state, score);
+            this.route.navigateByUrl('/all-quiz');
+          }
+        }
+      ], backdropDismiss: false
+    });
+    await alert.present();
+  }
+
+  async next(msg_img) {
+    let alert = await this.alertCtrl.create({
+      header: 'ยินดีด้วย คุณตอบถูก',
+      // subHeader: 'คุณตอบถูก',
+      message: 'คำตอบคือ :  ' + `<img src="${msg_img}" alt="g-maps" style="border-radius: 2px; text-align: center;">`,
+      cssClass: 'my-custom-class',
+      buttons: [
+        {
+          text: 'ถัดไป',
+          role: 'ok',
+          handler: () => {
+            this.list.splice(0, 1);
+          }
+        }
+      ], backdropDismiss: false
+    });
+    await alert.present();
+  }
+
+  async result_was_wrong(txt) {
+    let alert = await this.alertCtrl.create({
+      header: 'คุณตอบผิด !!',
+      // subHeader: 'เฉลย',
+      message: 'เฉลย : ' + txt,
+      cssClass: 'my-custom-class',
+      buttons: [
+        {
+          text: 'ตกลง',
+          role: 'ok',
+          handler: () => {
+            // this.quiz.splice(0, 1);
+            // console.log('count =', this.quiz.length);
+            // console.log('catd =', this.quiz);
+            // this.status = '';
+            // // clearInterval(this.timer);
+            // this.maxtime = 60;
+            // this.StartTimer(this.maxtime);
+            // console.log('Cancel clicked');
+          }
+        }
+      ], backdropDismiss: false
+
+    });
+    await alert.present();
+  }
+
+
+  updateData(id: string, scoreState: string, score: number) {
+    // let alphabets = this.dataScore['alphabet'].split(',');
+    // alphabets = alphabets.map(alphabet => alphabet.trim());
+
+    let total = this.dataScore[0].score_state1
+                + this.dataScore[0].score_state2
+                + this.dataScore[0].score_state3
+                + this.dataScore[0].score_state4
+                + this.dataScore[0].score_state5
+                + this.dataScore[0].score_state6
+                + score
+ 
+    this.db.updateData(id, scoreState, score, total)
+    .then(_ => {
+      console.log('update complete!!');
+    });
+  }
+
 
 
   // let len = 6

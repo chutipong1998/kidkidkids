@@ -281,9 +281,9 @@ export class DatabaseQuizService {
     });
   }
 
-  updateData(datas: Data) {
-    let data = [datas.score_state1];
-    return this.database.executeSql(`UPDATE DATA SET score_state1 = ? WHERE id = ${datas.id}`, data).then(data => {
+  updateData(id, state, score, total) {
+    let data = [score, total];
+    return this.database.executeSql(`UPDATE DATA SET ${state} = ?, total_score = ? WHERE id = ${id}`, data).then(data => {
       this.loadData();
     })
   }
