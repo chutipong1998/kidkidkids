@@ -62,7 +62,8 @@ export class DatabaseQuizService {
     this.plt.ready().then(() => {
       this.sqlite.create({
         name: 'data.db',
-        location: 'default'
+        // location: 'default'
+        location: 'storage/emulated/0/Android/data/io.ionic.starter/databases/data.db'
       })
       .then((db: SQLiteObject) => {
           this.database = db;
