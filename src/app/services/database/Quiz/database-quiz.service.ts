@@ -4,6 +4,7 @@ import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
 import { HttpClient } from '@angular/common/http';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { File } from '@ionic-native/file/ngx';
 
 export interface Listen {
   id: string,
@@ -11,6 +12,7 @@ export interface Listen {
   state: string,
   category: string
   alphabet: string,
+  sound: string;
   answer: string
 }
 
@@ -32,8 +34,6 @@ export interface Data {
   score_state2: number,
   score_state3: number,
   score_state4: number,
-  score_state5: number,
-  score_state6: number,
   total_score: number
 }
 
@@ -57,13 +57,14 @@ export class DatabaseQuizService {
     private plt: Platform,
     private sqlitePorter: SQLitePorter,
     private sqlite: SQLite,
-    private http: HttpClient
+    private http: HttpClient,
+    private file: File, 
   ) {
     this.plt.ready().then(() => {
       this.sqlite.create({
         name: 'data.db',
-        // location: 'default'
-        location: 'storage/emulated/0/Android/data/io.ionic.starter/databases/data.db'
+        location: 'default'
+        // location: this.fileDir
       })
       .then((db: SQLiteObject) => {
           this.database = db;
@@ -132,14 +133,13 @@ export class DatabaseQuizService {
       
       if (data.rows.length > 0) {
         for (var i = 0; i < data.rows.length; i++) {
-          
- 
           lisanimals.push({ 
             id: data.rows.item(i).id,
             name_state: data.rows.item(i).name_state,
             state: data.rows.item(i).state,
             category: data.rows.item(i).category,
             alphabet: data.rows.item(i).alphabet, 
+            sound: data.rows.item(i).sound,
             answer: data.rows.item(i).answer
           });
         }
@@ -160,7 +160,8 @@ export class DatabaseQuizService {
             name_state: data.rows.item(i).name_state,
             state: data.rows.item(i).state,
             category: data.rows.item(i).category,
-            alphabet: data.rows.item(i).alphabet, 
+            alphabet: data.rows.item(i).alphabet,
+            sound: data.rows.item(i).sound, 
             answer: data.rows.item(i).answer
           });
         }
@@ -182,6 +183,7 @@ export class DatabaseQuizService {
             state: data.rows.item(i).state,
             category: data.rows.item(i).category,
             alphabet: data.rows.item(i).alphabet, 
+            sound: data.rows.item(i).sound,
             answer: data.rows.item(i).answer
           });
         }
@@ -272,8 +274,6 @@ export class DatabaseQuizService {
             score_state2: data.rows.item(i).score_state2,
             score_state3: data.rows.item(i).score_state3,
             score_state4: data.rows.item(i).score_state4,
-            score_state5: data.rows.item(i).score_state5,
-            score_state6: data.rows.item(i).score_state6,
             total_score: data.rows.item(i).total_score
           });
         }

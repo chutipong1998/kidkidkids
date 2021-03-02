@@ -12,6 +12,17 @@ import { Data, DatabaseQuizService } from '../services/database/Quiz/database-qu
 // import { JsonService } from '../services/writejson/json.service';
 
 import { NativeAudio } from '@ionic-native/native-audio/ngx';
+import { Platform } from '@ionic/angular';
+
+import * as $ from 'jquery'
+import 'jquery-ui-dist/jquery-ui';
+// import * as touch from 'jquery-ui-touch-punch';
+
+declare var require: any
+(window as any).jQuery = $;
+require('jquery-ui-touch-punch');
+
+let correctCards = 0;
 
 @Component({
   selector: 'app-home',
@@ -19,6 +30,23 @@ import { NativeAudio } from '@ionic-native/native-audio/ngx';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
+
+  numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  terms = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+  words = [ 'one', 'two', 'three', 'four', 'five', 'six' ];
+  img = [
+    {
+      id: 1,
+      img: '../../assets/img/letters/thai/1.png'
+    },
+  ]
+
+  ngow = [
+    {
+      id: 1,
+      img: '../../assets/img/ngow.png'
+    },
+  ]
 
   // onSuccessPreloading: any;
   // onError: any;
@@ -45,12 +73,13 @@ export class HomePage implements OnInit {
   constructor(
     // private screenOrientation: ScreenOrientation, 
     // private file: File, 
-    // private platform: Platform, 
+    private platform: Platform, 
     private db: DatabaseQuizService,
     private knowdb: DatabaseKnowledgeService,
     private nativeAudio: NativeAudio
     // private json: JsonService
   ) {
+    // require('jquery-ui-touch-punch');
     // get current
     // console.log(this.screenOrientation.type); // logs the current orientation, example: 'landscape'
 
@@ -128,6 +157,37 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit() {
+    // $(document).ready(function () {
+    // })
+    
+    
+    this.init()
+  //   $('.dragme').draggable({
+  //     revert: true,
+  //     drag: function (e, ui) {
+  //       var elem = $(ui.helper),
+  //           id = elem.attr('id'),
+  //           data = elem.data('example');
+        
+  //       $('h1').text(data + ' being dragged! #' + id);
+  //   },
+  // });
+
+  //   this.platform.ready().then(() => {
+  //     if (this.platform.is('android')) {
+  //       this.init();
+  //     }
+  //   });
+  //   $('.card').draggable({
+  //     revert: true,
+  //     drag: function (e, ui) {
+  //         var elem = $(ui.helper),
+  //             id = elem.attr('id'),
+  //             data = elem.data('number');
+          
+  //         $('h1').text(data + ' being dragged! #' + id);
+  //     }
+  // });
     // load audio
     this.nativeAudio.preloadComplex('test2', 'assets/audio/bg_audio.mp3', 1, 1, 0).then((res) => {
       console.log('loading2...');
@@ -146,9 +206,9 @@ export class HomePage implements OnInit {
 
     this.db.getDatabaseState().subscribe(ready => {
       if(ready) {
-        this.db.getData().subscribe(devs => {
-          console.log('dev change:', devs);
-          this.datas = devs;
+        this.db.getData().subscribe(data => {
+          console.log('data:', data);
+          this.datas = data;
         })
       }
     });
@@ -157,9 +217,86 @@ export class HomePage implements OnInit {
       if (ready) {
         this.knowdb.getEngAlps().subscribe(res => {
           this.knows = res;
+          console.log('knw:', res);
         })
       }
-    })
+    });
+  }
+
+  init() {
+    
+    // Hide the success message
+    $('#successMessage').hide();
+    $('#successMessage').css({
+      left: '580px',
+      top: '250px',
+      width: 0,
+      height: 0,
+    });
+
+    // Reset the game
+    correctCards = 0;
+    $('#cardPile').html('');
+    $('#cardSlots').html('');
+
+    // Create the pile of shuffled cards
+    for (var i = 0; i < this.img.length; i++) {
+      $(`<div><img src="${this.img[i].img}" alt="" width="200px"></div>`)
+        .data('number', this.numbers[i])
+        .attr('id', 'card' + this.numbers[i])
+        .appendTo('#cardPile')
+        .draggable({
+          stack: '#cardPile div',
+          cursor: 'move',
+          revert: true,
+        }
+      );
+    }
+    // Create the card slots
+
+    // let code = this.correctCards;
+    for (var i = 1; i <= this.ngow.length; i++) {
+      $(`<div><img src="${this.ngow[i-1].img}" alt="" width="200px"></div>`)
+        .data('number', i)
+        .appendTo('#cardSlots')
+        .droppable({
+          accept: '#cardPile div',
+          hoverClass: 'hovered',
+          drop: this.handleCardDrop,
+        }
+      );
+    }
+  }
+
+  handleCardDrop(event, ui) {
+    var slotNumber = $(this).data('number');
+    var cardNumber = ui.draggable.data('number');
+
+    if (slotNumber == cardNumber) {
+      ui.draggable.addClass('correct');
+      ui.draggable.draggable('disable');
+      $(this).droppable('disable');
+      ui.draggable.position({ of: $(this), my: 'left top', at: 'left top' });
+      ui.draggable.draggable('option', 'revert', false);
+      correctCards++;
+    }
+
+    console.log('correctCards');
+    console.log(correctCards);
+
+
+    // this.card_correct;
+
+    if (correctCards == 1) {
+      $('#successMessage').show();
+      $('#successMessage').animate({
+        left: '380px',
+        top: '200px',
+        width: '400px',
+        height: '100px',
+        opacity: 1,
+      });
+    }
   }
 
   // writeJSON() {

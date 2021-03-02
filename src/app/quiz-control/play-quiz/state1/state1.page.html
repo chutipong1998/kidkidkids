@@ -12,138 +12,29 @@
     </ion-col>
   </ion-row>
 
-  <div id="container">
-    <ion-row>
-      <ion-col class="col-left">
-        <ion-row dragula="bag" [(dragulaModel)]="img1">
-          <div style="text-align: center; width: 100%;">
-            <img class="img1" src="../../../../assets/img/animal/elephant.png" alt="">
-          </div>
-        </ion-row>
-        <div style="padding: 15px;"></div>
-        <ion-row dragula="bag" [(dragulaModel)]="img2">
-          <div style="text-align: center; width: 100%;">
-            <img class="img2" src="../../../../assets/img/animal/giraffe.png" alt="">
-          </div>
-        </ion-row>
-      </ion-col>
-      
-      <ion-col class="col-shadow">
-        <ion-list style="width: 145px; height: 160px; margin-left: 22px; background: none; background-image: url('../../../../assets/img/animal/chang.png');" dragula="bag" [(dragulaModel)]="img5" lines="none">
-          <!-- <img style="position: static;" class="shadow" src="../../../../assets/img/animal/Picture5.png" alt=""> -->
-        </ion-list>
-      </ion-col>
 
-      
-      <ion-col class="col-right">
-        <ion-row dragula="bag" [(dragulaModel)]="img3">
-          <div style="text-align: center; width: 100%;">
-            <img class="img3" src="../../../../assets/img/animal/dog.png" alt="">
-          </div>
-        </ion-row>
-        <div style="padding: 15px;"></div>
-        <ion-row dragula="bag" [(dragulaModel)]="img4">
-          <div style="text-align: center; width: 100%;">
-            <img class="img4" src="../../../../assets/img/animal/bird.png" alt="">
-          </div>
-        </ion-row>
-      </ion-col>
-    </ion-row>
+  <ion-row id="cardPile" style="text-align: center;">
+    
+    <ion-col class="col-mid" id="cardPile">
+    </ion-col>
+  </ion-row>
+
+  <div style="padding: 20px;"></div>
+
+  <ion-row id="cardSlots" style="text-align: center;">
+    <ion-col class="col-mid">
+    </ion-col>
+    <ion-col class="col-mid">
+      <div id="cardSlots"> </div>
+    </ion-col>
+    <ion-col class="col-mid">
+    </ion-col>
+  </ion-row>
+  
+  <div id="successMessage" style="text-align: center;">
+    <h2 style="margin-top: 20%;">ยินดีด้วย!</h2>
+    <button (click)="go_to_chk_point()">ตกลง</button>
   </div>
+ 
 </ion-content>
 
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Devdactic Eisenhower
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content forceOverscroll="false">
-  <ion-grid> -->
- 
-    <!-- <ion-row align-items-center>
-      <ion-col size="12">
-        <ion-item>
-          <ion-label position="fixed">New Todo:</ion-label>
-          <ion-input [(ngModel)]="todo.value"></ion-input>
-        </ion-item>
- 
-      </ion-col>
- 
-      <ion-col size="12">
-        <ion-item>
-          <ion-label>Quadrant:</ion-label>
-          <ion-select [(ngModel)]="selectedQuadrant">
-            <ion-select-option value="q1">Do</ion-select-option>
-            <ion-select-option value="q2">Schedule</ion-select-option>
-            <ion-select-option value="q3">Delegate</ion-select-option>
-            <ion-select-option value="q4">Dont do</ion-select-option>
-          </ion-select>
-        </ion-item>
-      </ion-col>
- 
-    </ion-row>
- 
-    <ion-button expand="block" fill="outline" (click)="addTodo()">
-      <ion-icon name="add" slot="start"></ion-icon>
-      Add Todo
-    </ion-button> -->
- 
-    <!-- <ion-row no-padding class="matrix">
-      <ion-col size="6" class="q1">
-        <div class="q-header">Do</div>
-        <ion-list dragula="bag" [(dragulaModel)]="img1" lines="none">
-          <div *ngFor="let items of img1" style="text-align: center; width: 100%;">
-            <img class="img1" src="{{ items.img }}" alt="">
-          </div>
-          <!-- <ion-item *ngFor="let item of q1" [color]="item.color" expand="block" text-wrap>
-            {{ item.value }}
-          </ion-item> 
-        </ion-list>
-      </ion-col>
- 
-      <ion-col size="6" class="q2">
-        <div class="q-header">Schedule</div>
-        <ion-list dragula="bag" [(dragulaModel)]="img2" lines="none">
-          <div *ngFor="let items of img2" style="text-align: center; width: 100%;">
-            <img class="img1" src="{{ items.img }}" alt="">
-          </div>
-          <!-- <ion-item *ngFor="let item of img2" [color]="item.color" expand="block" text-wrap>
-            {{ item.value }}
-          </ion-item> 
-        </ion-list>
-      </ion-col>
- 
-      <ion-col size="6" class="q3">
-        <div class="q-header">Delegate</div>
-        <ion-list dragula="bag" [(dragulaModel)]="img3" lines="none">
-          <div *ngFor="let items of img3" style="text-align: center; width: 100%;">
-            <img class="img1" src="{{ items.img }}" alt="">
-          </div>
-          <!-- <ion-item *ngFor="let item of q3" [color]="item.color" expand="block" text-wrap>
-            {{ item.value }}
-          </ion-item> 
-        </ion-list>
-      </ion-col>
- 
-      <ion-col size="6" class="q4">
-        <div class="q-header">Don't do</div>
-        <ion-list dragula="bag" [(dragulaModel)]="img4" lines="none">
-          <div *ngFor="let items of img4" style="text-align: center; width: 100%;">
-            <img class="img1" src="{{ items.img }}" alt="">
-          </div>
-          <!-- <ion-item *ngFor="let item of q4" [color]="item.color" expand="block" text-wrap>
-            {{ item.value }}
-          </ion-item> 
-        </ion-list>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
- 
-  <ion-row class="delete-area" align-items-center justify-content-center>
-    <ion-icon name="trash" color="medium"></ion-icon>
-  </ion-row>
- 
-</ion-content> -->

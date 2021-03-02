@@ -1,142 +1,56 @@
 .bg-choose-checkpoint {
     --background: url(../../../../assets/img/background/bg.jpg) 0 0/100% 100% no-repeat;
 }
-
-// #container {
-//     text-align: center;
-  
-//     position: absolute;
-//     left: 0;
-//     right: 0;
-//     top: 50%;
-//     transform: translateY(-50%);
-//   }
-  
-//   #container strong {
-//     font-size: 20px;
-//     line-height: 26px;
-//   }
-  
-//   #container p {
-//     font-size: 16px;
-//     line-height: 22px;
-  
-//     color: #8c8c8c;
-  
-//     margin: 0;
-//   }
-  
-//   #container a {
-//     text-decoration: none;
-//   }
-
-.img1 {
-    width: 45%;
-    height: auto;
-}
-
-.img2 {
-    width: 25%;
-    height: auto;
-}
-
-.img3 {
-    width: 53%;
-    height: auto;
-}
-
-.img4 {
-    width: 55%;
-    height: auto;
-}
-
-.col-left {
-    // margin-top: 5%;
-    // height: 300px;
-    background-color: #F1F0EF;
-    margin-left: 3%;
-    margin-bottom: 2%;
-    text-align: center;
-}
-
-.col-right {
-    // margin-top: 5%;
-    // height: 300px;
-    background-color: #F1F0EF;
-    margin-right: 3%;
-    margin-bottom: 2%;
-}
-
-.col-shadow {
-    text-align: center;
-    padding-top: 15%;
-}
-
-.shadow {
-    width: 60%;
-    height: auto;
+img {
+  width: 200px;
+  display: inline-block;
+  height: auto;
+  padding: 0px;
 }
 
 .btn {
-    margin: 1%;
-    padding-top: 2%;
-    margin-left: 3%;
-    height: 45px;
-    width: 45px;
-    border-radius: 50%;
-    text-align: center;
-    display: inline-block;
-    font-size: 30px;
-    color: white;
-    background-color: orange;
-    cursor: pointer;
+  padding-top: 2%;
+  margin: 1%;
+  margin-left: 3%;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  text-align: center;
+  display: inline-block;
+  font-size: 30px;
+  color: white;
+  background-color: orange;
+  cursor: pointer;
 }
 
 .score {
-    padding-right: 14px;
-    font-family: 'Sanamdeklen';
-    font-weight: bold;
+  padding-right: 14px;
+  font-family: 'Sanamdeklen';
+  font-weight: bold;
 }
 
-ngao-img {
-    background-image: url('../../../../assets/img/animal/Picture5.png');
-    height: 150px;
+.item1{
+  background-color: aqua;
+}
+.col-mid {
+  text-align: center;
 }
 
-/* test */
-.q1, .q2, .q3, .q4 {
-    border: 4px solid #fff;
-}
- 
-.matrix {
-    margin-top: 30px;
- 
-    ion-col {
-        --ion-grid-column-padding: 0px;
-        min-height: 150px;
-    }
- 
-    .list {
-        padding: 0px;
-        height: 100%;
-    }
- 
-    ion-item {
-        margin-bottom: 2px;
-    }
-}
- 
-.q-header {
-    background-color: var(--ion-color-light);
-    height: 20px;
-    text-align: center;
-}
- 
-.delete-area {
-    border: 2px dashed var(--ion-color-medium);
-    margin: 10px;
-    height: 100px;
-    ion-icon {
-       font-size: 64px;
-    }
+
+#successMessage {
+  position: absolute;
+  left: 580px;
+  top: 250px;
+  width: 0;
+  height: 0;
+  z-index: 100;
+  background: #dfd;
+  border: 2px solid #333;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -moz-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+  -webkit-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+  box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+  padding: 20px;
 }

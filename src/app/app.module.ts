@@ -36,6 +36,7 @@ import { NavigationBar } from '@ionic-native/navigation-bar/ngx';
     SQLite,
     SQLitePorter,
     NavigationBar,
+  
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

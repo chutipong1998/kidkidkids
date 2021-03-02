@@ -1,7 +1,7 @@
 <ion-content padding class="bg-choose-checkpoint">
   <ion-row class="header" style="height: 14%;">
     <ion-col style="height: fit-content;">
-      <a class="btn" routerLink="/all-quiz"><ion-icon name="home"></ion-icon></a>
+      <a class="btn" routerLink="/choose-checkpoint"><ion-icon name="home"></ion-icon></a>
     </ion-col>
 
     <ion-col style="height: fit-content;">
@@ -24,33 +24,23 @@
         <h5 class="txt">กดเพื่อฟังเสียง</h5>
       </ion-col>
     </ion-row>
-    <ion-row *ngFor="let n of list; let i = index;">
-      <!-- <div *ngFor="let dev of listen; let i = index;">
-        <h2>{{ dev.id }}</h2>
-      </div> -->
-      <ion-col class="col-buttom" *ngFor="let dev of list[i].data; let j = index;">
-        <div *ngIf="i < 1">
+    <ion-row>
+      <ion-col class="col-buttom" *ngFor="let dev of listen; let j = index;">
+        <div>
           <a (click)="getAns(j+1)">
-            <img class="img" src="{{ list[i].data[j].alphabet }}" alt="">
+            <img class="img" src="{{ dev.alphabet }}" alt="" width="130px">
           </a>
         </div>
       </ion-col>
-
-      <!-- <ion-col class="col-buttom" *ngFor="let d of list; let i = index;">
-        <p>{{ d.id }}</p>
-      </ion-col> -->
-
-      <!-- <img class="img" src="../../../../assets/img/animal/dog.png" alt=""> -->
-      <!-- <ion-col class="col-buttom">
-        <button>
-          <img class="img" src="../../../../assets/img/animal/bird.png" alt="">
-        </button>
-      </ion-col>
-      <ion-col class="col-buttom">
-        <button>
-          <img class="img" src="../../../../assets/img/animal/horse.png" alt="">
-        </button>
-      </ion-col> -->
     </ion-row>
+    <!-- <ion-row *ngFor="let n of list; let i = index;">
+      <ion-col class="col-buttom" *ngFor="let dev of list[i].data; let j = index;">
+        <div *ngIf="i < 1">
+          <a (click)="getAns(j+1)">
+            <img class="img" src="{{ list[i].data[j].alphabet }}" alt="" width="130px">
+          </a>
+        </div>
+      </ion-col>
+    </ion-row> -->
   </div>
 </ion-content>

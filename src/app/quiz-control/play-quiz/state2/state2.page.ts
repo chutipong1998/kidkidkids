@@ -99,32 +99,39 @@ export class State2Page implements OnInit {
     if (category == 'สัตว์') {
       this.db.getLisAnimal().subscribe(res => {
         for (let i = 0; i < res.length; i++) {
-          if (res[i].state === this.level) {
+          if (res[i].state == this.level) {
             this.listen.push(res[i]);
           }
         }
+        console.log('listen');
+        console.log(this.listen);
+        
         this.pushData(this.listen)
-        localStorage.setItem('category', '')
+        // localStorage.setItem('category', '')
       });
     } else if (category == 'ตัวอักษรภาษาไทย') {
       this.db.getLisThaiAlp().subscribe(res => {
         for (let i = 0; i < res.length; i++) {
-          if (res[i].state === this.level) {
+          if (res[i].state == this.level) {
             this.listen.push(res[i]);
           }
         }
+        console.log('listen');
+        console.log(this.listen);
         this.pushData(this.listen)
-        localStorage.setItem('category', '')
+        // localStorage.setItem('category', '')
       });
     } else if (category == 'ผลไม้') {
       this.db.getLisFruit().subscribe(res => {
         for (let i = 0; i < res.length; i++) {
-          if (res[i].state === this.level) {
+          if (res[i].state == this.level) {
             this.listen.push(res[i]);
           }
         }
+        console.log('listen');
+        console.log(this.listen);
         this.pushData(this.listen)
-        localStorage.setItem('category', '')
+        // localStorage.setItem('category', '')
       });
     }
   }
@@ -184,7 +191,7 @@ export class State2Page implements OnInit {
           handler: () => {
             let score = 100;
             this.updateData(this.dataScore[0].id, this.state, score);
-            this.route.navigateByUrl('/all-quiz');
+            this.route.navigateByUrl('/choose-checkpoint');
           }
         }
       ], backdropDismiss: false
@@ -247,8 +254,6 @@ export class State2Page implements OnInit {
                 + this.dataScore[0].score_state2
                 + this.dataScore[0].score_state3
                 + this.dataScore[0].score_state4
-                + this.dataScore[0].score_state5
-                + this.dataScore[0].score_state6
                 + score
  
     this.db.updateData(id, scoreState, score, total)

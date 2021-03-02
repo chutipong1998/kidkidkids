@@ -462,8 +462,13 @@ export class ChooseKnowledgePage implements OnInit {
           };
           this.dataString.push(dataObj)
           this.info = []
+          
+          
         }
       }
+      console.log('dataString');
+      console.log(this.dataString[0]);
+      console.log(this.dataString.length);
     }
     // console.log('string =', this.dataString.length);
     // console.log('data string:', this.dataString);

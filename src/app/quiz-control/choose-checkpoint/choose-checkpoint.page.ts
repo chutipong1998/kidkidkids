@@ -17,6 +17,8 @@ export class ChooseCheckpointPage implements OnInit {
 
   url: string;
 
+  dataSc: any = [];
+
   constructor(public navCtrl: NavController, private route: Router, private db: DatabaseQuizService) { }
 
   ngOnInit() {
@@ -48,18 +50,25 @@ export class ChooseCheckpointPage implements OnInit {
         if (category != null && category != '') {
           if (res[i].name_state == quiz) {
             if (res[i].category == category) {
+              console.log('res:');
+              console.log(res[i]);
+              this.dataSc = [res[i]];
+
+              
               this.data.push(res[i]);
               // localStorage.setItem('category', '')
             }
           }
         } else {
           if (res[i].name_state == this.quiz) {
-            this.data.push(res[i]);
+              this.dataSc = res[i];
+              this.data.push(res[i]);
           }
         }
       }
-      localStorage.setItem('score', JSON.stringify(this.data))
+      console.log('dataSC =', this.dataSc);
       console.log('data =', this.data);
+      localStorage.setItem('score', JSON.stringify(this.dataSc))
     });
   }
 
