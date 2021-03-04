@@ -271,11 +271,28 @@ export class State1Page implements OnInit {
     // let alphabets = this.dataScore['alphabet'].split(',');
     // alphabets = alphabets.map(alphabet => alphabet.trim());
 
-    let total = this.dataScore[0].score_state1
-                + this.dataScore[0].score_state2
-                + this.dataScore[0].score_state3
-                + this.dataScore[0].score_state4
-                + score
+    let total;
+    if (scoreState == 'score_state1') {
+      total = score
+            + this.dataScore[0].score_state2
+            + this.dataScore[0].score_state3
+            + this.dataScore[0].score_state4
+    } else if (scoreState == 'score_state2') {
+      total = this.dataScore[0].score_state1
+            + score
+            + this.dataScore[0].score_state3
+            + this.dataScore[0].score_state4
+    } else if (scoreState == 'score_state3') {
+      total = this.dataScore[0].score_state1
+            + this.dataScore[0].score_state2
+            + score
+            + this.dataScore[0].score_state4
+    } else if (scoreState == 'score_state4') {
+      total = this.dataScore[0].score_state1
+            + this.dataScore[0].score_state2
+            + this.dataScore[0].score_state3
+            + score
+    }
     
  
     this.db.updateData(id, scoreState, score, total)

@@ -50,10 +50,11 @@ export class State2Page implements OnInit {
   getAns(i: string) {
     let alp;
     console.log(i);
-    console.log('ans =', this.list[0].data[Number(i)-1].alphabet);
-    if (this.list[0].data[0].answer == i) {
+    console.log('ans1 =', this.listen[0].answer);
+    // console.log('ans =', this.list[0].data[Number(i)-1].alphabet);
+    if (this.listen[0].answer == i) {
       console.log('ถูกต้อง');
-      alp = this.list[0].data[Number(i)-1].alphabet;
+      alp = this.listen[Number(i)-1].alphabet
       console.log(alp);
       if (this.list.length > 1) {
         this.next(alp);
@@ -250,11 +251,29 @@ export class State2Page implements OnInit {
     // let alphabets = this.dataScore['alphabet'].split(',');
     // alphabets = alphabets.map(alphabet => alphabet.trim());
 
-    let total = this.dataScore[0].score_state1
-                + this.dataScore[0].score_state2
-                + this.dataScore[0].score_state3
-                + this.dataScore[0].score_state4
-                + score
+    let total;
+    if (scoreState == 'score_state1') {
+      total = score
+            + this.dataScore[0].score_state2
+            + this.dataScore[0].score_state3
+            + this.dataScore[0].score_state4
+    } else if (scoreState == 'score_state2') {
+      total = this.dataScore[0].score_state1
+            + score
+            + this.dataScore[0].score_state3
+            + this.dataScore[0].score_state4
+    } else if (scoreState == 'score_state3') {
+      total = this.dataScore[0].score_state1
+            + this.dataScore[0].score_state2
+            + score
+            + this.dataScore[0].score_state4
+    } else if (scoreState == 'score_state4') {
+      total = this.dataScore[0].score_state1
+            + this.dataScore[0].score_state2
+            + this.dataScore[0].score_state3
+            + score
+    }
+
  
     this.db.updateData(id, scoreState, score, total)
     .then(_ => {
