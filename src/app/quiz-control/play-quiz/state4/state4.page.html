@@ -8,7 +8,7 @@
     </ion-col>
 
     <ion-col style="text-align: right; height: fit-content;">
-      <p class="score">SCORE : 0</p>
+      <p class="score">SCORE : {{ score }}</p>
     </ion-col>
   </ion-row>
 
@@ -22,17 +22,21 @@
 
     <ion-row>
       <ion-col class="col-left">
-        <ion-row>
+        <ion-row id="cardPileLeft" style="text-align: center;">
+          <ion-col class="col-mid" id="cardPileLeft">
+          </ion-col>
+        </ion-row>
+        <!-- <ion-row>
           <div style="text-align: center; width: 100%;">
             <img class="img1" src="../../../../assets/img/animal/elephant.png" alt="">
           </div>
-        </ion-row>
+        </ion-row> -->
         <div style="padding: 15px;"></div>
-        <ion-row>
+        <!-- <ion-row>
           <div style="text-align: center; width: 100%;">
             <img class="img2" src="../../../../assets/img/animal/giraffe.png" alt="">
           </div>
-        </ion-row>
+        </ion-row> -->
       </ion-col>
       
       <ion-col class="col-shadow">
@@ -41,14 +45,19 @@
             <br>
             <span class="txt">กดเพื่อฟังเสียง</span>
         </div>
-        <div>
-          <img class="ngao" src="../../../../assets/img/24663.jpg" alt="">
-        </div>
+        <ion-row id="cardSlots" style="text-align: center;">
+          <ion-col class="col-mid" id="cardSlots">
+          </ion-col>
+        </ion-row>
       </ion-col>
 
       
       <ion-col class="col-right">
-        <ion-row>
+        <ion-row id="cardPileRight" style="text-align: center;">
+          <ion-col class="col-mid" id="cardPileRight">
+          </ion-col>
+        </ion-row>
+        <!-- <ion-row>
           <div style="text-align: center; width: 100%;">
             <img class="img3" src="../../../../assets/img/animal/dog.png" alt="">
           </div>
@@ -58,8 +67,12 @@
           <div style="text-align: center; width: 100%;">
             <img class="img4" src="../../../../assets/img/animal/bird.png" alt="">
           </div>
-        </ion-row>
+        </ion-row> -->
       </ion-col>
     </ion-row>
+  </div>
+  <div id="successMessage" style="text-align: center;">
+    <h2 style="margin-top: 20%;">ยินดีด้วย!</h2>
+    <button (click)="go_to_chk_point()">ตกลง</button>
   </div>
 </ion-content>

@@ -119,6 +119,8 @@ CREATE TABLE IF NOT EXISTS "MATCHANIMALSOUND" (
 	"name_state"	TEXT NOT NULL,
 	"state"	TEXT NOT NULL,
 	"alphabet"	TEXT NOT NULL,
+	"shadow_image"	TEXT,
+	"sound"	TEXT,
 	"answer"	TEXT NOT NULL,
 	PRIMARY KEY("id")
 );
@@ -319,67 +321,25 @@ INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('4002','ฟังเสีย
 INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('4003','ฟังเสียงเพื่อตอบคำถาม','4','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/13.png',NULL,'3');
 INSERT or IGNORE INTO "LISTENTHAIALPHABET" VALUES ('4004','ฟังเสียงเพื่อตอบคำถาม','4','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/15.png',NULL,'3');
 INSERT or IGNORE INTO "SORTNUMBER" VALUES ('1001','เรียงลำดับตัวเลข','1','../../../../assets/img/number/one.png','1');
-INSERT or IGNORE INTO "SORTNUMBER" VALUES ('1002','เรียงลำดับตัวเลข','1','../../../../assets/img/number/two.png','1');
 INSERT or IGNORE INTO "SORTNUMBER" VALUES ('2001','เรียงลำดับตัวเลข','2','../../../../assets/img/number/three.png','2');
-INSERT or IGNORE INTO "SORTNUMBER" VALUES ('2002','เรียงลำดับตัวเลข','2','../../../../assets/img/number/four.png','2');
-INSERT or IGNORE INTO "SORTNUMBER" VALUES ('3001','เรียงลำดับตัวเลข','3','../../../../assets/img/number/five.png','2');
-INSERT or IGNORE INTO "SORTNUMBER" VALUES ('3002','เรียงลำดับตัวเลข','3','../../../../assets/img/number/six.png','2');
-INSERT or IGNORE INTO "SORTNUMBER" VALUES ('4001','เรียงลำดับตัวเลข','4','../../../../assets/img/number/one.png','1');
-INSERT or IGNORE INTO "SORTNUMBER" VALUES ('4002','เรียงลำดับตัวเลข','4','../../../../assets/img/number/two.png','1');
-INSERT or IGNORE INTO "SORTNUMBER" VALUES ('4003','เรียงลำดับตัวเลข','4','../../../../assets/img/number/three.png','1');
-INSERT or IGNORE INTO "SORTNUMBER" VALUES ('5001','เรียงลำดับตัวเลข','5','../../../../assets/img/number/two.png','3');
-INSERT or IGNORE INTO "SORTNUMBER" VALUES ('5002','เรียงลำดับตัวเลข','5','../../../../assets/img/number/three.png','3');
-INSERT or IGNORE INTO "SORTNUMBER" VALUES ('5003','เรียงลำดับตัวเลข','5','../../../../assets/img/number/four.png','3');
-INSERT or IGNORE INTO "SORTNUMBER" VALUES ('6001','เรียงลำดับตัวเลข','6','../../../../assets/img/number/three.png','2');
-INSERT or IGNORE INTO "SORTNUMBER" VALUES ('6002','เรียงลำดับตัวเลข','6','../../../../assets/img/number/four.png','2');
-INSERT or IGNORE INTO "SORTNUMBER" VALUES ('6003','เรียงลำดับตัวเลข','6','../../../../assets/img/number/five.png','2');
-INSERT or IGNORE INTO "SORTNUMBER" VALUES ('7001','เรียงลำดับตัวเลข','7','../../../../assets/img/number/four.png','4');
-INSERT or IGNORE INTO "SORTNUMBER" VALUES ('7002','เรียงลำดับตัวเลข','7','../../../../assets/img/number/five.png','4');
-INSERT or IGNORE INTO "SORTNUMBER" VALUES ('7003','เรียงลำดับตัวเลข','7','../../../../assets/img/number/six.png','4');
-INSERT or IGNORE INTO "SORTNUMBER" VALUES ('7004','เรียงลำดับตัวเลข','7','../../../../assets/img/number/one.png','4');
-INSERT or IGNORE INTO "SORTNUMBER" VALUES ('8001','เรียงลำดับตัวเลข','8','../../../../assets/img/number/five.png','2');
-INSERT or IGNORE INTO "SORTNUMBER" VALUES ('8002','เรียงลำดับตัวเลข','8','../../../../assets/img/number/six.png','2');
-INSERT or IGNORE INTO "SORTNUMBER" VALUES ('8003','เรียงลำดับตัวเลข','8','../../../../assets/img/number/one.png','2');
-INSERT or IGNORE INTO "SORTNUMBER" VALUES ('8004','เรียงลำดับตัวเลข','8','../../../../assets/img/number/two.png','2');
-INSERT or IGNORE INTO "SORTNUMBER" VALUES ('9001','เรียงลำดับตัวเลข','9','../../../../assets/img/number/six.png','1');
-INSERT or IGNORE INTO "SORTNUMBER" VALUES ('9002','เรียงลำดับตัวเลข','9','../../../../assets/img/number/one.png','1');
-INSERT or IGNORE INTO "SORTNUMBER" VALUES ('9003','เรียงลำดับตัวเลข','9','../../../../assets/img/number/two.png','1');
-INSERT or IGNORE INTO "SORTNUMBER" VALUES ('9004','เรียงลำดับตัวเลข','9','../../../../assets/img/number/three.png','1');
-INSERT or IGNORE INTO "SORTNUMBER" VALUES ('1101','เรียงลำดับตัวเลข','10','../../../../assets/img/number/one.png','3');
-INSERT or IGNORE INTO "SORTNUMBER" VALUES ('1102','เรียงลำดับตัวเลข','10','../../../../assets/img/number/two.png','3');
-INSERT or IGNORE INTO "SORTNUMBER" VALUES ('1103','เรียงลำดับตัวเลข','10','../../../../assets/img/number/three.png','3');
-INSERT or IGNORE INTO "SORTNUMBER" VALUES ('1104','เรียงลำดับตัวเลข','10','../../../../assets/img/number/four.png','3');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('1001','จับคู่เสียงของสัตว์','1','../../../../assets/img/animal/elephant.png','2');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('1002','จับคู่เสียงของสัตว์','1','../../../../assets/img/animal/Pig.png','2');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('2001','จับคู่เสียงของสัตว์','2','../../../../assets/img/animal/dog.png','1');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('2002','จับคู่เสียงของสัตว์','2','../../../../assets/img/animal/bird.png','1');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('3001','จับคู่เสียงของสัตว์','3','../../../../assets/img/animal/horse.png','2');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('3002','จับคู่เสียงของสัตว์','3','../../../../assets/img/animal/monkey.png','2');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('4001','จับคู่เสียงของสัตว์','4','../../../../assets/img/animal/elephant.png','3');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('4002','จับคู่เสียงของสัตว์','4','../../../../assets/img/animal/Pig.png','3');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('4003','จับคู่เสียงของสัตว์','4','../../../../assets/img/animal/dog.png','3');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('5001','จับคู่เสียงของสัตว์','5','../../../../assets/img/animal/Pig.png','1');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('5002','จับคู่เสียงของสัตว์','5','../../../../assets/img/animal/dog.png','1');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('5003','จับคู่เสียงของสัตว์','5','../../../../assets/img/animal/bird.png','1');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('6001','จับคู่เสียงของสัตว์','6','../../../../assets/img/animal/dog.png','2');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('6002','จับคู่เสียงของสัตว์','6','../../../../assets/img/animal/bird.png','2');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('6003','จับคู่เสียงของสัตว์','6','../../../../assets/img/animal/horse.png','2');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('7001','จับคู่เสียงของสัตว์','7','../../../../assets/img/animal/bird.png','1');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('7002','จับคู่เสียงของสัตว์','7','../../../../assets/img/animal/horse.png','1');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('7003','จับคู่เสียงของสัตว์','7','../../../../assets/img/animal/monkey.png','1');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('7004','จับคู่เสียงของสัตว์','7','../../../../assets/img/animal/elephant.png','1');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('8001','จับคู่เสียงของสัตว์','8','../../../../assets/img/animal/horse.png','2');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('8002','จับคู่เสียงของสัตว์','8','../../../../assets/img/animal/monkey.png','2');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('8003','จับคู่เสียงของสัตว์','8','../../../../assets/img/animal/elephant.png','2');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('8004','จับคู่เสียงของสัตว์','8','../../../../assets/img/animal/Pig.png','2');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('9001','จับคู่เสียงของสัตว์','9','../../../../assets/img/animal/monkey.png','3');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('9002','จับคู่เสียงของสัตว์','9','../../../../assets/img/animal/elephant.png','3');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('9003','จับคู่เสียงของสัตว์','9','../../../../assets/img/animal/Pig.png','3');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('9004','จับคู่เสียงของสัตว์','9','../../../../assets/img/animal/dog.png','3');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('1101','จับคู่เสียงของสัตว์','10','../../../../assets/img/animal/elephant.png','4');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('1102','จับคู่เสียงของสัตว์','10','../../../../assets/img/animal/Pig.png','4');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('1103','จับคู่เสียงของสัตว์','10','../../../../assets/img/animal/dog.png','4');
-INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('1104','จับคู่เสียงของสัตว์','10','../../../../assets/img/animal/monkey.png','4');
+INSERT or IGNORE INTO "SORTNUMBER" VALUES ('2002','เรียงลำดับตัวเลข','2','../../../../assets/img/number/two.png','1');
+INSERT or IGNORE INTO "SORTNUMBER" VALUES ('3001','เรียงลำดับตัวเลข','3','../../../../assets/img/number/six.png','3');
+INSERT or IGNORE INTO "SORTNUMBER" VALUES ('3002','เรียงลำดับตัวเลข','3','../../../../assets/img/number/four.png','1');
+INSERT or IGNORE INTO "SORTNUMBER" VALUES ('3003','เรียงลำดับตัวเลข','3','../../../../assets/img/number/five.png','2');
+INSERT or IGNORE INTO "SORTNUMBER" VALUES ('4001','เรียงลำดับตัวเลข','4','../../../../assets/img/number/four.png','3');
+INSERT or IGNORE INTO "SORTNUMBER" VALUES ('4002','เรียงลำดับตัวเลข','4','../../../../assets/img/number/five.png','4');
+INSERT or IGNORE INTO "SORTNUMBER" VALUES ('4003','เรียงลำดับตัวเลข','4','../../../../assets/img/number/three.png','2');
+INSERT or IGNORE INTO "SORTNUMBER" VALUES ('4004','เรียงลำดับตัวเลข','4','../../../../assets/img/number/two.png','1');
+INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('1001','จับคู่เสียงของสัตว์','1','../../../../assets/img/animal/elephant.png','../../../../assets/img/animal/Picture5.png',NULL,'1');
+INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('2001','จับคู่เสียงของสัตว์','2','../../../../assets/img/animal/Pig.png','../../../../assets/img/24663.jpg',NULL,'2');
+INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('2002','จับคู่เสียงของสัตว์','2','../../../../assets/img/animal/dog.png','../../../../assets/img/24663.jpg',NULL,'2');
+INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('3001','จับคู่เสียงของสัตว์','3','../../../../assets/img/animal/bird.png','../../../../assets/img/24663.jpg',NULL,'3');
+INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('3002','จับคู่เสียงของสัตว์','3','../../../../assets/img/animal/horse.png','../../../../assets/img/24663.jpg',NULL,'3');
+INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('3003','จับคู่เสียงของสัตว์','3','../../../../assets/img/animal/monkey.png','../../../../assets/img/24663.jpg',NULL,'3');
+INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('4001','จับคู่เสียงของสัตว์','4','../../../../assets/img/animal/elephant.png','../../../../assets/img/24663.jpg',NULL,'4');
+INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('4002','จับคู่เสียงของสัตว์','4','../../../../assets/img/animal/Pig.png','../../../../assets/img/24663.jpg',NULL,'4');
+INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('4003','จับคู่เสียงของสัตว์','4','../../../../assets/img/animal/dog.png','../../../../assets/img/24663.jpg',NULL,'4');
+INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('4004','จับคู่เสียงของสัตว์','4','../../../../assets/img/animal/bird.png','../../../../assets/img/24663.jpg',NULL,'4');
 INSERT or IGNORE INTO "DATA" VALUES ('1001','ลากวาง','สัตว์',0,0,0,0,0);
 INSERT or IGNORE INTO "DATA" VALUES ('1002','ลากวาง','ตัวเลข',0,0,0,0,0);
 INSERT or IGNORE INTO "DATA" VALUES ('1003','ลากวาง','ผลไม้',0,0,0,0,0);

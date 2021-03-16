@@ -61,7 +61,7 @@ export class ChooseCheckpointPage implements OnInit {
           }
         } else {
           if (res[i].name_state == this.quiz) {
-              this.dataSc = res[i];
+              this.dataSc = [res[i]];
               this.data.push(res[i]);
           }
         }

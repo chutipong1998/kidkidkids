@@ -207,8 +207,9 @@ export class HomePage implements OnInit {
     this.db.getDatabaseState().subscribe(ready => {
       if(ready) {
         this.db.getData().subscribe(data => {
-          console.log('data:', data);
+          // console.log('data:', data);
           this.datas = data;
+          console.log('data:', this.datas);
         })
       }
     });

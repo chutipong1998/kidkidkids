@@ -20,11 +20,29 @@ export interface Dragdrop {
   id: string,
   name_state: string,
   state: string,
-  category: string
+  category: string,
   alphabet: string,
   shadow_image: string,
   answer: string
 }
+
+export interface Sort_number {
+  id: string,
+  name_state: string,
+  state: string,
+  alphabet: string,
+  answer: string
+}
+
+export interface Match_animal_sound {
+    id: string,
+    name_state: string,
+    state: string,
+    alphabet: string,
+    shadow_image: string,
+    sound: string,
+    answer: string
+  }
 
 export interface Data {
   id: string,
@@ -51,14 +69,18 @@ export class DatabaseQuizService {
   draganimal = new BehaviorSubject([]);
   dragfruit = new BehaviorSubject([]);
   dragnumber = new BehaviorSubject([]);
+  sort_number = new BehaviorSubject([]);
+  match_animal_sound = new BehaviorSubject([]);
+
   data = new BehaviorSubject([]);
+
+  quiz: string;
 
   constructor(
     private plt: Platform,
     private sqlitePorter: SQLitePorter,
     private sqlite: SQLite,
-    private http: HttpClient,
-    private file: File, 
+    private http: HttpClient, 
   ) {
     this.plt.ready().then(() => {
       this.sqlite.create({
@@ -87,9 +109,14 @@ export class DatabaseQuizService {
           this.loadDragDropAnimal();
           this.loadDragDropFruit();
           this.loadDragDropNumber();
-          this.dbReady.next(true);
+          // เรียงลำดับตัวเลข
+          this.loadSortNumber();
+          // จับคู่เสียงของสัตว์
+          this.loadMatchAnimalSound();
+          
           // ส่วนเก็บคะแนน
           this.loadData();
+          this.dbReady.next(true);
         })
         .catch(e => console.error(e));
     });
@@ -121,6 +148,14 @@ export class DatabaseQuizService {
 
   getDragNumber(): Observable<Dragdrop[]> {
     return this.dragnumber.asObservable();
+  }
+
+  getSortNumber(): Observable<Sort_number[]> {
+    return this.sort_number.asObservable();
+  }
+
+  getMatchAnimalSound(): Observable<Match_animal_sound[]> {
+    return this.match_animal_sound.asObservable();
   }
 
   getData(): Observable<Data[]> {
@@ -255,6 +290,47 @@ export class DatabaseQuizService {
         }
       }
       this.dragnumber.next(dragnumber);
+    });
+  }
+
+  loadSortNumber() {
+    return this.database.executeSql('SELECT * FROM SORTNUMBER', []).then(data => {
+      let sort_number: Sort_number[] = [];
+
+      if (data.rows.length > 0) {
+        for (let i = 0; i < data.rows.length; i++) {
+          sort_number.push({
+            id: data.rows.item(i).id,
+            name_state: data.rows.item(i).name_state,
+            state: data.rows.item(i).state,
+            alphabet: data.rows.item(i).alphabet,
+            answer: data.rows.item(i).answer
+          })
+          
+        }
+      }
+      this.sort_number.next(sort_number)
+    });
+  }
+
+  loadMatchAnimalSound() {
+    return this.database.executeSql('SELECT * FROM MATCHANIMALSOUND', []).then(data => {
+      let match_animal_sound: Match_animal_sound[] = [];
+
+      if (data.rows.length > 0) {
+        for (let i = 0; i < data.rows.length; i++) {
+          match_animal_sound.push({
+            id: data.rows.item(i).id,
+            name_state: data.rows.item(i).name_state,
+            state: data.rows.item(i).state,
+            alphabet: data.rows.item(i).alphabet, 
+            shadow_image: data.rows.item(i).shadow_image,
+            sound: data.rows.item(i).sound,
+            answer: data.rows.item(i).answer
+          });
+        }
+      }
+      this.match_animal_sound.next(match_animal_sound)
     });
   }
 

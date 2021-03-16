@@ -8,20 +8,15 @@
     </ion-col>
 
     <ion-col style="text-align: right; height: fit-content;">
-      <p class="score">SCORE : 0</p>
+      <p class="score">SCORE : {{ score }}</p>
     </ion-col>
   </ion-row>
 
   <div id="container">
-    <ion-row>
-      <ion-col class="col-top">
-        <h1>จงเรียงลำดับตัวเลขจากน้อยไปมากต่อไปนี้</h1>
-      </ion-col>
-    </ion-row>
 
-    <div style="padding: 10px;"></div>
-
-    <ion-row>
+    <!-- <div id="cardPile"> </div>
+    <div id="cardSlots"> </div> -->
+    <!-- <ion-row>
       <ion-col class="col-mid">
         <img class="img" src="../../../../assets/img/number/two.png" alt="">
       </ion-col>
@@ -51,6 +46,30 @@
       <ion-col class="col-mid">
         <img class="img-ngao" src="../../../../assets/img/24663.jpg" alt="">
       </ion-col>
-    </ion-row>
+    </ion-row> -->
+  </div>
+  <ion-row>
+    <ion-col class="col-top">
+      <h1>จงเรียงลำดับตัวเลขจากน้อยไปมากต่อไปนี้</h1>
+    </ion-col>
+  </ion-row>
+
+  <div style="padding: 10px;"></div>
+
+  <ion-row id="cardPile" style="text-align: center;">
+    <ion-col class="col-mid" id="cardPile">
+    </ion-col>
+  </ion-row>
+
+  <div style="padding: 20px;"></div>
+
+  <ion-row id="cardSlots" style="text-align: center;">
+    <ion-col class="col-mid" id="cardSlots">
+    </ion-col>
+  </ion-row>
+  
+  <div id="successMessage" style="text-align: center;">
+    <h2 style="margin-top: 20%;">ยินดีด้วย!</h2>
+    <button (click)="go_to_chk_point()">ตกลง</button>
   </div>
 </ion-content>

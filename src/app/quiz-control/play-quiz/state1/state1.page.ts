@@ -1,8 +1,5 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { ToastController } from '@ionic/angular';
-import { DragulaService } from 'ng2-dragula';
-import { DatabaseKnowledgeService } from 'src/app/services/database/knowledge/database-knowledge.service';
 import { DatabaseQuizService, Dragdrop } from 'src/app/services/database/Quiz/database-quiz.service';
 
 import * as $ from 'jquery'
@@ -30,85 +27,7 @@ export class State1Page implements OnInit {
   state: string;
   level: string;
 
-  numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  terms = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
-  words = [ 'one', 'two', 'three', 'four', 'five', 'six' ];
-  img = [
-    {
-      id: 1,
-      img: '../../../../assets/img/animal/elephant.png'
-    },
-    {
-      id: 2,
-      img: '../../../../assets/img/animal/Pig.png'
-    },
-    {
-      id: 3,
-      img: '../../../../assets/img/animal/monkey.png'
-    },
-    {
-      id: 4,
-      img: '../../../../assets/img/animal/dog.png'
-    },
-    // {
-    //   id: 5,
-    //   img: '../../../../assets/img/letters/thai/5.png'
-    // },
-    // {
-    //   id: 6,
-    //   img: '../../../../assets/img/letters/thai/6.png'
-    // },
-  ]
-
-  ngow = [
-    {
-      id: 1,
-      img: '../../../../assets/img/animal/Picture5.png'
-    },
-    // {
-    //   id: 2,
-    //   img: '../../../../assets/img/ngow.png'
-    // },
-    // {
-    //   id: 3,
-    //   img: '../../../../assets/img/ngow.png'
-    // },
-    // {
-    //   id: 4,
-    //   img: '../../../../assets/img/ngow.png'
-    // },
-    // {
-    //   id: 5,
-    //   img: '../../../../assets/img/ngow.png'
-    // },
-    // {
-    //   id: 6,
-    //   img: '../../../../assets/img/ngow.png'
-    // },
-  ]
-
   constructor(private db: DatabaseQuizService, private route: Router) {
-    // this.dragulaService.drag('bag')
-    // .subscribe(({ name, el, source }) => {
-    //   el.setAttribute('color', 'danger');
-    // });
- 
-    // this.dragulaService.removeModel('bag')
-    // .subscribe(({ item }) => {
-    //   this.toastController.create({
-    //     message: 'Removed: ' + item.value,
-    //     duration: 2000
-    //   }).then(toast => toast.present());
-    // });
- 
-    // this.dragulaService.dropModel('bag')
-    //   .subscribe(({ item }) => {
-    //     item['color'] = 'success';
-    //   });
- 
-    // this.dragulaService.createGroup('bag', {
-    //   removeOnSpill: true
-    // });
   }
 
   ngOnInit() {
@@ -313,29 +232,6 @@ export class State1Page implements OnInit {
     this.route.navigateByUrl('/choose-checkpoint');
   }
 
-  cor(x) {
-    console.log('com!!!');
-  }
-
-  // addTodo() {
-  //   switch (this.selectedQuadrant) {
-  //     case 'q1':
-  //       this.todo.color = 'primary';
-  //       break;
-  //     case 'q2':
-  //       this.todo.color = 'secondary';
-  //       break;
-  //     case 'q3':
-  //       this.todo.color = 'tertiary';
-  //       break;
-  //     case 'q4':
-  //       this.todo.color = 'warning';
-  //       break;
-  //   }
-  //   this[this.selectedQuadrant].push(this.todo);
-  //   this.todo = { value: '', color: '' };
-  // }
-
   chkScore(level: string, datascore: any) {
     for (let i = 0; i < datascore.length; i++) {
       if (level == '1') {
@@ -360,8 +256,4 @@ export class State1Page implements OnInit {
     }
   }
 
-}
-
-function cor() {
-  console.log('sgs');
 }
