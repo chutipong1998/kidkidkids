@@ -10,6 +10,13 @@ declare var require: any
 require('jquery-ui-touch-punch');
 
 let correctCards = 0;
+let wrong_sound: any;
+let heart_status = 0;
+let heart = [
+  {id: '1', img: '../../../../assets/img/heart.png'},
+  {id: '2', img: '../../../../assets/img/heart.png'},
+  {id: '3', img: '../../../../assets/img/heart.png'},
+]
 
 @Component({
   selector: 'app-state1',
@@ -27,10 +34,15 @@ export class State1Page implements OnInit {
   state: string;
   level: string;
 
+  heart: any;
+
   constructor(private db: DatabaseQuizService, private route: Router) {
   }
 
   ngOnInit() {
+
+    this.heart = heart;
+
     this.category = localStorage.getItem('category');
     console.log('category =', this.category);
 
@@ -42,8 +54,6 @@ export class State1Page implements OnInit {
 
     this.chkScore(this.level, this.dataScore)
 
-    // this.init();
-
     this.db.getDatabaseState().subscribe(ready => {
       if(ready) {
         this.getDataQuiz(this.category);
@@ -52,6 +62,14 @@ export class State1Page implements OnInit {
 
     $('#successMessage').hide();
     $('#successMessage').css({
+      left: '580px',
+      top: '250px',
+      width: 0,
+      height: 0,
+    });
+
+    $('#failMessage').hide();
+    $('#failMessage').css({
       left: '580px',
       top: '250px',
       width: 0,
@@ -106,24 +124,14 @@ export class State1Page implements OnInit {
   }
 
   init(dragdrop) {
-    // Hide the success message
-    $('#successMessage').hide();
-    $('#successMessage').css({
-      left: '580px',
-      top: '250px',
-      width: 0,
-      height: 0,
-    });
-
     // Reset the game
     correctCards = 0;
+    heart_status = 0;
+    
     $('#cardPile').html('');
     $('#cardSlots').html('');
 
     // Create the pile of shuffled cards
-    console.log('len =', dragdrop[0].alphabet);
-    console.log('len1 =', dragdrop[0].shadow_image);
-    
     for (var i = 0; i < dragdrop.length; i++) {
       $(`<div style="text-align: center; margin: auto"><img src="${dragdrop[i].alphabet}" alt="" width="130px"></div>`)
       .data('number', i+1)
@@ -134,11 +142,8 @@ export class State1Page implements OnInit {
         cursor: 'move',
         revert: true,
       });
-      // $(`<div><img src="${this.img[i].img}" alt="" width="200px"></div>`)
     }
     // Create the card slots
-
-    // let code = this.correctCards;
     for (var i = 0; i < 1; i++) {
       $(`<div class="col-mid" style="margin: auto;"><img src="${dragdrop[i].shadow_image}" alt="" width="130px"></div>`)
         .data('number', dragdrop[i].answer)
@@ -160,8 +165,8 @@ export class State1Page implements OnInit {
     console.log('cardNumber =', cardNumber);
 
     if (slotNumber == cardNumber) {
-      ui.draggable.addClass('correct');
-      ui.draggable.draggable('disable');
+      // ui.draggable.addClass('correct');
+      // ui.draggable.draggable('disable');
       $(this).droppable('disable');
       ui.draggable.position({ of: $(this), my: 'left top', at: 'left top' });
       ui.draggable.draggable('option', 'revert', false);
@@ -170,9 +175,6 @@ export class State1Page implements OnInit {
 
     console.log('correctCards');
     console.log(correctCards);
-
-
-    // this.card_correct;
 
     if (correctCards == 1) {
       $('#successMessage').show();
@@ -183,6 +185,19 @@ export class State1Page implements OnInit {
         height: '300px',
         opacity: 1,
       });
+    } else {
+      heart[heart_status].img = '../../../../assets/img/heart-border.png',
+      heart_status++;
+      if (heart_status == 3) {
+        $('#failMessage').show();
+        $('#failMessage').animate({
+          left: '182px',
+          top: '70px',
+          width: '500px',
+          height: '300px',
+          opacity: 1,
+        });
+      }
     }
   }
 
@@ -229,6 +244,16 @@ export class State1Page implements OnInit {
     
     this.updateData(this.dataScore[0].id, this.state, score);
     // localStorage.setItem('state', '');
+    this.route.navigateByUrl('/choose-checkpoint');
+  }
+
+  fail() {
+    for (let i = 0; i < 3; i++) {
+      heart[i].img = '../../../../assets/img/heart.png';
+    }
+    this.heart = heart;
+    console.log('heartf =');
+    console.log(this.heart);
     this.route.navigateByUrl('/choose-checkpoint');
   }
 

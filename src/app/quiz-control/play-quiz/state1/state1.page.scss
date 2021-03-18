@@ -2,7 +2,7 @@
     --background: url(../../../../assets/img/background/bg.jpg) 0 0/100% 100% no-repeat;
 }
 img {
-  width: 200px;
+  // width: 200px;
   display: inline-block;
   height: auto;
   padding: 0px;
@@ -37,7 +37,7 @@ img {
 }
 
 
-#successMessage {
+#successMessage, #failMessage {
   position: absolute;
   left: 580px;
   top: 250px;
