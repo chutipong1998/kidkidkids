@@ -3,6 +3,19 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { DatabaseQuizService, Listen } from 'src/app/services/database/Quiz/database-quiz.service';
 
+import * as $ from 'jquery'
+import 'jquery-ui-dist/jquery-ui';
+
+declare var require: any
+(window as any).jQuery = $;
+require('jquery-ui-touch-punch');
+
+let heart = [
+  {id: '1', img: '../../../../assets/img/heart.png'},
+  {id: '2', img: '../../../../assets/img/heart.png'},
+  {id: '3', img: '../../../../assets/img/heart.png'},
+];
+
 @Component({
   selector: 'app-state2',
   templateUrl: './state2.page.html',
@@ -11,6 +24,8 @@ import { DatabaseQuizService, Listen } from 'src/app/services/database/Quiz/data
 export class State2Page implements OnInit {
 
   listen: Listen[] = [];
+
+  // listen: any;
 
   state: string;
   newScore: number;
@@ -26,11 +41,14 @@ export class State2Page implements OnInit {
   score: number;
   dataScore: any = [];
 
-  // developer = {};
+  heart: any;
+  heart_status: number;
 
   constructor(private db: DatabaseQuizService, private alertCtrl: AlertController, private route: Router) { }
 
   ngOnInit() {
+    this.heart = heart;
+    this.heart_status = 0;
     this.level = localStorage.getItem('state');
     this.category = localStorage.getItem('category');
     console.log('category =', this.category);
@@ -45,6 +63,22 @@ export class State2Page implements OnInit {
         this.getDataQuiz(this.category);
       }
     })
+
+    $('#successMessage').hide();
+    $('#successMessage').css({
+      left: '580px',
+      top: '250px',
+      width: 0,
+      height: 0,
+    });
+
+    $('#failMessage').hide();
+    $('#failMessage').css({
+      left: '580px',
+      top: '250px',
+      width: 0,
+      height: 0,
+    });
   }
 
   getAns(i: string) {
@@ -56,21 +90,41 @@ export class State2Page implements OnInit {
       console.log('ถูกต้อง');
       alp = this.listen[Number(i)-1].alphabet
       console.log(alp);
-      if (this.list.length > 1) {
-        this.next(alp);
-      } else {
-        this.correct(alp);
-      }
+      $('#successMessage').show();
+      $('#successMessage').animate({
+        left: '182px',
+        top: '70px',
+        width: '500px',
+        height: '300px',
+        opacity: 1,
+      });
+      // this.correct(alp);
     } else {
       console.log('ผิด');
+      console.log('heart_statusBf =', this.heart_status);
+      this.heart[this.heart_status].img = '../../../../assets/img/heart-border.png',
+      this.heart_status++;
+      console.log('heart_statusAt =', this.heart_status);
+
+      if (this.heart_status ==3) {
+        $('#failMessage').show();
+        $('#failMessage').animate({
+          left: '182px',
+          top: '70px',
+          width: '500px',
+          height: '300px',
+          opacity: 1,
+        });
+        // this.result_was_wrong();
+      }
     }
   }
 
-  chkData() {
-    this.list.splice(0, 1);
-    console.log('del.');
-    console.log(this.list);
-  }
+  // chkData() {
+  //   this.list.splice(0, 1);
+  //   console.log('del.');
+  //   console.log(this.list);
+  // }
 
   chkScore(state: string, datascore: any) {
     for (let i = 0; i < datascore.length; i++) {
@@ -97,155 +151,201 @@ export class State2Page implements OnInit {
   }
 
   getDataQuiz(category: string) {
+    $('#successMessage').hide();
+    $('#successMessage').css({
+      left: '580px',
+      top: '250px',
+      width: 0,
+      height: 0,
+    });
+
+    $('#failMessage').hide();
+    $('#failMessage').css({
+      left: '580px',
+      top: '250px',
+      width: 0,
+      height: 0,
+    });
+
+    this.listen = [];
+    this.heart_status = 0;
+    for (let i = 0; i < 3; i++) {
+      heart[i].img = '../../../../assets/img/heart.png';
+    }
+
+    this.heart = heart;
+    console.log('heartf =');
+    console.log(this.heart);
+
     if (category == 'สัตว์') {
       this.db.getLisAnimal().subscribe(res => {
         for (let i = 0; i < res.length; i++) {
           if (res[i].state == this.level) {
             this.listen.push(res[i]);
+            // this.listen = [res[i]];
           }
         }
         console.log('listen');
         console.log(this.listen);
         
-        this.pushData(this.listen)
+        // this.pushData(this.listen)
         // localStorage.setItem('category', '')
       });
     } else if (category == 'ตัวอักษรภาษาไทย') {
       this.db.getLisThaiAlp().subscribe(res => {
         for (let i = 0; i < res.length; i++) {
           if (res[i].state == this.level) {
+            // this.listen = [res[i]];
             this.listen.push(res[i]);
           }
         }
         console.log('listen');
         console.log(this.listen);
-        this.pushData(this.listen)
+        // this.pushData(this.listen)
         // localStorage.setItem('category', '')
       });
     } else if (category == 'ผลไม้') {
       this.db.getLisFruit().subscribe(res => {
         for (let i = 0; i < res.length; i++) {
           if (res[i].state == this.level) {
+            // this.listen = [res[i]];
             this.listen.push(res[i]);
           }
         }
         console.log('listen');
         console.log(this.listen);
-        this.pushData(this.listen)
+        // this.pushData(this.listen)
         // localStorage.setItem('category', '')
       });
     }
   }
 
-  pushData(res: any) {
-    let state;
-    console.log('log ani =', res);
-    console.log('log ani len =', res.length);
+  // pushData(res: any) {
+  //   let state;
+  //   console.log('log ani =', res);
+  //   console.log('log ani len =', res.length);
 
-    state = Number(this.level)
-    console.log('state =', state%2);
-    console.log('res =', res.length);
-    let j = res.length/state
-    if(state%2 !== 0) {
-      for (let i = 0; i < res.length; i++) {
-        this.lst.push(res[i]);
-        console.log('push!!');
-      }
-      console.log('lst =', this.lst);
-      const dataObj = {
-        id: 1,
-        data: this.lst,
-      };
-      this.list.push(dataObj);
-      console.log('list =');
-      console.log(this.list);
-    } else {
-      for (let index = 0; index < j; index++) {
-        for (let i = 0; i < res.length/2; i++) {
-            this.lst.push(res[i + ((res.length/2)*index)]);
-            console.log('push!!!!!!!!');
-        }
-        if(this.lst.length == res.length/2) {
-          const dataObj = {
-              id: index+1,
-              data: this.lst,
-          };
-          this.list.push(dataObj)
-          this.lst = []
-        }
-      }
-      console.log('list =');
-      console.log(this.list);
+  //   state = Number(this.level)
+  //   console.log('state =', state%2);
+  //   console.log('res =', res.length);
+  //   let j = res.length/state
+  //   if(state%2 !== 0) {
+  //     for (let i = 0; i < res.length; i++) {
+  //       this.lst.push(res[i]);
+  //       console.log('push!!');
+  //     }
+  //     console.log('lst =', this.lst);
+  //     const dataObj = {
+  //       id: 1,
+  //       data: this.lst,
+  //     };
+  //     this.list.push(dataObj);
+  //     console.log('list =');
+  //     console.log(this.list);
+  //   } else {
+  //     for (let index = 0; index < j; index++) {
+  //       for (let i = 0; i < res.length/2; i++) {
+  //           this.lst.push(res[i + ((res.length/2)*index)]);
+  //           console.log('push!!!!!!!!');
+  //       }
+  //       if(this.lst.length == res.length/2) {
+  //         const dataObj = {
+  //             id: index+1,
+  //             data: this.lst,
+  //         };
+  //         this.list.push(dataObj)
+  //         this.lst = []
+  //       }
+  //     }
+  //     console.log('list =');
+  //     console.log(this.list);
+  //   }
+  // }
+
+  // async correct(msg_img) {
+  //   let alert = await this.alertCtrl.create({
+  //     header: 'สุดยอด เก่งสุดๆเลย',
+  //     // subHeader: 'คุณตอบถูก',
+  //     message: `<img src="../../../../assets/img/congrate.png" alt="g-maps" style="border-radius: 2px; text-align: center;">`,
+  //     buttons: [
+  //       {
+  //         text: 'ตกลง',
+  //         role: 'ok',
+  //         handler: () => {
+  //           let score = 100;
+  //           this.updateData(this.dataScore[0].id, this.state, score);
+  //           this.route.navigateByUrl('/choose-checkpoint');
+  //         },
+  //         cssClass: 'my-custom-class',
+  //       }
+  //     ], backdropDismiss: false
+  //   });
+  //   await alert.present();
+  // }
+
+  // async result_was_wrong() {
+  //   let alert = await this.alertCtrl.create({
+  //     header: 'ไม่ไหวๆ ลองใหม่อีกทีนะ',
+  //     // subHeader: 'เฉลย',
+  //     message: `<img src="../../../../assets/img/cry.png" alt="g-maps" style="border-radius: 2px; text-align: center;">`,
+  //     cssClass: 'my-custom-class',
+  //     buttons: [
+  //       {
+  //         text: 'กลับสู่หน้าหลัก',
+  //         role: 'ok',
+  //         handler: () => {
+  //           for (let i = 0; i < 3; i++) {
+  //             heart[i].img = '../../../../assets/img/heart.png';
+  //           }
+  //           this.heart = heart;
+  //           this.route.navigateByUrl('/choose-checkpoint');
+  //         }
+  //       },
+  //       {
+  //         text: 'เล่นใหม่',
+  //         role: 'ok',
+  //         handler: () => {
+  //           for (let i = 0; i < 3; i++) {
+  //             heart[i].img = '../../../../assets/img/heart.png';
+  //           }
+  //           this.heart = heart;
+            
+  //           // this.db.getDatabaseState().subscribe(ready => {
+  //           //   if(ready) {
+  //           //     this.getDataQuiz(this.category);
+  //           //   }
+  //           // })
+  //         }
+  //       }
+  //     ], backdropDismiss: false
+
+  //   });
+  //   await alert.present();
+  // }
+
+  go_to_chk_point() {
+    let score = 100 - (20*this.heart_status);
+    console.log('dataScore:');
+    console.log(this.dataScore[0].id);
+    console.log('state =');
+    console.log(this.state);
+    
+    if (score > this.score) {
+      this.updateData(this.dataScore[0].id, this.state, score);
     }
+    // localStorage.setItem('state', '');
+    this.route.navigateByUrl('/choose-checkpoint');
   }
 
-  async correct(msg_img) {
-    let alert = await this.alertCtrl.create({
-      header: 'ยินดีด้วย คุณตอบถูก',
-      // subHeader: 'คุณตอบถูก',
-      message: 'คำตอบคือ :  ' + `<img src="${msg_img}" alt="g-maps" style="border-radius: 2px; text-align: center;">`,
-      cssClass: 'my-custom-class',
-      buttons: [
-        {
-          text: 'ตกลง',
-          role: 'ok',
-          handler: () => {
-            let score = 100;
-            this.updateData(this.dataScore[0].id, this.state, score);
-            this.route.navigateByUrl('/choose-checkpoint');
-          }
-        }
-      ], backdropDismiss: false
-    });
-    await alert.present();
+  fail() {
+    for (let i = 0; i < 3; i++) {
+      heart[i].img = '../../../../assets/img/heart.png';
+    }
+    this.heart = heart;
+    console.log('heartf =');
+    console.log(this.heart);
+    this.route.navigateByUrl('/choose-checkpoint');
   }
-
-  async next(msg_img) {
-    let alert = await this.alertCtrl.create({
-      header: 'ยินดีด้วย คุณตอบถูก',
-      // subHeader: 'คุณตอบถูก',
-      message: 'คำตอบคือ :  ' + `<img src="${msg_img}" alt="g-maps" style="border-radius: 2px; text-align: center;">`,
-      cssClass: 'my-custom-class',
-      buttons: [
-        {
-          text: 'ถัดไป',
-          role: 'ok',
-          handler: () => {
-            this.list.splice(0, 1);
-          }
-        }
-      ], backdropDismiss: false
-    });
-    await alert.present();
-  }
-
-  async result_was_wrong(txt) {
-    let alert = await this.alertCtrl.create({
-      header: 'คุณตอบผิด !!',
-      // subHeader: 'เฉลย',
-      message: 'เฉลย : ' + txt,
-      cssClass: 'my-custom-class',
-      buttons: [
-        {
-          text: 'ตกลง',
-          role: 'ok',
-          handler: () => {
-            // this.quiz.splice(0, 1);
-            // console.log('count =', this.quiz.length);
-            // console.log('catd =', this.quiz);
-            // this.status = '';
-            // // clearInterval(this.timer);
-            // this.maxtime = 60;
-            // this.StartTimer(this.maxtime);
-            // console.log('Cancel clicked');
-          }
-        }
-      ], backdropDismiss: false
-
-    });
-    await alert.present();
-  }
-
 
   updateData(id: string, scoreState: string, score: number) {
     // let alphabets = this.dataScore['alphabet'].split(',');

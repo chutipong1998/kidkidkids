@@ -75,6 +75,7 @@ export class DatabaseQuizService {
   data = new BehaviorSubject([]);
 
   quiz: string;
+  random: number;
 
   constructor(
     private plt: Platform,
@@ -162,7 +163,17 @@ export class DatabaseQuizService {
     return this.data.asObservable();
   }
 
+  random_number() {
+    return Math.floor(Math.random() * 2) + 1;
+  }
+
   loadLisanimals() {
+    this.random = this.random_number();
+    console.log('random =', this.random);
+    if (this.random == 1) {
+      console.log('pass');
+    }
+    
     return this.database.executeSql('SELECT * FROM LISTENANIMAL', []).then(data => {
       let lisanimals: Listen[] = [];
       

@@ -1,17 +1,13 @@
 <ion-content padding class="bg-choose-checkpoint">
   <ion-row style="height: 14%;">
     <ion-col style="height: fit-content;">
-      <a class="btn" routerLink="/all-quiz"><ion-icon name="home"></ion-icon></a>
+      <a class="btn" routerLink="/choose-checkpoint"><ion-icon name="home"></ion-icon></a>
     </ion-col>
 
     <ion-col></ion-col>
     <ion-col></ion-col>
     <ion-col></ion-col>
     <ion-col></ion-col>
-    <!-- <ion-col></ion-col> -->
-    <!-- <ion-col></ion-col> -->
-
-    <!-- <div style="padding-left: 12%;"></div> -->
 
     <ion-col style="height: fit-content; text-align: right; padding-top: 2%; padding-left: 12%;">
       <label for="" *ngFor="let h of heart" style="padding: 4%;">
@@ -44,13 +40,26 @@
   </ion-row>
   
   <div id="successMessage" style="text-align: center;">
-    <h2 style="margin-top: 20%;">ยินดีด้วย!</h2>
-    <button (click)="go_to_chk_point()">ตกลง</button>
+    <ion-row>
+      <ion-col style="text-align: right;"><img class="img-congrate" src="../../../../assets/img/congrate.png" alt=""></ion-col>
+      <ion-col style="text-align: left; margin-top: 20%;">
+        <span class="txt-congrate">สุดยอดไปเลย</span>
+        <button class="home" (click)="go_to_chk_point()"><ion-icon name="home" style="margin-top: 6%;"></ion-icon></button>
+      </ion-col>
+    </ion-row>
   </div>
 
   <div id="failMessage" style="text-align: center;">
-    <h2 style="margin-top: 20%;"> เสียใจด้วยด้วย!</h2>
-    <button (click)="fail()">ตกลง</button>
+    <ion-row>
+      <ion-col style="text-align: right;"><img class="img-fail" src="../../../../assets/img/cry.png" alt=""></ion-col>
+      <ion-col style="text-align: center; margin-top: 7%;">
+        <span class="txt-fail">ไม่ไหวๆ<br>ลองใหม่อีกทีนะ</span><br>
+        <label for="">
+          <span><button class="replay" (click)="init(dragdrop)"><ion-icon name="reload" style="margin-top: 6%;"></ion-icon></button></span>
+          <span><button class="home" (click)="fail()"><ion-icon name="home" style="margin-top: 6%;"></ion-icon></button></span>
+        </label>
+      </ion-col>
+    </ion-row>
   </div>
  
 </ion-content>

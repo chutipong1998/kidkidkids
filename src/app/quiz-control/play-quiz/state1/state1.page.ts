@@ -16,7 +16,7 @@ let heart = [
   {id: '1', img: '../../../../assets/img/heart.png'},
   {id: '2', img: '../../../../assets/img/heart.png'},
   {id: '3', img: '../../../../assets/img/heart.png'},
-]
+];
 
 @Component({
   selector: 'app-state1',
@@ -60,6 +60,10 @@ export class State1Page implements OnInit {
       }
     });
 
+    this.hide_alert();
+  }
+
+  hide_alert() {
     $('#successMessage').hide();
     $('#successMessage').css({
       left: '580px',
@@ -124,6 +128,18 @@ export class State1Page implements OnInit {
   }
 
   init(dragdrop) {
+    for (let i = 0; i < 3; i++) {
+      heart[i].img = '../../../../assets/img/heart.png';
+    }
+    
+    this.heart = heart;
+    console.log('heartf =');
+    console.log(this.heart);
+
+    console.log('heart_status =', heart_status);
+
+    this.hide_alert();
+
     // Reset the game
     correctCards = 0;
     heart_status = 0;
@@ -186,8 +202,10 @@ export class State1Page implements OnInit {
         opacity: 1,
       });
     } else {
+      console.log('heart_statusBf =', heart_status);
       heart[heart_status].img = '../../../../assets/img/heart-border.png',
       heart_status++;
+      console.log('heart_statusAt =', heart_status);
       if (heart_status == 3) {
         $('#failMessage').show();
         $('#failMessage').animate({
@@ -236,13 +254,16 @@ export class State1Page implements OnInit {
   }
 
   go_to_chk_point() {
-    let score = 100;
+    console.log('heart_statusFn =', heart_status);
+    let score = 100 - (20*heart_status);
     console.log('dataScore:');
     console.log(this.dataScore[0].id);
     console.log('state =');
     console.log(this.state);
     
-    this.updateData(this.dataScore[0].id, this.state, score);
+    if (score > this.score) {
+      this.updateData(this.dataScore[0].id, this.state, score);
+    }
     // localStorage.setItem('state', '');
     this.route.navigateByUrl('/choose-checkpoint');
   }

@@ -11,6 +11,12 @@ require('jquery-ui-touch-punch');
 
 let correctCards = 0;
 let win = 0;
+let heart_status = 0;
+let heart = [
+  {id: '1', img: '../../../../assets/img/heart.png'},
+  {id: '2', img: '../../../../assets/img/heart.png'},
+  {id: '3', img: '../../../../assets/img/heart.png'},
+];
 
 @Component({
   selector: 'app-state3',
@@ -28,18 +34,15 @@ export class State3Page implements OnInit {
 
   topic: string;
 
+  heart: any;
+
   data_sort_number: Sort_number[] = [];
 
   constructor(private db: DatabaseQuizService, private route: Router) { }
 
   ngOnInit() {
-    $('#successMessage').hide();
-    $('#successMessage').css({
-      left: '580px',
-      top: '250px',
-      width: 0,
-      height: 0,
-    });
+    this.hide_alert();
+    this.heart = heart;
 
     this.level = localStorage.getItem('state');
     console.log('level =', this.level);
@@ -53,6 +56,24 @@ export class State3Page implements OnInit {
       if(ready) {
         this.getDataQuiz();
       }
+    });
+  }
+
+  hide_alert() {
+    $('#successMessage').hide();
+    $('#successMessage').css({
+      left: '580px',
+      top: '250px',
+      width: 0,
+      height: 0,
+    });
+
+    $('#failMessage').hide();
+    $('#failMessage').css({
+      left: '580px',
+      top: '250px',
+      width: 0,
+      height: 0,
     });
   }
 
@@ -71,18 +92,16 @@ export class State3Page implements OnInit {
   }
 
   drag_drop(data_sort_number: any) {
-    $('#successMessage').hide();
-    $('#successMessage').css({
-      left: '580px',
-      top: '250px',
-      width: 0,
-      height: 0,
-    });
+    for (let i = 0; i < 3; i++) {
+      heart[i].img = '../../../../assets/img/heart.png';
+    }
+    this.heart = heart;
 
-    // $("p").css({"background-color": "yellow", "font-size": "200%"});
+    this.hide_alert();
 
     // Reset the game
     correctCards = 0;
+    heart_status = 0;
     win = data_sort_number.length;
     console.log('win =', win);
     
@@ -134,6 +153,21 @@ export class State3Page implements OnInit {
       ui.draggable.position({ of: $(this), my: 'left top', at: 'left top' });
       ui.draggable.draggable('option', 'revert', false);
       correctCards++;
+    } else {
+      console.log('heart_statusBf =', heart_status);
+      heart[heart_status].img = '../../../../assets/img/heart-border.png',
+      heart_status++;
+      console.log('heart_statusAt =', heart_status);
+      if (heart_status == 3) {
+        $('#failMessage').show();
+        $('#failMessage').animate({
+          left: '182px',
+          top: '70px',
+          width: '500px',
+          height: '300px',
+          opacity: 1,
+        });
+      }
     }
 
     console.log('correctCards');
@@ -189,14 +223,30 @@ export class State3Page implements OnInit {
   }
 
   go_to_chk_point() {
-    let score = 100;
+    console.log('heart_statusFn =', heart_status);
+    let score = 100 - (20*heart_status);
     console.log('dataScore:');
     console.log(this.dataScore[0].id);
     console.log('state =');
     console.log(this.state);
+    console.log('state_score =');
+    console.log(this.score);
+
+    if (score > this.score) {
+      this.updateData(this.dataScore[0].id, this.state, score);
+    }
     
-    this.updateData(this.dataScore[0].id, this.state, score);
     // localStorage.setItem('state', '');
+    this.route.navigateByUrl('/choose-checkpoint');
+  }
+
+  fail() {
+    for (let i = 0; i < 3; i++) {
+      heart[i].img = '../../../../assets/img/heart.png';
+    }
+    this.heart = heart;
+    console.log('heartf =');
+    console.log(this.heart);
     this.route.navigateByUrl('/choose-checkpoint');
   }
 
