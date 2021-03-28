@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DatabaseQuizService, Sort_number } from 'src/app/services/database/Quiz/database-quiz.service';
+import { DatabaseQuizService } from 'src/app/services/database/Quiz/database-quiz.service';
 import { Router } from '@angular/router';
+import { SortNumber } from '../../../model/quiz/sortNumber';
 
 import * as $ from 'jquery'
 import 'jquery-ui-dist/jquery-ui';
@@ -36,7 +37,7 @@ export class State3Page implements OnInit {
 
   heart: any;
 
-  data_sort_number: Sort_number[] = [];
+  data_sort_number: SortNumber[] = [];
 
   constructor(private db: DatabaseQuizService, private route: Router) { }
 
@@ -50,7 +51,7 @@ export class State3Page implements OnInit {
     this.dataScore = JSON.parse(localStorage.getItem('score'));
     console.log('datasc =', this.dataScore);
 
-    this.chkScore(this.level, this.dataScore)
+    this.checkScore(this.level, this.dataScore)
 
     this.db.getDatabaseState().subscribe(ready => {
       if(ready) {
@@ -147,9 +148,9 @@ export class State3Page implements OnInit {
     console.log('cardNumber =', cardNumber);
 
     if (slotNumber == cardNumber) {
-      ui.draggable.addClass('correct');
-      ui.draggable.draggable('disable');
-      $(this).droppable('disable');
+      // ui.draggable.addClass('correct');
+      // ui.draggable.draggable('disable');
+      // $(this).droppable('disable');
       ui.draggable.position({ of: $(this), my: 'left top', at: 'left top' });
       ui.draggable.draggable('option', 'revert', false);
       correctCards++;
@@ -222,7 +223,7 @@ export class State3Page implements OnInit {
     });
   }
 
-  go_to_chk_point() {
+  gotoCheckpoint() {
     console.log('heart_statusFn =', heart_status);
     let score = 100 - (20*heart_status);
     console.log('dataScore:');
@@ -250,7 +251,7 @@ export class State3Page implements OnInit {
     this.route.navigateByUrl('/choose-checkpoint');
   }
 
-  chkScore(level: string, datascore: any) {
+  checkScore(level: string, datascore: any) {
     for (let i = 0; i < datascore.length; i++) {
       if (level == '1') {
         this.score = datascore[i].score_state1

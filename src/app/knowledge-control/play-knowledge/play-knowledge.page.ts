@@ -11,12 +11,11 @@ export class PlayKnowledgePage implements OnInit {
   show: any;
 
   constructor(public navCtrl: NavController) {
-    let s = localStorage.getItem('list');
-    console.log('s =', s);
-    this.show = JSON.parse(s)
   }
 
   ngOnInit() {
+    let s = localStorage.getItem('list');
+    this.show = JSON.parse(s)
   }
 
   goback() {

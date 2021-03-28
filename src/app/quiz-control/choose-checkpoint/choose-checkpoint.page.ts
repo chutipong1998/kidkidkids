@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import { Data, DatabaseQuizService } from 'src/app/services/database/Quiz/database-quiz.service';
+import { DatabaseQuizService } from 'src/app/services/database/Quiz/database-quiz.service';
+import { Data } from '../../model/quiz/data';
 
 @Component({
   selector: 'app-choose-checkpoint',

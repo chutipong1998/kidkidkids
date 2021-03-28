@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { DatabaseKnowledgeService, Knowledge } from '../services/database/knowledge/database-knowledge.service';
-import { Data, DatabaseQuizService } from '../services/database/Quiz/database-quiz.service';
+import { DatabaseKnowledgeService } from '../services/database/knowledge/database-knowledge.service';
+import { DatabaseQuizService } from '../services/database/Quiz/database-quiz.service';
 import { NativeAudio } from '@ionic-native/native-audio/ngx';
-import { Platform } from '@ionic/angular';
+import { Knowledge } from '../model/knowledge/knowledge';
+import { Data } from '../model/quiz/data';
 
 @Component({
   selector: 'app-home',
@@ -11,11 +12,10 @@ import { Platform } from '@ionic/angular';
 })
 export class HomePage implements OnInit {
 
-  datas: Data[] = []
-  knows: Knowledge[] = []
+  dataScore: Data[] = []
+  dataKnowledge: Knowledge[] = []
 
   constructor(
-    private platform: Platform, 
     private db: DatabaseQuizService,
     private knowdb: DatabaseKnowledgeService,
     private nativeAudio: NativeAudio
@@ -24,6 +24,16 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     // load audio
+    this.loadSound();
+
+    // load data score
+    this.loadDataScore();
+
+    // load data knowledge
+    this.loadDataKnowledge();
+  }
+
+  loadSound() {
     this.nativeAudio.preloadComplex('test2', 'assets/audio/bg_audio.mp3', 1, 1, 0).then((res) => {
       console.log('loading2...');
       console.log(res);
@@ -38,22 +48,26 @@ export class HomePage implements OnInit {
       console.log('error');
       console.log(err);
     });
+  }
 
+  loadDataScore() {
     this.db.getDatabaseState().subscribe(ready => {
       if(ready) {
         this.db.getData().subscribe(data => {
           // console.log('data:', data);
-          this.datas = data;
-          console.log('data:', this.datas);
+          this.dataScore = data;
+          // console.log('data:', this.dataScore);
         })
       }
     });
+  }
 
+  loadDataKnowledge() {
     this.knowdb.getDatabaseState().subscribe(ready => {
       if (ready) {
         this.knowdb.getEngAlps().subscribe(res => {
-          this.knows = res;
-          console.log('knw:', res);
+          this.dataKnowledge = res;
+          // console.log('knw:', res);
         })
       }
     });

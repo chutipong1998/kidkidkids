@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { DatabaseQuizService, Dragdrop } from 'src/app/services/database/Quiz/database-quiz.service';
+import { DatabaseQuizService } from 'src/app/services/database/Quiz/database-quiz.service';
+import { Dragdrop } from '../../../model/quiz/dragdrop';
 
 import * as $ from 'jquery'
 import 'jquery-ui-dist/jquery-ui';
@@ -52,7 +53,7 @@ export class State1Page implements OnInit {
     this.dataScore = JSON.parse(localStorage.getItem('score'));
     console.log('datasc =', this.dataScore);
 
-    this.chkScore(this.level, this.dataScore)
+    this.checkScore(this.level, this.dataScore)
 
     this.db.getDatabaseState().subscribe(ready => {
       if(ready) {
@@ -60,10 +61,10 @@ export class State1Page implements OnInit {
       }
     });
 
-    this.hide_alert();
+    this.hideAlert();
   }
 
-  hide_alert() {
+  hideAlert() {
     $('#successMessage').hide();
     $('#successMessage').css({
       left: '580px',
@@ -87,7 +88,7 @@ export class State1Page implements OnInit {
         for (let i = 0; i < res.length; i++) {
           if (res[i].state === this.level) {
             this.dragdrop.push(res[i]);
-            this.init(this.dragdrop);
+            this.DragDrop(this.dragdrop);
           }
         }
         console.log('dragdrop =');
@@ -101,7 +102,7 @@ export class State1Page implements OnInit {
         for (let i = 0; i < res.length; i++) {
           if (res[i].state === this.level) {
             this.dragdrop.push(res[i]);
-            this.init(this.dragdrop);
+            this.DragDrop(this.dragdrop);
           }
         }
         console.log('dragdrop =');
@@ -115,7 +116,7 @@ export class State1Page implements OnInit {
         for (let i = 0; i < res.length; i++) {
           if (res[i].state === this.level) {
             this.dragdrop.push(res[i]);
-            this.init(this.dragdrop);
+            this.DragDrop(this.dragdrop);
           }
         }
         console.log('dragdrop =');
@@ -127,7 +128,7 @@ export class State1Page implements OnInit {
     }
   }
 
-  init(dragdrop) {
+  DragDrop(dragdrop) {
     for (let i = 0; i < 3; i++) {
       heart[i].img = '../../../../assets/img/heart.png';
     }
@@ -138,7 +139,7 @@ export class State1Page implements OnInit {
 
     console.log('heart_status =', heart_status);
 
-    this.hide_alert();
+    this.hideAlert();
 
     // Reset the game
     correctCards = 0;
@@ -183,7 +184,7 @@ export class State1Page implements OnInit {
     if (slotNumber == cardNumber) {
       // ui.draggable.addClass('correct');
       // ui.draggable.draggable('disable');
-      $(this).droppable('disable');
+      // $(this).droppable('disable');
       ui.draggable.position({ of: $(this), my: 'left top', at: 'left top' });
       ui.draggable.draggable('option', 'revert', false);
       correctCards++;
@@ -253,7 +254,7 @@ export class State1Page implements OnInit {
     });
   }
 
-  go_to_chk_point() {
+  gotoCheckpoint() {
     console.log('heart_statusFn =', heart_status);
     let score = 100 - (20*heart_status);
     console.log('dataScore:');
@@ -278,7 +279,7 @@ export class State1Page implements OnInit {
     this.route.navigateByUrl('/choose-checkpoint');
   }
 
-  chkScore(level: string, datascore: any) {
+  checkScore(level: string, datascore: any) {
     for (let i = 0; i < datascore.length; i++) {
       if (level == '1') {
         this.score = datascore[i].score_state1

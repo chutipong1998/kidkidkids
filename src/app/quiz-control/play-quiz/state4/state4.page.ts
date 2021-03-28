@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DatabaseQuizService, Match_animal_sound } from 'src/app/services/database/Quiz/database-quiz.service';
+import { DatabaseQuizService } from 'src/app/services/database/Quiz/database-quiz.service';
+import { MatchAnimalSound } from '../../../model/quiz/matchAnimalSound';
 
 import * as $ from 'jquery'
 import 'jquery-ui-dist/jquery-ui';
@@ -33,9 +34,9 @@ export class State4Page implements OnInit {
 
   heart: any;
 
-  match_sound: Match_animal_sound[] = [];
-  data_match_sound_left: Match_animal_sound[] = [];
-  data_match_sound_right: Match_animal_sound[] = [];
+  match_sound: MatchAnimalSound[] = [];
+  // data_match_sound_left: Match_animal_sound[] = [];
+  // data_match_sound_right: Match_animal_sound[] = [];
 
   constructor(private db: DatabaseQuizService, private route: Router) { }
 
@@ -48,7 +49,7 @@ export class State4Page implements OnInit {
     this.dataScore = JSON.parse(localStorage.getItem('score'));
     console.log('datasc =', this.dataScore);
 
-    this.chkScore(this.level, this.dataScore);
+    this.checkScore(this.level, this.dataScore);
 
     this.db.getDatabaseState().subscribe(ready => {
       if(ready) {
@@ -198,7 +199,7 @@ export class State4Page implements OnInit {
     }
   }
 
-  chkScore(level: string, datascore: any) {
+  checkScore(level: string, datascore: any) {
     for (let i = 0; i < datascore.length; i++) {
       if (level == '1') {
         this.score = datascore[i].score_state1
@@ -256,7 +257,7 @@ export class State4Page implements OnInit {
     });
   }
 
-  go_to_chk_point() {
+  gotoCheckpoint() {
     console.log('heart_statusFn =', heart_status);
     let score = 100 - (20*heart_status);
     console.log('dataScore:');

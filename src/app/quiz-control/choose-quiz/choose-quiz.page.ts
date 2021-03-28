@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DatabaseQuizService, Dragdrop, Listen } from 'src/app/services/database/Quiz/database-quiz.service';
+// import { DatabaseQuizService, Dragdrop, Listen } from 'src/app/services/database/Quiz/database-quiz.service';
 
 @Component({
   selector: 'app-choose-quiz',
@@ -30,8 +30,8 @@ export class ChooseQuizPage implements OnInit {
     }
   }
 
-  getQuiz(i: string) {
-    localStorage.setItem('category', i);
+  getQuiz(cat: string) {
+    localStorage.setItem('category', cat);
   }
 
   gotoAllQuiz() {

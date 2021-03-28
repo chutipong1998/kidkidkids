@@ -4,56 +4,11 @@ import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
 import { HttpClient } from '@angular/common/http';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { File } from '@ionic-native/file/ngx';
-
-export interface Listen {
-  id: string,
-  name_state: string,
-  state: string,
-  category: string
-  alphabet: string,
-  sound: string;
-  answer: string
-}
-
-export interface Dragdrop {
-  id: string,
-  name_state: string,
-  state: string,
-  category: string,
-  alphabet: string,
-  shadow_image: string,
-  answer: string
-}
-
-export interface Sort_number {
-  id: string,
-  name_state: string,
-  state: string,
-  alphabet: string,
-  answer: string
-}
-
-export interface Match_animal_sound {
-    id: string,
-    name_state: string,
-    state: string,
-    alphabet: string,
-    shadow_image: string,
-    sound: string,
-    answer: string
-  }
-
-export interface Data {
-  id: string,
-  name_state: string,
-  category: string
-  score_state1: number,
-  score_state2: number,
-  score_state3: number,
-  score_state4: number,
-  total_score: number
-}
+import { Dragdrop } from '../../../model/quiz/dragdrop';
+import { Listen } from '../../../model/quiz/listen';
+import { SortNumber } from '../../../model/quiz/sortNumber';
+import { MatchAnimalSound } from '../../../model/quiz/matchAnimalSound';
+import { Data } from '../../../model/quiz/data';
 
 @Injectable({
   providedIn: 'root'
@@ -73,8 +28,7 @@ export class DatabaseQuizService {
   match_animal_sound = new BehaviorSubject([]);
 
   data = new BehaviorSubject([]);
-
-  quiz: string;
+  
   random: number;
 
   constructor(
@@ -151,11 +105,11 @@ export class DatabaseQuizService {
     return this.dragnumber.asObservable();
   }
 
-  getSortNumber(): Observable<Sort_number[]> {
+  getSortNumber(): Observable<SortNumber[]> {
     return this.sort_number.asObservable();
   }
 
-  getMatchAnimalSound(): Observable<Match_animal_sound[]> {
+  getMatchAnimalSound(): Observable<MatchAnimalSound[]> {
     return this.match_animal_sound.asObservable();
   }
 
@@ -306,7 +260,7 @@ export class DatabaseQuizService {
 
   loadSortNumber() {
     return this.database.executeSql('SELECT * FROM SORTNUMBER', []).then(data => {
-      let sort_number: Sort_number[] = [];
+      let sort_number: SortNumber[] = [];
 
       if (data.rows.length > 0) {
         for (let i = 0; i < data.rows.length; i++) {
@@ -326,7 +280,7 @@ export class DatabaseQuizService {
 
   loadMatchAnimalSound() {
     return this.database.executeSql('SELECT * FROM MATCHANIMALSOUND', []).then(data => {
-      let match_animal_sound: Match_animal_sound[] = [];
+      let match_animal_sound: MatchAnimalSound[] = [];
 
       if (data.rows.length > 0) {
         for (let i = 0; i < data.rows.length; i++) {

@@ -369,7 +369,7 @@ export class ChooseKnowledgePage implements OnInit {
   //   },
   // ]
 
-  topic: any;
+  topic: string;
 
   info: any = [];
 
@@ -380,13 +380,6 @@ export class ChooseKnowledgePage implements OnInit {
 
 
   constructor(public navCtrl: NavController, private route: Router, private db: DatabaseKnowledgeService,) {
-    this.topic = localStorage.getItem('topic');
-    console.log('topic = ' + this.topic);
-
-    console.log('mod1 =', 26%6);
-
-
-    this.getData(this.topic);
 
     // console.log('len(dataString) =', this.dataString.length);
     // console.log('len(dataString)/6 =', this.dataString.length/6);
@@ -429,13 +422,20 @@ export class ChooseKnowledgePage implements OnInit {
   }
 
   ngOnInit() {
+    this.topic = localStorage.getItem('topic');
+    // console.log('topic = ' + this.topic);
+
+    // console.log('mod1 =', 26%6);
+
+
+    this.getData(this.topic);
   }
 
   showData(data: any) {
-    console.log('data =', data);
-    console.log('data/6 =', data.length/6);
+    // console.log('data =', data);
+    // console.log('data/6 =', data.length/6);
 
-    console.log('mod2 =', 44%6);
+    // console.log('mod2 =', 44%6);
     
     for (let i = 0; i < data.length/6; i++) {
       console.log('ind =', i);
@@ -466,9 +466,9 @@ export class ChooseKnowledgePage implements OnInit {
           
         }
       }
-      console.log('dataString');
-      console.log(this.dataString[0]);
-      console.log(this.dataString.length);
+      // console.log('dataString');
+      // console.log(this.dataString[0]);
+      // console.log(this.dataString.length);
     }
     // console.log('string =', this.dataString.length);
     // console.log('data string:', this.dataString);
@@ -501,7 +501,7 @@ export class ChooseKnowledgePage implements OnInit {
     // }
   }
 
-  getData(topic: any) {
+  getData(topic: string) {
     if (topic == 'englishAlphabet') {
       this.db.getDatabaseState().subscribe(ready => {
         if(ready) {
@@ -565,7 +565,7 @@ export class ChooseKnowledgePage implements OnInit {
     }
   }
 
-  getValue(list: any) {
+  getDataStringValue(list: any) {
     console.log('list =', list);
     localStorage.setItem('list', JSON.stringify(list));
   }

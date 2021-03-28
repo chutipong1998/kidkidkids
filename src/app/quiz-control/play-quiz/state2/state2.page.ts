@@ -1,7 +1,8 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
-import { DatabaseQuizService, Listen } from 'src/app/services/database/Quiz/database-quiz.service';
+import { DatabaseQuizService } from 'src/app/services/database/Quiz/database-quiz.service';
+import { Listen } from '../../../model/quiz/listen';
 
 import * as $ from 'jquery'
 import 'jquery-ui-dist/jquery-ui';
@@ -28,11 +29,11 @@ export class State2Page implements OnInit {
   // listen: any;
 
   state: string;
-  newScore: number;
+  // newScore: number;
 
-  list: any = [];
-  lst: any = [];
-  res: any = [];
+  // list: any = [];
+  // lst: any = [];
+  // res: any = [];
 
   level: string;
 
@@ -56,7 +57,7 @@ export class State2Page implements OnInit {
     this.dataScore = JSON.parse(localStorage.getItem('score'));
     console.log('datasc =', this.dataScore);
 
-    this.chkScore(this.level, this.dataScore)
+    this.checkScore(this.level, this.dataScore)
 
     this.db.getDatabaseState().subscribe(ready => {
       if(ready) {
@@ -64,6 +65,10 @@ export class State2Page implements OnInit {
       }
     })
 
+    this.hideAlert();
+  }
+
+  hideAlert() {
     $('#successMessage').hide();
     $('#successMessage').css({
       left: '580px',
@@ -126,24 +131,24 @@ export class State2Page implements OnInit {
   //   console.log(this.list);
   // }
 
-  chkScore(state: string, datascore: any) {
+  checkScore(level: string, datascore: any) {
     for (let i = 0; i < datascore.length; i++) {
-      if (state == '1') {
+      if (level == '1') {
         this.score = datascore[i].score_state1;
         this.state = 'score_state1';
-      } else if (state == '2') {
+      } else if (level == '2') {
         this.score = datascore[i].score_state2;
         this.state = 'score_state2';
-      } else if (state == '3') {
+      } else if (level == '3') {
         this.score = datascore[i].score_state3;
         this.state = 'score_state3';
-      } else if (state == '4') {
+      } else if (level == '4') {
         this.score = datascore[i].score_state4;
         this.state = 'score_state4';
-      } else if (state == '5') {
+      } else if (level == '5') {
         this.score = datascore[i].score_state5;
         this.state = 'score_state5';
-      } else if (state == '6') {
+      } else if (level == '6') {
         this.score = datascore[i].score_state6;
         this.state = 'score_state6';
       }
@@ -151,21 +156,7 @@ export class State2Page implements OnInit {
   }
 
   getDataQuiz(category: string) {
-    $('#successMessage').hide();
-    $('#successMessage').css({
-      left: '580px',
-      top: '250px',
-      width: 0,
-      height: 0,
-    });
-
-    $('#failMessage').hide();
-    $('#failMessage').css({
-      left: '580px',
-      top: '250px',
-      width: 0,
-      height: 0,
-    });
+    this.hideAlert();
 
     this.listen = [];
     this.heart_status = 0;
@@ -323,7 +314,7 @@ export class State2Page implements OnInit {
   //   await alert.present();
   // }
 
-  go_to_chk_point() {
+  gotoCheckpoint() {
     let score = 100 - (20*this.heart_status);
     console.log('dataScore:');
     console.log(this.dataScore[0].id);

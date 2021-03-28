@@ -15,10 +15,9 @@ export class AllKnowledgePage implements OnInit {
   ngOnInit() {
   }
 
-  getValue(a) {
-    this.topic = a;
+  getTopic(topic) {
+    this.topic = topic;
     localStorage.setItem('topic', this.topic);
-    console.log(this.topic);
   }
 
   goback() {

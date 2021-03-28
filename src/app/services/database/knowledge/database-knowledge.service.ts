@@ -4,14 +4,7 @@ import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
 import { HttpClient } from '@angular/common/http';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 import { BehaviorSubject, Observable } from 'rxjs';
-
-export interface Knowledge {
-  id: string,
-  name: string,
-  alphabet: string,
-  thai_sound: string,
-  english_sound: string
-}
+import { Knowledge } from '../../../model/knowledge/knowledge';
 
 @Injectable({
   providedIn: 'root'

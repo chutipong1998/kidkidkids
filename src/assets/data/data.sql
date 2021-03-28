@@ -46,6 +46,7 @@ CREATE TABLE IF NOT EXISTS "VEHICLE" (
 	"english_sound"	TEXT,
 	PRIMARY KEY("id")
 );
+/* ข้อมูลชุดที่ 1 */
 CREATE TABLE IF NOT EXISTS "DRAGDROPANIMAL" (
 	"id"	TEXT NOT NULL UNIQUE,
 	"name_state"	TEXT NOT NULL,
@@ -115,6 +116,85 @@ CREATE TABLE IF NOT EXISTS "SORTNUMBER" (
 	PRIMARY KEY("id")
 );
 CREATE TABLE IF NOT EXISTS "MATCHANIMALSOUND" (
+	"id"	TEXT NOT NULL UNIQUE,
+	"name_state"	TEXT NOT NULL,
+	"state"	TEXT NOT NULL,
+	"alphabet"	TEXT NOT NULL,
+	"shadow_image"	TEXT,
+	"sound"	TEXT,
+	"answer"	TEXT NOT NULL,
+	PRIMARY KEY("id")
+);
+/* ข้อมูลชุดที่ 2 */
+CREATE TABLE IF NOT EXISTS "DRAGDROPANIMAL_V2" (
+	"id"	TEXT NOT NULL UNIQUE,
+	"name_state"	TEXT NOT NULL,
+	"state"	TEXT NOT NULL,
+	"category"	TEXT NOT NULL,
+	"alphabet"	TEXT NOT NULL,
+	"shadow_image"	TEXT NOT NULL,
+	"answer"	TEXT NOT NULL,
+	PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "DRAGDROPFRUIT_V2" (
+	"id"	TEXT NOT NULL UNIQUE,
+	"name_state"	TEXT NOT NULL,
+	"state"	TEXT NOT NULL,
+	"category"	TEXT NOT NULL,
+	"alphabet"	TEXT NOT NULL,
+	"shadow_image"	TEXT NOT NULL,
+	"answer"	TEXT NOT NULL,
+	PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "DRAGDROPNUMBER_V2" (
+	"id"	TEXT NOT NULL UNIQUE,
+	"name_state"	TEXT NOT NULL,
+	"state"	TEXT NOT NULL,
+	"category"	TEXT NOT NULL,
+	"alphabet"	TEXT NOT NULL,
+	"shadow_image"	TEXT NOT NULL,
+	"answer"	TEXT NOT NULL,
+	PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "LISTENANIMAL_V2" (
+	"id"	TEXT NOT NULL UNIQUE,
+	"name_state"	TEXT NOT NULL,
+	"state"	TEXT NOT NULL,
+	"category"	TEXT NOT NULL,
+	"alphabet"	TEXT NOT NULL,
+	"sound"	TEXT,
+	"answer"	TEXT NOT NULL,
+	PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "LISTENFRUIT_V2" (
+	"id"	TEXT NOT NULL UNIQUE,
+	"name_state"	TEXT NOT NULL,
+	"state"	TEXT NOT NULL,
+	"category"	TEXT NOT NULL,
+	"alphabet"	TEXT NOT NULL,
+	"sound"	TEXT,
+	"answer"	TEXT NOT NULL,
+	PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "LISTENTHAIALPHABET_V2" (
+	"id"	TEXT NOT NULL UNIQUE,
+	"name_state"	TEXT NOT NULL,
+	"state"	TEXT NOT NULL,
+	"category"	TEXT NOT NULL,
+	"alphabet"	TEXT NOT NULL,
+	"sound"	TEXT,
+	"answer"	TEXT NOT NULL,
+	PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "SORTNUMBER_V2" (
+	"id"	TEXT NOT NULL UNIQUE,
+	"name_state"	TEXT NOT NULL,
+	"state"	TEXT NOT NULL,
+	"alphabet"	TEXT NOT NULL,
+	"answer"	TEXT NOT NULL,
+	PRIMARY KEY("id")
+);
+CREATE TABLE IF NOT EXISTS "MATCHANIMALSOUND_V2" (
 	"id"	TEXT NOT NULL UNIQUE,
 	"name_state"	TEXT NOT NULL,
 	"state"	TEXT NOT NULL,
@@ -260,6 +340,7 @@ INSERT or IGNORE INTO "VEHICLE" VALUES ('vhc12','vehicle','../../../assets/img/v
 INSERT or IGNORE INTO "VEHICLE" VALUES ('vhc13','vehicle','../../../assets/img/vehicle/taxi.png',NULL,NULL);
 INSERT or IGNORE INTO "VEHICLE" VALUES ('vhc14','vehicle','../../../assets/img/vehicle/bike.png',NULL,NULL);
 INSERT or IGNORE INTO "VEHICLE" VALUES ('vhc15','vehicle','../../../assets/img/vehicle/Motorcycles.png',NULL,NULL);
+/* ข้อมูลชุดที่ 1 */
 INSERT or IGNORE INTO "DRAGDROPANIMAL" VALUES ('1001','ลากวาง','1','สัตว์','../../../../assets/img/animal/elephant.png','../../../../assets/img/animal/Picture5.png','1');
 INSERT or IGNORE INTO "DRAGDROPANIMAL" VALUES ('2001','ลากวาง','2','สัตว์','../../../../assets/img/animal/Pig.png','../../../../assets/img/ngow.png','2');
 INSERT or IGNORE INTO "DRAGDROPANIMAL" VALUES ('2002','ลากวาง','2','สัตว์','../../../../assets/img/animal/dog.png','../../../../assets/img/ngow.png','2');
@@ -340,6 +421,87 @@ INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('4001','จับคู่เ�
 INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('4002','จับคู่เสียงของสัตว์','4','../../../../assets/img/animal/Pig.png','../../../../assets/img/24663.jpg',NULL,'4');
 INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('4003','จับคู่เสียงของสัตว์','4','../../../../assets/img/animal/dog.png','../../../../assets/img/24663.jpg',NULL,'4');
 INSERT or IGNORE INTO "MATCHANIMALSOUND" VALUES ('4004','จับคู่เสียงของสัตว์','4','../../../../assets/img/animal/bird.png','../../../../assets/img/24663.jpg',NULL,'4');
+/* ข้อมูลชุดที่ 2 */
+INSERT or IGNORE INTO "DRAGDROPANIMAL_V2" VALUES ('1001','ลากวาง','1','สัตว์','../../../../assets/img/animal/elephant.png','../../../../assets/img/animal/Picture5.png','1');
+INSERT or IGNORE INTO "DRAGDROPANIMAL_V2" VALUES ('2001','ลากวาง','2','สัตว์','../../../../assets/img/animal/Pig.png','../../../../assets/img/ngow.png','2');
+INSERT or IGNORE INTO "DRAGDROPANIMAL_V2" VALUES ('2002','ลากวาง','2','สัตว์','../../../../assets/img/animal/dog.png','../../../../assets/img/ngow.png','2');
+INSERT or IGNORE INTO "DRAGDROPANIMAL_V2" VALUES ('3001','ลากวาง','3','สัตว์','../../../../assets/img/animal/bird.png','../../../../assets/img/ngow.png','3');
+INSERT or IGNORE INTO "DRAGDROPANIMAL_V2" VALUES ('3002','ลากวาง','3','สัตว์','../../../../assets/img/animal/horse.png','../../../../assets/img/ngow.png','3');
+INSERT or IGNORE INTO "DRAGDROPANIMAL_V2" VALUES ('3003','ลากวาง','3','สัตว์','../../../../assets/img/animal/monkey.png','../../../../assets/img/ngow.png','3');
+INSERT or IGNORE INTO "DRAGDROPANIMAL_V2" VALUES ('4001','ลากวาง','4','สัตว์','../../../../assets/img/animal/elephant.png','../../../../assets/img/ngow.png','4');
+INSERT or IGNORE INTO "DRAGDROPANIMAL_V2" VALUES ('4002','ลากวาง','4','สัตว์','../../../../assets/img/animal/Pig.png','../../../../assets/img/ngow.png','4');
+INSERT or IGNORE INTO "DRAGDROPANIMAL_V2" VALUES ('4003','ลากวาง','4','สัตว์','../../../../assets/img/animal/dog.png','../../../../assets/img/ngow.png','4');
+INSERT or IGNORE INTO "DRAGDROPANIMAL_V2" VALUES ('4004','ลากวาง','4','สัตว์','../../../../assets/img/animal/bird.png','../../../../assets/img/ngow.png','4');
+INSERT or IGNORE INTO "DRAGDROPFRUIT_V2" VALUES ('1001','ลากวาง','1','ผลไม้','../../../../assets/img/fruit/apple.png','../../../../assets/img/ngow.png','1');
+INSERT or IGNORE INTO "DRAGDROPFRUIT_V2" VALUES ('2001','ลากวาง','2','ผลไม้','../../../../assets/img/fruit/orange.png','../../../../assets/img/ngow.png','1');
+INSERT or IGNORE INTO "DRAGDROPFRUIT_V2" VALUES ('2002','ลากวาง','2','ผลไม้','../../../../assets/img/fruit/strawberry.png','../../../../assets/img/ngow.png','1');
+INSERT or IGNORE INTO "DRAGDROPFRUIT_V2" VALUES ('3001','ลากวาง','3','ผลไม้','../../../../assets/img/fruit/mango.png','../../../../assets/img/ngow.png','2');
+INSERT or IGNORE INTO "DRAGDROPFRUIT_V2" VALUES ('3002','ลากวาง','3','ผลไม้','../../../../assets/img/fruit/watermelon.png','../../../../assets/img/ngow.png','2');
+INSERT or IGNORE INTO "DRAGDROPFRUIT_V2" VALUES ('3003','ลากวาง','3','ผลไม้','../../../../assets/img/fruit/banana.png','../../../../assets/img/ngow.png','2');
+INSERT or IGNORE INTO "DRAGDROPFRUIT_V2" VALUES ('4001','ลากวาง','4','ผลไม้','../../../../assets/img/fruit/apple.png','../../../../assets/img/ngow.png','3');
+INSERT or IGNORE INTO "DRAGDROPFRUIT_V2" VALUES ('4002','ลากวาง','4','ผลไม้','../../../../assets/img/fruit/orange.png','../../../../assets/img/ngow.png','3');
+INSERT or IGNORE INTO "DRAGDROPFRUIT_V2" VALUES ('4003','ลากวาง','4','ผลไม้','../../../../assets/img/fruit/strawberry.png','../../../../assets/img/ngow.png','3');
+INSERT or IGNORE INTO "DRAGDROPFRUIT_V2" VALUES ('4004','ลากวาง','4','ผลไม้','../../../../assets/img/fruit/banana.png','../../../../assets/img/ngow.png','3');
+INSERT or IGNORE INTO "DRAGDROPNUMBER_V2" VALUES ('1001','ลากวาง','1','ตัวเลข','../../../../assets/img/number/one.png','../../../../assets/img/ngow.png','1');
+INSERT or IGNORE INTO "DRAGDROPNUMBER_V2" VALUES ('2001','ลากวาง','2','ตัวเลข','../../../../assets/img/number/two.png','../../../../assets/img/ngow.png','1');
+INSERT or IGNORE INTO "DRAGDROPNUMBER_V2" VALUES ('2002','ลากวาง','2','ตัวเลข','../../../../assets/img/number/three.png','../../../../assets/img/ngow.png','1');
+INSERT or IGNORE INTO "DRAGDROPNUMBER_V2" VALUES ('3001','ลากวาง','3','ตัวเลข','../../../../assets/img/number/four.png','../../../../assets/img/ngow.png','3');
+INSERT or IGNORE INTO "DRAGDROPNUMBER_V2" VALUES ('3002','ลากวาง','3','ตัวเลข','../../../../assets/img/number/five.png','../../../../assets/img/ngow.png','3');
+INSERT or IGNORE INTO "DRAGDROPNUMBER_V2" VALUES ('3003','ลากวาง','3','ตัวเลข','../../../../assets/img/number/six.png','../../../../assets/img/ngow.png','3');
+INSERT or IGNORE INTO "DRAGDROPNUMBER_V2" VALUES ('4001','ลากวาง','4','ตัวเลข','../../../../assets/img/number/one.png','../../../../assets/img/ngow.png','4');
+INSERT or IGNORE INTO "DRAGDROPNUMBER_V2" VALUES ('4002','ลากวาง','4','ตัวเลข','../../../../assets/img/number/two.png','../../../../assets/img/ngow.png','4');
+INSERT or IGNORE INTO "DRAGDROPNUMBER_V2" VALUES ('4003','ลากวาง','4','ตัวเลข','../../../../assets/img/number/three.png','../../../../assets/img/ngow.png','4');
+INSERT or IGNORE INTO "DRAGDROPNUMBER_V2" VALUES ('4004','ลากวาง','4','ตัวเลข','../../../../assets/img/number/four.png','../../../../assets/img/ngow.png','4');
+INSERT or IGNORE INTO "LISTENANIMAL_V2" VALUES ('1001','ฟังเสียงเพื่อตอบคำถาม','1','สัตว์','../../../../assets/img/animal/elephant.png',NULL,'1');
+INSERT or IGNORE INTO "LISTENANIMAL_V2" VALUES ('2001','ฟังเสียงเพื่อตอบคำถาม','2','สัตว์','../../../../assets/img/animal/Pig.png',NULL,'1');
+INSERT or IGNORE INTO "LISTENANIMAL_V2" VALUES ('2002','ฟังเสียงเพื่อตอบคำถาม','2','สัตว์','../../../../assets/img/animal/dog.png',NULL,'1');
+INSERT or IGNORE INTO "LISTENANIMAL_V2" VALUES ('3001','ฟังเสียงเพื่อตอบคำถาม','3','สัตว์','../../../../assets/img/animal/bird.png',NULL,'2');
+INSERT or IGNORE INTO "LISTENANIMAL_V2" VALUES ('3002','ฟังเสียงเพื่อตอบคำถาม','3','สัตว์','../../../../assets/img/animal/horse.png',NULL,'2');
+INSERT or IGNORE INTO "LISTENANIMAL_V2" VALUES ('3003','ฟังเสียงเพื่อตอบคำถาม','3','สัตว์','../../../../assets/img/animal/monkey.png',NULL,'2');
+INSERT or IGNORE INTO "LISTENANIMAL_V2" VALUES ('4001','ฟังเสียงเพื่อตอบคำถาม','4','สัตว์','../../../../assets/img/animal/elephant.png',NULL,'3');
+INSERT or IGNORE INTO "LISTENANIMAL_V2" VALUES ('4002','ฟังเสียงเพื่อตอบคำถาม','4','สัตว์','../../../../assets/img/animal/Pig.png',NULL,'3');
+INSERT or IGNORE INTO "LISTENANIMAL_V2" VALUES ('4003','ฟังเสียงเพื่อตอบคำถาม','4','สัตว์','../../../../assets/img/animal/dog.png',NULL,'3');
+INSERT or IGNORE INTO "LISTENANIMAL_V2" VALUES ('4004','ฟังเสียงเพื่อตอบคำถาม','4','สัตว์','../../../../assets/img/animal/monkey.png',NULL,'3');
+INSERT or IGNORE INTO "LISTENFRUIT_V2" VALUES ('1001','ฟังเสียงเพื่อตอบคำถาม','1','ผลไม้','../../../../assets/img/fruit/apple.png',NULL,'1');
+INSERT or IGNORE INTO "LISTENFRUIT_V2" VALUES ('2001','ฟังเสียงเพื่อตอบคำถาม','2','ผลไม้','../../../../assets/img/fruit/orange.png',NULL,'2');
+INSERT or IGNORE INTO "LISTENFRUIT_V2" VALUES ('2002','ฟังเสียงเพื่อตอบคำถาม','2','ผลไม้','../../../../assets/img/fruit/strawberry.png',NULL,'2');
+INSERT or IGNORE INTO "LISTENFRUIT_V2" VALUES ('3001','ฟังเสียงเพื่อตอบคำถาม','3','ผลไม้','../../../../assets/img/fruit/mango.png',NULL,'3');
+INSERT or IGNORE INTO "LISTENFRUIT_V2" VALUES ('3002','ฟังเสียงเพื่อตอบคำถาม','3','ผลไม้','../../../../assets/img/fruit/watermelon.png',NULL,'3');
+INSERT or IGNORE INTO "LISTENFRUIT_V2" VALUES ('3003','ฟังเสียงเพื่อตอบคำถาม','3','ผลไม้','../../../../assets/img/fruit/banana.png',NULL,'3');
+INSERT or IGNORE INTO "LISTENFRUIT_V2" VALUES ('4001','ฟังเสียงเพื่อตอบคำถาม','4','ผลไม้','../../../../assets/img/fruit/apple.png',NULL,'4');
+INSERT or IGNORE INTO "LISTENFRUIT_V2" VALUES ('4002','ฟังเสียงเพื่อตอบคำถาม','4','ผลไม้','../../../../assets/img/fruit/orange.png',NULL,'4');
+INSERT or IGNORE INTO "LISTENFRUIT_V2" VALUES ('4003','ฟังเสียงเพื่อตอบคำถาม','4','ผลไม้','../../../../assets/img/fruit/strawberry.png',NULL,'4');
+INSERT or IGNORE INTO "LISTENFRUIT_V2" VALUES ('4004','ฟังเสียงเพื่อตอบคำถาม','4','ผลไม้','../../../../assets/img/fruit/mango.png',NULL,'4');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET_V2" VALUES ('1001','ฟังเสียงเพื่อตอบคำถาม','1','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/1.png',NULL,'1');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET_V2" VALUES ('2001','ฟังเสียงเพื่อตอบคำถาม','2','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/2.png',NULL,'1');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET_V2" VALUES ('2002','ฟังเสียงเพื่อตอบคำถาม','2','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/3.png',NULL,'1');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET_V2" VALUES ('3001','ฟังเสียงเพื่อตอบคำถาม','3','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/4.png',NULL,'2');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET_V2" VALUES ('3002','ฟังเสียงเพื่อตอบคำถาม','3','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/7.png',NULL,'2');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET_V2" VALUES ('3003','ฟังเสียงเพื่อตอบคำถาม','3','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/8.png',NULL,'2');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET_V2" VALUES ('4001','ฟังเสียงเพื่อตอบคำถาม','4','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/11.png',NULL,'3');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET_V2" VALUES ('4002','ฟังเสียงเพื่อตอบคำถาม','4','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/12.png',NULL,'3');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET_V2" VALUES ('4003','ฟังเสียงเพื่อตอบคำถาม','4','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/13.png',NULL,'3');
+INSERT or IGNORE INTO "LISTENTHAIALPHABET_V2" VALUES ('4004','ฟังเสียงเพื่อตอบคำถาม','4','ตัวอักษรภาษาไทย','../../../../assets/img/letters/thai/15.png',NULL,'3');
+INSERT or IGNORE INTO "SORTNUMBER_V2" VALUES ('1001','เรียงลำดับตัวเลข','1','../../../../assets/img/number/one.png','1');
+INSERT or IGNORE INTO "SORTNUMBER_V2" VALUES ('2001','เรียงลำดับตัวเลข','2','../../../../assets/img/number/three.png','2');
+INSERT or IGNORE INTO "SORTNUMBER_V2" VALUES ('2002','เรียงลำดับตัวเลข','2','../../../../assets/img/number/two.png','1');
+INSERT or IGNORE INTO "SORTNUMBER_V2" VALUES ('3001','เรียงลำดับตัวเลข','3','../../../../assets/img/number/six.png','3');
+INSERT or IGNORE INTO "SORTNUMBER_V2" VALUES ('3002','เรียงลำดับตัวเลข','3','../../../../assets/img/number/four.png','1');
+INSERT or IGNORE INTO "SORTNUMBER_V2" VALUES ('3003','เรียงลำดับตัวเลข','3','../../../../assets/img/number/five.png','2');
+INSERT or IGNORE INTO "SORTNUMBER_V2" VALUES ('4001','เรียงลำดับตัวเลข','4','../../../../assets/img/number/four.png','3');
+INSERT or IGNORE INTO "SORTNUMBER_V2" VALUES ('4002','เรียงลำดับตัวเลข','4','../../../../assets/img/number/five.png','4');
+INSERT or IGNORE INTO "SORTNUMBER_V2" VALUES ('4003','เรียงลำดับตัวเลข','4','../../../../assets/img/number/three.png','2');
+INSERT or IGNORE INTO "SORTNUMBER_V2" VALUES ('4004','เรียงลำดับตัวเลข','4','../../../../assets/img/number/two.png','1');
+INSERT or IGNORE INTO "MATCHANIMALSOUND_V2" VALUES ('1001','จับคู่เสียงของสัตว์','1','../../../../assets/img/animal/elephant.png','../../../../assets/img/animal/Picture5.png',NULL,'1');
+INSERT or IGNORE INTO "MATCHANIMALSOUND_V2" VALUES ('2001','จับคู่เสียงของสัตว์','2','../../../../assets/img/animal/Pig.png','../../../../assets/img/24663.jpg',NULL,'2');
+INSERT or IGNORE INTO "MATCHANIMALSOUND_V2" VALUES ('2002','จับคู่เสียงของสัตว์','2','../../../../assets/img/animal/dog.png','../../../../assets/img/24663.jpg',NULL,'2');
+INSERT or IGNORE INTO "MATCHANIMALSOUND_V2" VALUES ('3001','จับคู่เสียงของสัตว์','3','../../../../assets/img/animal/bird.png','../../../../assets/img/24663.jpg',NULL,'3');
+INSERT or IGNORE INTO "MATCHANIMALSOUND_V2" VALUES ('3002','จับคู่เสียงของสัตว์','3','../../../../assets/img/animal/horse.png','../../../../assets/img/24663.jpg',NULL,'3');
+INSERT or IGNORE INTO "MATCHANIMALSOUND_V2" VALUES ('3003','จับคู่เสียงของสัตว์','3','../../../../assets/img/animal/monkey.png','../../../../assets/img/24663.jpg',NULL,'3');
+INSERT or IGNORE INTO "MATCHANIMALSOUND_V2" VALUES ('4001','จับคู่เสียงของสัตว์','4','../../../../assets/img/animal/elephant.png','../../../../assets/img/24663.jpg',NULL,'4');
+INSERT or IGNORE INTO "MATCHANIMALSOUND_V2" VALUES ('4002','จับคู่เสียงของสัตว์','4','../../../../assets/img/animal/Pig.png','../../../../assets/img/24663.jpg',NULL,'4');
+INSERT or IGNORE INTO "MATCHANIMALSOUND_V2" VALUES ('4003','จับคู่เสียงของสัตว์','4','../../../../assets/img/animal/dog.png','../../../../assets/img/24663.jpg',NULL,'4');
+INSERT or IGNORE INTO "MATCHANIMALSOUND_V2" VALUES ('4004','จับคู่เสียงของสัตว์','4','../../../../assets/img/animal/bird.png','../../../../assets/img/24663.jpg',NULL,'4');
 INSERT or IGNORE INTO "DATA" VALUES ('1001','ลากวาง','สัตว์',0,0,0,0,0);
 INSERT or IGNORE INTO "DATA" VALUES ('1002','ลากวาง','ตัวเลข',0,0,0,0,0);
 INSERT or IGNORE INTO "DATA" VALUES ('1003','ลากวาง','ผลไม้',0,0,0,0,0);
