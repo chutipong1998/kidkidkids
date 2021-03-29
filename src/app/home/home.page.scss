@@ -1,5 +1,5 @@
 .bg-home {
-  --background: url(../../assets/img/background/bg-no-button-start.png) 0 0/100% 100% no-repeat;
+  --background: url(../../assets/img/background/bg+button-start.gif) 0 0/100% 100% no-repeat;
 }
 
 #container {
@@ -33,17 +33,26 @@
 }
 
 .btn {
-  margin-left: 5%;
-  // height: 120px;
-  // width: 120px;
-  // border-radius: 50%;
-  // background-color: palevioletred; /* Green */
+  margin-left: 4%;
+  height: 180px;
+  width: 180px;
+  border-radius: 50%;
+  background-color: none;
   border: none;
   color: white;
-  // padding-top: 40px;
+  padding-top: 40px;
   text-align: center;
-  // display: inline-block;
+  display: inline-block;
   font-size: 30px;
+  cursor: pointer;
+}
+
+.btn-sound{
+  margin-right: 13%;
+  border: none;
+  color: white;
+  font-size: 30px;
+  text-align: center;
   cursor: pointer;
 }
 

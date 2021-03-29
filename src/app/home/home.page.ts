@@ -14,6 +14,7 @@ export class HomePage implements OnInit {
 
   dataScore: Data[] = []
   dataKnowledge: Knowledge[] = []
+  statusSound: boolean;
 
   constructor(
     private db: DatabaseQuizService,
@@ -23,6 +24,14 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit() {
+    this.statusSound = false;
+    // this.nativeAudio.preloadComplex('test2', 'assets/audio/bg_audio.mp3', 1, 1, 0).then((res) => {
+    //   console.log('loading2...');
+    //   console.log(res);
+    // }, (err) => {
+    //   console.log('error');
+    //   console.log(err);
+    // });
     // load audio
     this.loadSound();
 
@@ -41,13 +50,37 @@ export class HomePage implements OnInit {
         console.log('playing test2');
         console.log(res);
       }, (err) => {
-        console.log('test2 error');
+        console.log('test2 playing error');
         console.log(err);
       });
     }, (err) => {
       console.log('error');
       console.log(err);
     });
+  }
+
+  turnOnOffSound() {
+    if (this.statusSound) {
+      console.log('status =', this.statusSound);
+      this.nativeAudio.loop('test2').then((res) => {
+        console.log('playing test2');
+        console.log(res);
+      }, (err) => {
+        console.log('test2 playing error');
+        console.log(err);
+      });
+      this.statusSound = false;
+    } else {
+      console.log('status =', this.statusSound);
+      this.nativeAudio.stop('test2').then((res) => {
+        console.log('stop test2');
+        console.log(res);
+      }, (err) => {
+        console.log('test2 stop error');
+        console.log(err);
+      });
+      this.statusSound = true;
+    }
   }
 
   loadDataScore() {

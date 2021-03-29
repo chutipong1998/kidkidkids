@@ -3,7 +3,8 @@
     <ion-col style="height: fit-content;">
       <div>
       </div>
-      <a class="home" routerLink="/home"><ion-icon name="home" (click)="goback()"></ion-icon></a>
+      <!-- <a class="home" routerLink="/home"><ion-icon name="home" (click)="goback()"></ion-icon></a> -->
+      <a class="home" routerLink="/home"><img src="../../assets/img/btn/btn-back.png" alt=""></a>
     </ion-col>
   </ion-row>
 
@@ -11,11 +12,11 @@
 
   <div id="container">
     <ion-row>
-      <ion-col class="knowledge">
-        <a class="btn" routerLink="/all-knowledge">แบบความรู้</a>
+      <ion-col>
+        <a class="btn knowledge" routerLink="/all-knowledge"></a>
       </ion-col>
-      <ion-col class="quiz">
-        <a class="btn" routerLink="/all-quiz">แบบทดสอบ</a>
+      <ion-col>
+        <a class="btn quiz" routerLink="/all-quiz"></a>
       </ion-col>
     </ion-row>
   </div>
