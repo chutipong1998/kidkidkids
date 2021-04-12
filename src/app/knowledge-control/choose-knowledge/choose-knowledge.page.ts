@@ -378,6 +378,13 @@ export class ChooseKnowledgePage implements OnInit {
 
   url = 'play-knowledge';
 
+  data_show_length = [
+    {id: 1, txt: 'sdv'},
+    {id: 1, txt: 'sdv'},
+    {id: 1, txt: 'sdv'},
+  ]
+
+
 
   constructor(public navCtrl: NavController, private route: Router, private db: DatabaseKnowledgeService,) {
 
@@ -466,8 +473,8 @@ export class ChooseKnowledgePage implements OnInit {
           
         }
       }
-      // console.log('dataString');
-      // console.log(this.dataString[0]);
+      console.log('dataString =');
+      console.log(this.dataString);
       // console.log(this.dataString.length);
     }
     // console.log('string =', this.dataString.length);
@@ -571,6 +578,7 @@ export class ChooseKnowledgePage implements OnInit {
   }
 
   goback() {
+    console.log('back');
     this.navCtrl.pop();
   }
 

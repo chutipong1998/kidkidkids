@@ -36,6 +36,7 @@ export class State1Page implements OnInit {
   level: string;
 
   heart: any;
+  random: number;
 
   constructor(private db: DatabaseQuizService, private route: Router) {
   }
@@ -63,6 +64,10 @@ export class State1Page implements OnInit {
 
     this.hideAlert();
   }
+
+  // random_number() {
+  //   return Math.floor(Math.random() * 2) + 1;
+  // }
 
   hideAlert() {
     $('#successMessage').hide();
@@ -150,7 +155,7 @@ export class State1Page implements OnInit {
 
     // Create the pile of shuffled cards
     for (var i = 0; i < dragdrop.length; i++) {
-      $(`<div style="text-align: center; margin: auto"><img src="${dragdrop[i].alphabet}" alt="" width="130px"></div>`)
+      $(`<div style="text-align: center; margin: auto;"><img src="${dragdrop[i].alphabet}" alt="" width="130px"></div>`)
       .data('number', i+1)
       .attr('id', 'card' + dragdrop[i].id)
       .appendTo('#cardPile')
@@ -196,8 +201,8 @@ export class State1Page implements OnInit {
     if (correctCards == 1) {
       $('#successMessage').show();
       $('#successMessage').animate({
-        left: '182px',
-        top: '70px',
+        left: '125px',
+        top: '30px',
         width: '500px',
         height: '300px',
         opacity: 1,
@@ -210,8 +215,8 @@ export class State1Page implements OnInit {
       if (heart_status == 3) {
         $('#failMessage').show();
         $('#failMessage').animate({
-          left: '182px',
-          top: '70px',
+          left: '125px',
+          top: '30px',
           width: '500px',
           height: '300px',
           opacity: 1,

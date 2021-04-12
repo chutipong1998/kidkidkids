@@ -1,32 +1,40 @@
 <ion-content padding class="bg-all-quiz">
-  <ion-row>
-    <ion-col>
-      <div>
-        <a class="btn-back" (click)="gotoAllQuiz()">
-          <img src="../../../assets/img/btn/btn-back.png" alt="">
-        </a>
-      </div>
-    </ion-col>
-  </ion-row>
-
-  <div id="container" style="margin-top: 3%;">
+  
+  <div id="container">
     <ion-row>
       <ion-col>
-        <a class="btn" routerLink="/choose-checkpoint" (click)="getQuiz('สัตว์')" style="padding-top: 10%;">สัตว์</a>
+        <div class="back">
+          <a class="btn-back" (click)="gotoAllQuiz()">
+            <img src="../../../assets/img/btn/btn-back.png" alt="">
+          </a>
+        </div>
       </ion-col>
+  
       <ion-col>
-        <a class="{{ class }}" (click)="getQuiz(topic)" routerLink="/choose-checkpoint">{{ topic }}</a>
-        <!-- <a class="{{ cls }}" (click)="getQuiz(toppic)" routerLink="/choose-checkpoint">{{ toppic }}</a> -->
+      </ion-col>
+    
+      <ion-col>
       </ion-col>
     </ion-row>
-    <div style="padding: 10px;"></div>
-    <ion-row>
-      <ion-col>
-        <a class="btn" (click)="getQuiz('ผลไม้')" routerLink="/choose-checkpoint">ผลไม้</a>
+    <ion-row> 
+      <ion-col size="4" offset="2">  
+        <div class="center">  
+          <a class="btn" routerLink="/choose-checkpoint" (click)="getQuiz('สัตว์')"><img src="../../../assets/img/menu-learning-icns/5.png" alt=""></a> 
+        </div>  
       </ion-col>
-      <!-- <ion-col>
-        <a class="btn" routerLink="/choose-checkpoint">จับคู่เสียงของสัตว์</a>
-      </ion-col> -->
-    </ion-row>
+      <div style="padding: 10px;"></div>  
+      <ion-col size="4">  
+        <div class="center">  
+          <a class="btn" (click)="getQuiz(topic)" routerLink="/choose-checkpoint"><img src="{{ img }}" alt=""></a>
+        </div>  
+      </ion-col>  
+    </ion-row>  
+    <ion-row>  
+      <ion-col size="4" offset="4">  
+        <div class="center">  
+          <a class="btn" (click)="getQuiz('ผลไม้')" routerLink="/choose-checkpoint"><img src="../../../assets/img/menu-learning-icns/3.png" alt=""></a>
+        </div>  
+      </ion-col>  
+    </ion-row> 
   </div>
 </ion-content>

@@ -44,6 +44,7 @@ export class State2Page implements OnInit {
 
   heart: any;
   heart_status: number;
+  random: number;
 
   constructor(private db: DatabaseQuizService, private alertCtrl: AlertController, private route: Router) { }
 
@@ -67,6 +68,10 @@ export class State2Page implements OnInit {
 
     this.hideAlert();
   }
+
+  // random_number() {
+  //   return Math.floor(Math.random() * 2) + 1;
+  // }
 
   hideAlert() {
     $('#successMessage').hide();

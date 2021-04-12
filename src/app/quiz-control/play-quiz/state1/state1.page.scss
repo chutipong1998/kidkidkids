@@ -1,5 +1,5 @@
 .bg-choose-checkpoint {
-    --background: url(../../../../assets/img/background/bg.jpg) 0 0/100% 100% no-repeat;
+    --background: url(../../../../assets/img/background/bg-page-th.png) 0 0/100% 100% no-repeat;
 }
 img {
   // width: 200px;
@@ -80,10 +80,6 @@ img {
 
 #successMessage, #failMessage {
   position: absolute;
-  left: 580px;
-  top: 250px;
-  width: 0;
-  height: 0;
   z-index: 100;
   background: white;
   border: 2px solid #333;

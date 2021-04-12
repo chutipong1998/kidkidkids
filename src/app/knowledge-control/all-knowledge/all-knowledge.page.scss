@@ -1,5 +1,5 @@
 .bg-all-knowledge {
-  --background: url(../../../assets/img/background/bg-allKnowledge.jpg) 0 0/100% 100% no-repeat;
+  --background: url(../../../assets/img/background/bg-menu-learning.png) 0 0/100% 100% no-repeat;
   
   #container {
     text-align: center;
@@ -34,20 +34,21 @@
 
 
 .btn {
-  height: 100px;
+  // height: 100px;
     // width: 125px;
-    border-radius: 50%;
-    background: none;
-    // background-color: palevioletred; /* Green */
-    border: none;
-    border: none;
-    color: rgb(165, 101, 42);
-    text-shadow:1px 1px 0 burlywood;
-    padding-top: 30px;
-    text-align: center;
-    display: inline-block;
-    font-size: 30px;
-    cursor: pointer;
+  border-radius: 50%;
+  height: 120px;
+  width: 150px;
+  background: none;
+  // background-color: cadetblue; /* Green */
+  border: none;
+  // color: rgb(165, 101, 42);
+  // text-shadow:1px 1px 0 burlywood;
+  // padding-top: 30px;
+  // text-align: center;
+  display: inline-block;
+  // font-size: 30px;
+  cursor: pointer;
 }
 
 // .back {
@@ -69,16 +70,28 @@
   // font-weight: bold;
   // height: 31px;
   // cursor: pointer;
-  margin-left: 2%;
-  padding-top: 6px;
-  height: 80px;
-  width: 80px;
+  // margin-left: 2%;
+  // padding-top: 6px;
+  height: 100%;
+  width: 26%;
   border-radius: 50%;
   display: inline-block;
   background-color: none;
   cursor: pointer;
 }
 
+.alphabet{
+  margin-left: 12%;
+  margin-top: 2%;
+}
+
+.number{
+  margin-right: 7%;
+}
+
+.animal{
+  margin-left: 7%;
+}
 // .ion-color-warning {
 //   --ion-color-base: var(--ion-color-warning, orange) !important;
 //   --ion-color-base-rgb: var(--ion-color-warning-rgb, 255, 166, 0) !important;

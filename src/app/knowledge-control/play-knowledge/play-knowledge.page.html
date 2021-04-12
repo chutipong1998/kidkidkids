@@ -1,5 +1,34 @@
 <ion-content padding class="bg-choose-checkpoint">
+  <div class="button-back">
+    <a class="btn-back" (click)="goback()">
+      <img src="../../../assets/img/btn/btn-back.png" alt="">
+    </a>
+  </div>
+
+  <div class="icon-quiz">
+    <img src="{{show.alphabet}}" alt="" srcset="">
+  </div>
   <ion-row>
+    <ion-col class="speker1">
+            <p> <img src="../../../assets/img/icons-speaker/btn-th-blue.png" alt="" srcset=""></p>
+    </ion-col>
+    <ion-col class="speker2">
+      <p> <img src="../../../assets/img/icons-speaker/btn-en-blue.png" alt="" srcset=""></p>
+    </ion-col>
+  </ion-row>
+  <!-- <div class="speker">
+    <div class="img1">
+      <img src="{{show.alphabet}}" alt="" srcset="">
+    </div>
+   
+  </div>
+  <div class="speker2">
+    <div class="img2">
+      <img src="{{show.alphabet}}" alt="" srcset="">
+    </div>
+  </div>
+  -->
+  <!-- <ion-row>
     <ion-col>
       <div>
         <a class="btn-back" (click)="goback()">
@@ -8,32 +37,46 @@
       </div>
     </ion-col>
   
-    <!-- <ion-col>
+    <ion-col>
     </ion-col>
   
-    <ion-col style="text-align: right; padding-right: 20px;">
-      <div>
-        <p>SCORE : 0</p>
-      </div>
-    </ion-col> -->
-  </ion-row>
+    <ion-col>
+    </ion-col>
+  </ion-row> -->
 
-  <div id="container">
-    <ion-row>
-      <ion-col>
-        <div class="btn pass"><img src="{{show.alphabet}}" alt="" srcset=""></div>
-      </ion-col>
-    </ion-row>
-    <div style="padding: 20px;"></div>
-    <ion-row>
-      <ion-col>
-        <a style="background: none;"><img src="../../../assets/img/speaker-purple.png" alt="" srcset=""></a>
-        <p class="speaker">กดเพื่อฟังเสียงภาษาไทย</p>
-      </ion-col>
-      <ion-col>
-        <a style="background: none;"><img src="../../../assets/img/speaker-pink.png" alt="" srcset=""></a>
-        <p class="speaker">กดเพื่อฟังเสียงภาษาอังกฤษ</p>
-      </ion-col>
-    </ion-row>
-  </div>
+  <!-- <div id="container">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div class="back">
+            <a class="btn-back" (click)="goback()">
+              <img src="../../../assets/img/btn/btn-back.png" alt="">
+            </a>
+          </div>
+        </ion-col>
+      
+        <ion-col>
+        </ion-col>
+      
+        <ion-col>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div class="btn"><img src="{{show.alphabet}}" alt="" srcset=""></div>
+        </ion-col>
+      </ion-row>
+      <div style="padding: 10px;"></div>
+      <ion-row>
+        <ion-col>
+          <a style="background: none;"><img style="width: 27%;" src="../../../assets/img/speaker-purple.png" alt="" srcset=""></a>
+          <p class="speaker">กดเพื่อฟังเสียงภาษาไทย</p>
+        </ion-col>
+        <ion-col>
+          <a style="background: none;"><img style="width: 27%;" src="../../../assets/img/speaker-pink.png" alt="" srcset=""></a>
+          <p class="speaker">กดเพื่อฟังเสียงภาษาอังกฤษ</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div> -->
 </ion-content>

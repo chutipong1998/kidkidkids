@@ -38,6 +38,7 @@ export class State3Page implements OnInit {
   heart: any;
 
   data_sort_number: SortNumber[] = [];
+  random: number;
 
   constructor(private db: DatabaseQuizService, private route: Router) { }
 
@@ -59,6 +60,10 @@ export class State3Page implements OnInit {
       }
     });
   }
+
+  // random_number() {
+  //   return Math.floor(Math.random() * 2) + 1;
+  // }
 
   hide_alert() {
     $('#successMessage').hide();

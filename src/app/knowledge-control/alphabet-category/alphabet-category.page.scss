@@ -1,5 +1,5 @@
 .bg-main-page {
-  --background: url(../../../assets/img/background/bg3.jpg) 0 0/100% 100% no-repeat;
+  --background: url(../../../assets/img/background/page3-th-en.png) 0 0/100% 100% no-repeat;
 
   #container {
     text-align: center;
@@ -36,35 +36,31 @@
 .btn {
     height: 140px;
     width: 170px;
-    // border-radius: 50%;
-    // background-color: green; /* Green */
+    border-radius: 50%;
     background: none;
     border: none;
-    color: rgb(165, 101, 42);
-    text-shadow:1px 1px 0 burlywood;
-    padding-top: 45px;
-    text-align: center;
+    // color: rgb(165, 101, 42);
+    // text-shadow:1px 1px 0 burlywood;
     display: inline-block;
-    font-size: 26px;
     // border: 3px solid darkgreen;
     cursor: pointer;
 }
 
 .eng {
   margin-top: 1%;
-  margin-left: 9%;
+  margin-right: 23%;
 }
 
 .thai {
   margin-top: 1%;
-  margin-right: 5%;
+  margin-left: 19%;
 }
 
 .btn-back {
-  margin-left: 2%;
-  padding-top: 6px;
-  height: 80px;
-  width: 80px;
+  // margin-left: 2%;
+  // padding-top: 6px;
+  height: 100%;
+  width: 26%;
   border-radius: 50%;
   display: inline-block;
   background-color: none;

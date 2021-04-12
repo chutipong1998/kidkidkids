@@ -55,7 +55,9 @@ export class DatabaseQuizService {
     .subscribe(sql => {
       this.sqlitePorter.importSqlToDb(this.database, sql)
         .then(_ => {
-          
+          // this.random = this.random_number();
+
+          // console.log('rnd =', this.random);
           // ฟังเสียงเพื่อตอบคำถาม
           this.loadLisanimals();
           this.loadListThaiAlps();
@@ -122,181 +124,396 @@ export class DatabaseQuizService {
   }
 
   loadLisanimals() {
+    console.log('listAnimal');
+    // let lisanimals: Listen[] = [];
     this.random = this.random_number();
-    console.log('random =', this.random);
+
     if (this.random == 1) {
-      console.log('pass');
-    }
-    
-    return this.database.executeSql('SELECT * FROM LISTENANIMAL', []).then(data => {
-      let lisanimals: Listen[] = [];
-      
-      if (data.rows.length > 0) {
-        for (var i = 0; i < data.rows.length; i++) {
-          lisanimals.push({ 
-            id: data.rows.item(i).id,
-            name_state: data.rows.item(i).name_state,
-            state: data.rows.item(i).state,
-            category: data.rows.item(i).category,
-            alphabet: data.rows.item(i).alphabet, 
-            sound: data.rows.item(i).sound,
-            answer: data.rows.item(i).answer
-          });
+      console.log('ramdom = 1');
+      return this.database.executeSql('SELECT * FROM LISTENANIMAL', []).then(data => {
+        let lisanimals: Listen[] = [];
+        
+        if (data.rows.length > 0) {
+          for (var i = 0; i < data.rows.length; i++) {
+            lisanimals.push({ 
+              id: data.rows.item(i).id,
+              name_state: data.rows.item(i).name_state,
+              state: data.rows.item(i).state,
+              category: data.rows.item(i).category,
+              alphabet: data.rows.item(i).alphabet, 
+              sound: data.rows.item(i).sound,
+              answer: data.rows.item(i).answer
+            });
+          }
         }
-      }
-      this.lisanimal.next(lisanimals);
-    });
+        this.lisanimal.next(lisanimals);
+      });
+    } else if (this.random == 2) {
+      console.log('ramdom = 2');
+      return this.database.executeSql('SELECT * FROM LISTENANIMAL_V2', []).then(data => {
+        let lisanimals: Listen[] = [];
+        
+        if (data.rows.length > 0) {
+          for (var i = 0; i < data.rows.length; i++) {
+            lisanimals.push({ 
+              id: data.rows.item(i).id,
+              name_state: data.rows.item(i).name_state,
+              state: data.rows.item(i).state,
+              category: data.rows.item(i).category,
+              alphabet: data.rows.item(i).alphabet, 
+              sound: data.rows.item(i).sound,
+              answer: data.rows.item(i).answer
+            });
+          }
+        }
+        this.lisanimal.next(lisanimals);
+      });
+    }
   }
 
   loadListThaiAlps() {
-    return this.database.executeSql('SELECT * FROM LISTENTHAIALPHABET', []).then(data => {
-      let listhaiAlps: Listen[] = [];
-      
-      if (data.rows.length > 0) {
-        for (var i = 0; i < data.rows.length; i++) {
-          
-          listhaiAlps.push({ 
-            id: data.rows.item(i).id,
-            name_state: data.rows.item(i).name_state,
-            state: data.rows.item(i).state,
-            category: data.rows.item(i).category,
-            alphabet: data.rows.item(i).alphabet,
-            sound: data.rows.item(i).sound, 
-            answer: data.rows.item(i).answer
-          });
+    console.log('ListThaiAlps');
+    // let listhaiAlps: Listen[] = [];
+    this.random = this.random_number();
+
+    if (this.random == 1) {
+      console.log('ramdom = 1');
+      return this.database.executeSql('SELECT * FROM LISTENTHAIALPHABET', []).then(data => {
+        let listhaiAlps: Listen[] = [];
+        
+        if (data.rows.length > 0) {
+          for (var i = 0; i < data.rows.length; i++) {
+            
+            listhaiAlps.push({ 
+              id: data.rows.item(i).id,
+              name_state: data.rows.item(i).name_state,
+              state: data.rows.item(i).state,
+              category: data.rows.item(i).category,
+              alphabet: data.rows.item(i).alphabet,
+              sound: data.rows.item(i).sound, 
+              answer: data.rows.item(i).answer
+            });
+          }
         }
-      }
-      this.listhaiAlp.next(listhaiAlps);
-    });
+        this.listhaiAlp.next(listhaiAlps);
+      });
+    } else if (this.random == 2) {
+      console.log('ramdom = 2');
+      return this.database.executeSql('SELECT * FROM LISTENTHAIALPHABET_V2', []).then(data => {
+        let listhaiAlps: Listen[] = [];
+        
+        if (data.rows.length > 0) {
+          for (var i = 0; i < data.rows.length; i++) {
+            
+            listhaiAlps.push({ 
+              id: data.rows.item(i).id,
+              name_state: data.rows.item(i).name_state,
+              state: data.rows.item(i).state,
+              category: data.rows.item(i).category,
+              alphabet: data.rows.item(i).alphabet,
+              sound: data.rows.item(i).sound, 
+              answer: data.rows.item(i).answer
+            });
+          }
+        }
+        this.listhaiAlp.next(listhaiAlps);
+      });
+    }
   }
 
   loadListFruits() {
-    return this.database.executeSql('SELECT * FROM LISTENFRUIT', []).then(data => {
-      let lisfruits: Listen[] = [];
-      
-      if (data.rows.length > 0) {
-        for (var i = 0; i < data.rows.length; i++) {
-          
-          lisfruits.push({ 
-            id: data.rows.item(i).id,
-            name_state: data.rows.item(i).name_state,
-            state: data.rows.item(i).state,
-            category: data.rows.item(i).category,
-            alphabet: data.rows.item(i).alphabet, 
-            sound: data.rows.item(i).sound,
-            answer: data.rows.item(i).answer
-          });
+    console.log('ListFruit');
+    // let lisfruits: Listen[] = [];
+    this.random = this.random_number();
+
+    if (this.random == 1) {
+      console.log('ramdom = 1');
+      return this.database.executeSql('SELECT * FROM LISTENFRUIT', []).then(data => {
+        let lisfruits: Listen[] = [];
+        
+        if (data.rows.length > 0) {
+          for (var i = 0; i < data.rows.length; i++) {
+            
+            lisfruits.push({ 
+              id: data.rows.item(i).id,
+              name_state: data.rows.item(i).name_state,
+              state: data.rows.item(i).state,
+              category: data.rows.item(i).category,
+              alphabet: data.rows.item(i).alphabet, 
+              sound: data.rows.item(i).sound,
+              answer: data.rows.item(i).answer
+            });
+          }
         }
-      }
-      this.lisfruit.next(lisfruits);
-    });
+        this.lisfruit.next(lisfruits);
+      });
+    } else if (this.random == 2) {
+      console.log('ramdom = 2');
+      return this.database.executeSql('SELECT * FROM LISTENFRUIT_V2', []).then(data => {
+        let lisfruits: Listen[] = [];
+        
+        if (data.rows.length > 0) {
+          for (var i = 0; i < data.rows.length; i++) {
+            
+            lisfruits.push({ 
+              id: data.rows.item(i).id,
+              name_state: data.rows.item(i).name_state,
+              state: data.rows.item(i).state,
+              category: data.rows.item(i).category,
+              alphabet: data.rows.item(i).alphabet, 
+              sound: data.rows.item(i).sound,
+              answer: data.rows.item(i).answer
+            });
+          }
+        }
+        this.lisfruit.next(lisfruits);
+      });
+    }
   }
 
   loadDragDropAnimal() {
-    return this.database.executeSql('SELECT * FROM DRAGDROPANIMAL', []).then(data => {
-      let draganimal: Dragdrop[] = [];
-      
-      if (data.rows.length > 0) {
-        for (var i = 0; i < data.rows.length; i++) {
-          
-          draganimal.push({ 
-            id: data.rows.item(i).id,
-            name_state: data.rows.item(i).name_state,
-            state: data.rows.item(i).state,
-            category: data.rows.item(i).category,
-            alphabet: data.rows.item(i).alphabet, 
-            shadow_image: data.rows.item(i).shadow_image,
-            answer: data.rows.item(i).answer
-          });
+    console.log('DragDropAnimal');
+    console.log('rnd =', this.random);
+    // let draganimal: Dragdrop[] = [];
+    this.random = this.random_number();
+
+    if (this.random == 1) {
+      console.log('ramdom = 1');
+      return this.database.executeSql('SELECT * FROM DRAGDROPANIMAL', []).then(data => {
+        let draganimal: Dragdrop[] = [];
+        
+        if (data.rows.length > 0) {
+          for (var i = 0; i < data.rows.length; i++) {
+            
+            draganimal.push({ 
+              id: data.rows.item(i).id,
+              name_state: data.rows.item(i).name_state,
+              state: data.rows.item(i).state,
+              category: data.rows.item(i).category,
+              alphabet: data.rows.item(i).alphabet, 
+              shadow_image: data.rows.item(i).shadow_image,
+              answer: data.rows.item(i).answer
+            });
+          }
         }
-      }
-      this.draganimal.next(draganimal);
-    });
+        this.draganimal.next(draganimal);
+      });
+    } else if (this.random == 2) {
+      console.log('ramdom = 2');
+      return this.database.executeSql('SELECT * FROM DRAGDROPANIMAL_V2', []).then(data => {
+        let draganimal: Dragdrop[] = [];
+        
+        if (data.rows.length > 0) {
+          for (var i = 0; i < data.rows.length; i++) {
+            
+            draganimal.push({ 
+              id: data.rows.item(i).id,
+              name_state: data.rows.item(i).name_state,
+              state: data.rows.item(i).state,
+              category: data.rows.item(i).category,
+              alphabet: data.rows.item(i).alphabet, 
+              shadow_image: data.rows.item(i).shadow_image,
+              answer: data.rows.item(i).answer
+            });
+          }
+        }
+        this.draganimal.next(draganimal);
+      });
+    }
   }
 
   loadDragDropFruit() {
-    return this.database.executeSql('SELECT * FROM DRAGDROPFRUIT', []).then(data => {
-      let dragfruit: Dragdrop[] = [];
-      
-      if (data.rows.length > 0) {
-        for (var i = 0; i < data.rows.length; i++) {
-          
-          dragfruit.push({ 
-            id: data.rows.item(i).id,
-            name_state: data.rows.item(i).name_state,
-            state: data.rows.item(i).state,
-            category: data.rows.item(i).category,
-            alphabet: data.rows.item(i).alphabet, 
-            shadow_image: data.rows.item(i).shadow_image,
-            answer: data.rows.item(i).answer
-          });
+    console.log('DragDropFruit');
+    // let dragfruit: Dragdrop[] = [];
+    this.random = this.random_number();
+
+    if (this.random == 1) {
+      console.log('ramdom = 1');
+      return this.database.executeSql('SELECT * FROM DRAGDROPFRUIT', []).then(data => {
+        let dragfruit: Dragdrop[] = [];
+        
+        if (data.rows.length > 0) {
+          for (var i = 0; i < data.rows.length; i++) {
+            
+            dragfruit.push({ 
+              id: data.rows.item(i).id,
+              name_state: data.rows.item(i).name_state,
+              state: data.rows.item(i).state,
+              category: data.rows.item(i).category,
+              alphabet: data.rows.item(i).alphabet, 
+              shadow_image: data.rows.item(i).shadow_image,
+              answer: data.rows.item(i).answer
+            });
+          }
         }
-      }
-      this.dragfruit.next(dragfruit);
-    });
+        this.dragfruit.next(dragfruit);
+      });
+    } else if (this.random == 2) {
+      console.log('ramdom = 2');
+      return this.database.executeSql('SELECT * FROM DRAGDROPFRUIT_V2', []).then(data => {
+        let dragfruit: Dragdrop[] = [];
+        
+        if (data.rows.length > 0) {
+          for (var i = 0; i < data.rows.length; i++) {
+            
+            dragfruit.push({ 
+              id: data.rows.item(i).id,
+              name_state: data.rows.item(i).name_state,
+              state: data.rows.item(i).state,
+              category: data.rows.item(i).category,
+              alphabet: data.rows.item(i).alphabet, 
+              shadow_image: data.rows.item(i).shadow_image,
+              answer: data.rows.item(i).answer
+            });
+          }
+        }
+        this.dragfruit.next(dragfruit);
+      });
+    }
   }
 
   loadDragDropNumber() {
-    return this.database.executeSql('SELECT * FROM DRAGDROPNUMBER', []).then(data => {
-      let dragnumber: Dragdrop[] = [];
-      
-      if (data.rows.length > 0) {
-        for (var i = 0; i < data.rows.length; i++) {
-          
-          dragnumber.push({ 
-            id: data.rows.item(i).id,
-            name_state: data.rows.item(i).name_state,
-            state: data.rows.item(i).state,
-            category: data.rows.item(i).category,
-            alphabet: data.rows.item(i).alphabet, 
-            shadow_image: data.rows.item(i).shadow_image,
-            answer: data.rows.item(i).answer
-          });
+    console.log('DragDropNumber');
+    // let dragnumber: Dragdrop[] = [];
+    this.random = this.random_number();
+
+    if (this.random == 1) {
+      console.log('ramdom = 1');
+      return this.database.executeSql('SELECT * FROM DRAGDROPNUMBER', []).then(data => {
+        let dragnumber: Dragdrop[] = [];
+        
+        if (data.rows.length > 0) {
+          for (var i = 0; i < data.rows.length; i++) {
+            
+            dragnumber.push({ 
+              id: data.rows.item(i).id,
+              name_state: data.rows.item(i).name_state,
+              state: data.rows.item(i).state,
+              category: data.rows.item(i).category,
+              alphabet: data.rows.item(i).alphabet, 
+              shadow_image: data.rows.item(i).shadow_image,
+              answer: data.rows.item(i).answer
+            });
+          }
         }
-      }
-      this.dragnumber.next(dragnumber);
-    });
+        this.dragnumber.next(dragnumber);
+      });
+    } else if (this.random == 2) {
+      console.log('ramdom = 2');
+      return this.database.executeSql('SELECT * FROM DRAGDROPNUMBER_V2', []).then(data => {
+        let dragnumber: Dragdrop[] = [];
+        
+        if (data.rows.length > 0) {
+          for (var i = 0; i < data.rows.length; i++) {
+            
+            dragnumber.push({ 
+              id: data.rows.item(i).id,
+              name_state: data.rows.item(i).name_state,
+              state: data.rows.item(i).state,
+              category: data.rows.item(i).category,
+              alphabet: data.rows.item(i).alphabet, 
+              shadow_image: data.rows.item(i).shadow_image,
+              answer: data.rows.item(i).answer
+            });
+          }
+        }
+        this.dragnumber.next(dragnumber);
+      });
+    }
   }
 
   loadSortNumber() {
-    return this.database.executeSql('SELECT * FROM SORTNUMBER', []).then(data => {
-      let sort_number: SortNumber[] = [];
+    console.log('SortNumber');
+    // let sort_number: SortNumber[] = [];
+    this.random = this.random_number();
 
-      if (data.rows.length > 0) {
-        for (let i = 0; i < data.rows.length; i++) {
-          sort_number.push({
-            id: data.rows.item(i).id,
-            name_state: data.rows.item(i).name_state,
-            state: data.rows.item(i).state,
-            alphabet: data.rows.item(i).alphabet,
-            answer: data.rows.item(i).answer
-          })
-          
+    if (this.random == 1) {
+      console.log('ramdom = 1');
+      return this.database.executeSql('SELECT * FROM SORTNUMBER', []).then(data => {
+        let sort_number: SortNumber[] = [];
+  
+        if (data.rows.length > 0) {
+          for (let i = 0; i < data.rows.length; i++) {
+            sort_number.push({
+              id: data.rows.item(i).id,
+              name_state: data.rows.item(i).name_state,
+              state: data.rows.item(i).state,
+              alphabet: data.rows.item(i).alphabet,
+              answer: data.rows.item(i).answer
+            })
+            
+          }
         }
-      }
-      this.sort_number.next(sort_number)
-    });
+        this.sort_number.next(sort_number)
+      });
+    } else if (this.random == 2) {
+      console.log('ramdom = 2');
+      return this.database.executeSql('SELECT * FROM SORTNUMBER_V2', []).then(data => {
+        let sort_number: SortNumber[] = [];
+  
+        if (data.rows.length > 0) {
+          for (let i = 0; i < data.rows.length; i++) {
+            sort_number.push({
+              id: data.rows.item(i).id,
+              name_state: data.rows.item(i).name_state,
+              state: data.rows.item(i).state,
+              alphabet: data.rows.item(i).alphabet,
+              answer: data.rows.item(i).answer
+            })
+            
+          }
+        }
+        this.sort_number.next(sort_number)
+      });
+    }
   }
 
   loadMatchAnimalSound() {
-    return this.database.executeSql('SELECT * FROM MATCHANIMALSOUND', []).then(data => {
-      let match_animal_sound: MatchAnimalSound[] = [];
+    console.log('MatchAnimalSound');
+    // let match_animal_sound: MatchAnimalSound[] = [];
+    this.random = this.random_number();
 
-      if (data.rows.length > 0) {
-        for (let i = 0; i < data.rows.length; i++) {
-          match_animal_sound.push({
-            id: data.rows.item(i).id,
-            name_state: data.rows.item(i).name_state,
-            state: data.rows.item(i).state,
-            alphabet: data.rows.item(i).alphabet, 
-            shadow_image: data.rows.item(i).shadow_image,
-            sound: data.rows.item(i).sound,
-            answer: data.rows.item(i).answer
-          });
+    if (this.random == 1) {
+      console.log('ramdom = 1');
+      return this.database.executeSql('SELECT * FROM MATCHANIMALSOUND', []).then(data => {
+        let match_animal_sound: MatchAnimalSound[] = [];
+  
+        if (data.rows.length > 0) {
+          for (let i = 0; i < data.rows.length; i++) {
+            match_animal_sound.push({
+              id: data.rows.item(i).id,
+              name_state: data.rows.item(i).name_state,
+              state: data.rows.item(i).state,
+              alphabet: data.rows.item(i).alphabet, 
+              shadow_image: data.rows.item(i).shadow_image,
+              sound: data.rows.item(i).sound,
+              answer: data.rows.item(i).answer
+            });
+          }
         }
-      }
-      this.match_animal_sound.next(match_animal_sound)
-    });
+        this.match_animal_sound.next(match_animal_sound)
+      });
+    } else if (this.random == 2) {
+      console.log('ramdom = 2');
+      return this.database.executeSql('SELECT * FROM MATCHANIMALSOUND_V2', []).then(data => {
+        let match_animal_sound: MatchAnimalSound[] = [];
+  
+        if (data.rows.length > 0) {
+          for (let i = 0; i < data.rows.length; i++) {
+            match_animal_sound.push({
+              id: data.rows.item(i).id,
+              name_state: data.rows.item(i).name_state,
+              state: data.rows.item(i).state,
+              alphabet: data.rows.item(i).alphabet, 
+              shadow_image: data.rows.item(i).shadow_image,
+              sound: data.rows.item(i).sound,
+              answer: data.rows.item(i).answer
+            });
+          }
+        }
+        this.match_animal_sound.next(match_animal_sound)
+      });
+    }
   }
 
   // ส่วนเก็บคะแนน

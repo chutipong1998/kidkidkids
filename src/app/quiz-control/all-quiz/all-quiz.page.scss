@@ -1,5 +1,5 @@
 .bg-all-quiz {
-  --background: url(../../../assets/img/background/bg.jpg) 0 0/100% 100% no-repeat;
+  --background: url(../../../assets/img/background/bg.png) 0 0/100% 100% no-repeat;
   #container {
     text-align: center;
   
@@ -32,26 +32,83 @@
 }
 
 .btn {
-  height: 120px;
-  width: 150px;
-  border-radius: 50%;
-  background-color: palevioletred; /* Green */
+  height: 100%;
+  width: 41%;
+  border-radius: 10%;
+  background: none;
+  // background-color: palevioletred; /* Green */
   border: none;
   color: white;
-  padding-top: 35px;
   text-align: center;
-  display: inline-block;
-  font-size: 20px;
+  display: block;
   cursor: pointer;
 }
 
+.img-btn {
+  margin-left: 50%;
+}
+
+.btn-drag {
+  margin-left: 37%;
+}
+
+.btn-listen {
+  margin-left: 17%;
+  // margin-top: 2%;
+}
+
+.btn-sort {
+  margin-left: 37%;
+  // margin-top: 2%;
+}
+
+.btn-match {
+  margin-left: 17%;
+}
+
+.back {
+  position: absolute;
+  text-align: left;
+  margin-top: -8%;
+  margin-left: 6%;
+}
+
 .btn-back {
-  margin-left: 2%;
-  padding-top: 6px;
-  height: 80px;
-  width: 80px;
+  // margin-left: 2%;
+  // padding-top: 6px;
+  height: 100%;
+  width: 26%;
   border-radius: 50%;
   display: inline-block;
   background-color: none;
   cursor: pointer;
 }
+
+//dfjhlkd
+
+// ion-card {
+//   --background: none !important;
+//   // color: #fff;
+
+//   ion-grid {
+//     ion-title {
+//       font-family: "Athiti", sans-serif;
+//     }
+
+//     ion-label {
+//       padding: 15px;
+//       margin-top: -120px;
+//       font-family: "Athiti", sans-serif;
+//     }
+
+//     p {
+//       padding: 0px;
+//       // padding-left: 10px;
+//       margin-left: 15px;
+//       font-family: "Athiti", sans-serif;
+//     }
+
+   
+//   }
+
+// }

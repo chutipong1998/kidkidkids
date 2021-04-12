@@ -35,6 +35,7 @@ export class State4Page implements OnInit {
   heart: any;
 
   match_sound: MatchAnimalSound[] = [];
+  random: number;
   // data_match_sound_left: Match_animal_sound[] = [];
   // data_match_sound_right: Match_animal_sound[] = [];
 
@@ -57,6 +58,10 @@ export class State4Page implements OnInit {
       }
     });
   }
+
+  // random_number() {
+  //   return Math.floor(Math.random() * 2) + 1;
+  // }
 
   hide_alert() {
     $('#successMessage').hide();

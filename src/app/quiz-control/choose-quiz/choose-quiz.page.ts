@@ -14,19 +14,22 @@ export class ChooseQuizPage implements OnInit {
   topic: string;
 
   class: string;
+  img: string;
 
   constructor(private route: Router) { }
 
   ngOnInit() {
     this.quiz = localStorage.getItem('quiz');
-    console.log('quiz =', this.quiz);
+    // console.log('quiz =', this.quiz);
 
     if (this.quiz === 'ลากวาง') {
       this.topic = 'ตัวเลข';
       this.class = 'btn';
+      this.img = '../../../assets/img/menu-learning-icns/2.png'
     } else if (this.quiz === 'ฟังเสียงเพื่อตอบคำถาม') {
       this.topic = 'ตัวอักษรภาษาไทย';
       this.class = 'thai-alp';
+      this.img = '../../../assets/img/menu-learning-icns/1.png'
     }
   }
 

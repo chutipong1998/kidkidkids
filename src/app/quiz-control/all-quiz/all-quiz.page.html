@@ -1,5 +1,5 @@
 <ion-content padding class="bg-all-quiz">
-  <ion-row>
+  <!-- <ion-row>
     <ion-col>
       <div>
         <a class="btn-back" routerLink="/main-page">
@@ -7,24 +7,51 @@
         </a>
       </div>
     </ion-col>
-  </ion-row>
 
-  <div id="container" style="margin-top: 3%;">
+    <ion-col>
+    </ion-col>
+  
+    <ion-col>
+    </ion-col>
+  </ion-row> -->
+
+  <div id="container">
     <ion-row>
       <ion-col>
-        <a class="btn" routerLink="/choose-quiz" (click)="getQuiz('ลากวาง')" style="padding-top: 45px;">ลากวาง</a>
+        <div class="back">
+          <a class="btn-back" routerLink="/main-page">
+            <img src="../../../assets/img/btn/btn-back.png" alt="">
+          </a>
+        </div>
       </ion-col>
+  
       <ion-col>
-        <a class="btn" routerLink="/choose-quiz" (click)="getQuiz('ฟังเสียงเพื่อตอบคำถาม')">ฟังเสียงเพื่อตอบคำถาม</a>
+      </ion-col>
+    
+      <ion-col>
       </ion-col>
     </ion-row>
-    <div style="padding: 10px;"></div>
     <ion-row>
+      <div style="padding: 5%;"></div>
       <ion-col>
-        <a class="btn" routerLink="/choose-checkpoint" (click)="getQuiz('เรียงลำดับตัวเลข')">เรียงลำดับตัวเลข</a>
+        <a class="btn btn-drag" routerLink="/choose-quiz" (click)="getQuiz('ลากวาง')"><img src="../../../assets/img/btn/1.png" alt=""></a>
+        <!-- <a class="btn-drag" routerLink="/choose-quiz" (click)="getQuiz('ลากวาง')"><img src="../../../assets/img/btn/1.png" alt="" width="100%" height="50%"></a> -->
       </ion-col>
       <ion-col>
-        <a class="btn" routerLink="/choose-checkpoint" (click)="getQuiz('จับคู่เสียงของสัตว์')">จับคู่เสียงของสัตว์</a>
+        <a class="btn btn-listen" routerLink="/choose-quiz" (click)="getQuiz('ฟังเสียงเพื่อตอบคำถาม')"><img src="../../../assets/img/btn/2.png" alt=""></a>
+        <!-- <a class="btn-listen" routerLink="/choose-quiz" (click)="getQuiz('ฟังเสียงเพื่อตอบคำถาม')"><img src="../../../assets/img/btn/2.png" alt=""></a> -->
+      </ion-col>
+    </ion-row>
+    <!-- <div style="padding: 1%"></div> -->
+    <ion-row>
+      <div style="padding: 5%;"></div>
+      <ion-col>
+        <a class="btn btn-sort" routerLink="/choose-checkpoint" (click)="getQuiz('เรียงลำดับตัวเลข')"><img src="../../../assets/img/btn/3.png" alt=""></a>
+        <!-- <a class="btn-sort" routerLink="/choose-checkpoint" (click)="getQuiz('เรียงลำดับตัวเลข')"><img src="../../../assets/img/btn/3.png" alt=""></a> -->
+      </ion-col>
+      <ion-col>
+        <a class="btn btn-match" routerLink="/choose-checkpoint" (click)="getQuiz('จับคู่เสียงของสัตว์')"><img src="../../../assets/img/btn/4.png" alt=""></a>
+        <!-- <a class="btn-match" routerLink="/choose-checkpoint" (click)="getQuiz('จับคู่เสียงของสัตว์')"><img src="../../../assets/img/btn/4.png" alt=""></a> -->
       </ion-col>
     </ion-row>
   </div>

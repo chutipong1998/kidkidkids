@@ -318,36 +318,4 @@ export class HomePage implements OnInit {
   //   // });
   // }
 
-  // readData() {
-  //   this.sqlite.create({
-  //     name: 'data.db',
-  //     location: 'default'
-  //   })
-  //     .then((db: SQLiteObject) => {
-  //       // db.executeSql('create table danceMoves(id integer primary key AUTOINCREMENT, descicao TEX)')
-  //       db.executeSql('CREATE TABLE IF NOT EXISTS DemoTable (name, score)')
-  //         .then(() => console.log('Executed SQL'))
-  //         .catch(e => console.log(e));
-  //       db.executeSql('INSERT INTO DemoTable VALUES (name, score)', ['Alice', 101])
-  //         .then(() => console.log('row 1'))
-  //         .catch(e => console.log(e));
-  //       db.executeSql('INSERT INTO DemoTable VALUES (name, score)', ['Betty', 202])
-  //         .then(() => console.log('row 2'))
-  //         .catch(e => console.log(e));
-  //     })
-  //     .catch(e => console.log(e));
-  // }
-
-  
-
-  // addDeveloper() {
-  //   let alphabets = this.developer['alphabet'].split(',');
-  //   alphabets = alphabets.map(alphabet => alphabet.trim());
- 
-  //   this.db.addDeveloper(this.developer['id'], this.developer['name'], alphabets, this.developer['sound'])
-  //   .then(_ => {
-  //     this.developer = {};
-  //   });
-  // }
-
 }
