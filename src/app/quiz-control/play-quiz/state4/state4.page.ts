@@ -5,6 +5,7 @@ import { MatchAnimalSound } from '../../../model/quiz/matchAnimalSound';
 
 import * as $ from 'jquery'
 import 'jquery-ui-dist/jquery-ui';
+import { NativeAudio } from '@ionic-native/native-audio/ngx';
 
 declare var require: any
 (window as any).jQuery = $;
@@ -35,20 +36,19 @@ export class State4Page implements OnInit {
   heart: any;
 
   match_sound: MatchAnimalSound[] = [];
-  random: number;
   // data_match_sound_left: Match_animal_sound[] = [];
   // data_match_sound_right: Match_animal_sound[] = [];
 
-  constructor(private db: DatabaseQuizService, private route: Router) { }
+  constructor(private db: DatabaseQuizService, private route: Router, private nativeAudio: NativeAudio) { }
 
   ngOnInit() {
     this.hide_alert();
 
     this.level = localStorage.getItem('state');
-    console.log('level =', this.level);
+    // console.log('level =', this.level);
 
     this.dataScore = JSON.parse(localStorage.getItem('score'));
-    console.log('datasc =', this.dataScore);
+    // console.log('datasc =', this.dataScore);
 
     this.checkScore(this.level, this.dataScore);
 
@@ -82,15 +82,24 @@ export class State4Page implements OnInit {
   }
 
   getDataQuiz() {
-    this.db.getMatchAnimalSound().subscribe(res => {
+    this.db.getMatchAnimalSound().subscribe(async res => {
       for (let i = 0; i < res.length; i++) {
         if (res[i].state === this.level) {
           this.match_sound.push(res[i])
-          this.drag_drop(this.match_sound);
+          // this.drag_drop(this.match_sound);
         }
       }
       console.log('dmsl =');
       console.log(this.match_sound);
+      await this.drag_drop(this.match_sound);
+
+      await this.nativeAudio.preloadComplex(this.match_sound[0].sound, this.match_sound[0].sound, 1, 1, 0).then((res) => {
+        console.log('loading...');
+        console.log(res);
+      }, (err) => {
+        console.log('error');
+        console.log(err);
+      });
     });
 
   }
@@ -107,51 +116,84 @@ export class State4Page implements OnInit {
     correctCards = 0;
     heart_status = 0;
     
-    $('#cardPileLeft').html('');
-    $('#cardPileRight').html('');
+    $('#cardPileLeftTop').html('');
+    $('#cardPileRightTop').html('');
+    $('#cardPileLeftBottom').html('');
+    $('#cardPileRightBottom').html('');
     $('#cardSlots').html('');
 
     // Create the pile of shuffled cards
-    console.log('len =', match_sound);
-    console.log('len1 =', match_sound[0].answer);
+    // console.log('len =', match_sound);
+    // console.log('len1 =', match_sound[0].answer);
     
+    console.log('len =', match_sound.length);
     for (var i = 0; i < match_sound.length; i++) {
       console.log('i =', i);
       if (i%2 == 0) {
-        $(`<div style="text-align: center; margin: auto"><img src="${match_sound[i].alphabet}" alt="" width="100px"></div>`)
-        .data('number', i+1)
-        .attr('id', 'card' + match_sound[i].id)
-        .appendTo('#cardPileLeft')
-        .draggable({
-          stack: '#cardPileLeft div',
-          cursor: 'move',
-          revert: true,
-        });
+        if (i%4 == 0) {
+          console.log('ซ้ายบน =', i%4);
+          $(`<div style="text-align: center; margin: auto"><img src="${match_sound[i].alphabet}" alt="" width="100px"></div>`)
+          .data('number', i+1)
+          .attr('id', 'card' + match_sound[i].id)
+          .appendTo('#cardPileLeftTop')
+          .draggable({
+            stack: '#cardPileLeftTop div',
+            cursor: 'move',
+            revert: true,
+          });
+        } else if (i%4 == 2) {
+          console.log('ซ้ายล่าง =', i%4);
+          $(`<div style="text-align: center; margin: auto"><img src="${match_sound[i].alphabet}" alt="" width="100px"></div>`)
+          .data('number', i+1)
+          .attr('id', 'card' + match_sound[i].id)
+          .appendTo('#cardPileLeftBottom')
+          .draggable({
+            stack: '#cardPileLeftBottom div',
+            cursor: 'move',
+            revert: true,
+          });
+        }
       } else {
-        $(`<div style="text-align: center; margin: auto"><img src="${match_sound[i].alphabet}" alt="" width="100px"></div>`)
-        .data('number', i+1)
-        .attr('id', 'card' + match_sound[i].id)
-        .appendTo('#cardPileRight')
-        .draggable({
-          stack: '#cardPileRight div',
-          cursor: 'move',
-          revert: true,
-        });
+        if (i%4 == 1) {
+          console.log('ขวาบน =', i%4);
+          $(`<div style="text-align: center; margin: auto"><img src="${match_sound[i].alphabet}" alt="" width="100px"></div>`)
+          .data('number', i+1)
+          .attr('id', 'card' + match_sound[i].id)
+          .appendTo('#cardPileRightTop')
+          .draggable({
+            stack: '#cardPileRighTop div',
+            cursor: 'move',
+            revert: true,
+          });
+        } else if (i%4 == 3) {
+          console.log('ขวาล่าง =', i%4);
+          $(`<div style="text-align: center; margin: auto"><img src="${match_sound[i].alphabet}" alt="" width="100px"></div>`)
+          .data('number', i+1)
+          .attr('id', 'card' + match_sound[i].id)
+          .appendTo('#cardPileRightBottom')
+          .draggable({
+            stack: '#cardPileRightBottom div',
+            cursor: 'move',
+            revert: true,
+          });
+        }
       }
     }
 
     // let code = this.correctCards;
     for (var i = 0; i < 1; i++) {
       // $('<div class="col-mid" style="margin: auto;">' + match_sound[0].answer + '</div>')
-      $(`<div class="col-mid" style="margin: auto;"><img class="img-ngao" src="../../../../assets/img/24663.jpg" alt="" width="100px"></div>`)
-        .data('number', match_sound[i].answer)
-        .appendTo('#cardSlots')
-        .droppable({
-          accept: '#cardPileLeft div, #cardPileRight div',
-          hoverClass: 'hovered',
-          drop: this.handleCardDrop,
-        }
-      );
+      if (match_sound.length != 0) {
+        $(`<div class="col-mid" style="margin: auto;"><img class="img-ngao" src="../../../../assets/img/shadow-animals/box-shadow.png" alt="" width="100px"></div>`)
+          .data('number', match_sound[i].answer)
+          .appendTo('#cardSlots')
+          .droppable({
+            accept: '#cardPileLeftTop div, #cardPileLeftBottom div, #cardPileRightTop div, #cardPileRightBottom div',
+            hoverClass: 'hovered',
+            drop: this.handleCardDrop,
+          }
+        );
+      }
     }
   }
 
@@ -163,9 +205,9 @@ export class State4Page implements OnInit {
     console.log('cardNumber =', cardNumber);
 
     if (slotNumber == cardNumber) {
-      ui.draggable.addClass('correct');
-      ui.draggable.draggable('disable');
-      $(this).droppable('disable');
+      // ui.draggable.addClass('correct');
+      // ui.draggable.draggable('disable');
+      // $(this).droppable('disable');
       ui.draggable.position({ of: $(this), my: 'left top', at: 'left top' });
       ui.draggable.draggable('option', 'revert', false);
       correctCards++;
@@ -177,8 +219,8 @@ export class State4Page implements OnInit {
       if (heart_status == 3) {
         $('#failMessage').show();
         $('#failMessage').animate({
-          left: '182px',
-          top: '70px',
+          left: '125px',
+          top: '30px',
           width: '500px',
           height: '300px',
           opacity: 1,
@@ -195,8 +237,8 @@ export class State4Page implements OnInit {
     if (correctCards == 1) {
       $('#successMessage').show();
       $('#successMessage').animate({
-        left: '182px',
-        top: '70px',
+        left: '125px',
+        top: '30px',
         width: '500px',
         height: '300px',
         opacity: 1,
@@ -285,6 +327,16 @@ export class State4Page implements OnInit {
     console.log('heartf =');
     console.log(this.heart);
     this.route.navigateByUrl('/choose-checkpoint');
+  }
+
+  listenToAnimalSound(){
+    this.nativeAudio.play(this.match_sound[0].sound).then((res) => {
+      console.log('playing animalSound');
+      console.log(res);
+    }, (err) => {
+      console.log('animalSound playing error');
+      console.log(err);
+    });
   }
 
 }

@@ -471,7 +471,7 @@ export class DatabaseQuizService {
   loadMatchAnimalSound() {
     console.log('MatchAnimalSound');
     // let match_animal_sound: MatchAnimalSound[] = [];
-    this.random = this.random_number();
+    this.random = this.random_number()
 
     if (this.random == 1) {
       console.log('ramdom = 1');
@@ -484,8 +484,7 @@ export class DatabaseQuizService {
               id: data.rows.item(i).id,
               name_state: data.rows.item(i).name_state,
               state: data.rows.item(i).state,
-              alphabet: data.rows.item(i).alphabet, 
-              shadow_image: data.rows.item(i).shadow_image,
+              alphabet: data.rows.item(i).alphabet,
               sound: data.rows.item(i).sound,
               answer: data.rows.item(i).answer
             });
@@ -504,8 +503,7 @@ export class DatabaseQuizService {
               id: data.rows.item(i).id,
               name_state: data.rows.item(i).name_state,
               state: data.rows.item(i).state,
-              alphabet: data.rows.item(i).alphabet, 
-              shadow_image: data.rows.item(i).shadow_image,
+              alphabet: data.rows.item(i).alphabet,
               sound: data.rows.item(i).sound,
               answer: data.rows.item(i).answer
             });

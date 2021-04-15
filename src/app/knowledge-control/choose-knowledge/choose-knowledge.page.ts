@@ -586,6 +586,8 @@ export class ChooseKnowledgePage implements OnInit {
     if (this.topic !== 'thaiAlphabet' && this.topic !== 'englishAlphabet') {
       this.route.navigateByUrl('/play-knowledge');
       console.log('go to play knowledge.');
+    } else {
+      console.log('Alp');
     }
   }
 

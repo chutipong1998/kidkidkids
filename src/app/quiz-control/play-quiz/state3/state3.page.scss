@@ -1,11 +1,5 @@
-// *{
-//     margin: 0;
-//     padding: 0;
-//     box-sizing: border-box;
-// }
-
 .bg-choose-checkpoint {
-    --background: url(../../../../assets/img/background/bg.jpg) 0 0/100% 100% no-repeat;
+    --background: url(../../../../assets/img/background/bg-page-th.png) 0 0/100% 100% no-repeat;
 }
 
 // #container {
@@ -152,6 +146,13 @@
   .img-fail {
     padding-top: 19%;
     width: 100%;
+  }
+
+  .question {
+    font-family: 'Sanamdeklen';
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 0.1;
   }
   
   .txt-congrate {

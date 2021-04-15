@@ -6,6 +6,7 @@ import { Listen } from '../../../model/quiz/listen';
 
 import * as $ from 'jquery'
 import 'jquery-ui-dist/jquery-ui';
+import { NativeAudio } from '@ionic-native/native-audio/ngx';
 
 declare var require: any
 (window as any).jQuery = $;
@@ -46,7 +47,7 @@ export class State2Page implements OnInit {
   heart_status: number;
   random: number;
 
-  constructor(private db: DatabaseQuizService, private alertCtrl: AlertController, private route: Router) { }
+  constructor(private db: DatabaseQuizService, private alertCtrl: AlertController, private route: Router, private nativeAudio: NativeAudio) { }
 
   ngOnInit() {
     this.heart = heart;
@@ -102,8 +103,8 @@ export class State2Page implements OnInit {
       console.log(alp);
       $('#successMessage').show();
       $('#successMessage').animate({
-        left: '182px',
-        top: '70px',
+        left: '125px',
+        top: '30px',
         width: '500px',
         height: '300px',
         opacity: 1,
@@ -119,8 +120,8 @@ export class State2Page implements OnInit {
       if (this.heart_status ==3) {
         $('#failMessage').show();
         $('#failMessage').animate({
-          left: '182px',
-          top: '70px',
+          left: '125px',
+          top: '30px',
           width: '500px',
           height: '300px',
           opacity: 1,
@@ -183,6 +184,14 @@ export class State2Page implements OnInit {
         }
         console.log('listen');
         console.log(this.listen);
+
+        this.nativeAudio.preloadComplex(this.listen[0].sound, this.listen[0].sound, 1, 1, 0).then((res) => {
+          console.log('loading...');
+          console.log(res);
+        }, (err) => {
+          console.log('error');
+          console.log(err);
+        });
         
         // this.pushData(this.listen)
         // localStorage.setItem('category', '')
@@ -374,6 +383,16 @@ export class State2Page implements OnInit {
     this.db.updateData(id, scoreState, score, total)
     .then(_ => {
       console.log('update complete!!');
+    });
+  }
+
+  listenToAnimalSound(){
+    this.nativeAudio.play(this.listen[0].sound).then((res) => {
+      console.log('playing animalSound');
+      console.log(res);
+    }, (err) => {
+      console.log('animalSound playing error');
+      console.log(err);
     });
   }
 

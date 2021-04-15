@@ -97,7 +97,8 @@ export class DatabaseKnowledgeService {
             name: data.rows.item(i).name, 
             alphabet: data.rows.item(i).alphabet, 
             thai_sound: data.rows.item(i).thai_sound,
-            english_sound: data.rows.item(i).english_sound
+            english_sound: data.rows.item(i).english_sound,
+            specific_sound: data.rows.item(i).specific_sound
           });
         }
       }
@@ -116,7 +117,8 @@ export class DatabaseKnowledgeService {
             name: data.rows.item(i).name, 
             alphabet: data.rows.item(i).alphabet, 
             thai_sound: data.rows.item(i).thai_sound,
-            english_sound: data.rows.item(i).english_sound
+            english_sound: data.rows.item(i).english_sound,
+            specific_sound: data.rows.item(i).specific_sound
           });
         }
       }
@@ -135,7 +137,8 @@ export class DatabaseKnowledgeService {
             name: data.rows.item(i).name, 
             alphabet: data.rows.item(i).alphabet, 
             thai_sound: data.rows.item(i).thai_sound,
-            english_sound: data.rows.item(i).english_sound
+            english_sound: data.rows.item(i).english_sound,
+            specific_sound: data.rows.item(i).specific_sound
           });
         }
       }
@@ -154,7 +157,8 @@ export class DatabaseKnowledgeService {
             name: data.rows.item(i).name, 
             alphabet: data.rows.item(i).alphabet, 
             thai_sound: data.rows.item(i).thai_sound,
-            english_sound: data.rows.item(i).english_sound
+            english_sound: data.rows.item(i).english_sound,
+            specific_sound: data.rows.item(i).specific_sound
           });
         }
       }
@@ -173,7 +177,8 @@ export class DatabaseKnowledgeService {
             name: data.rows.item(i).name, 
             alphabet: data.rows.item(i).alphabet, 
             thai_sound: data.rows.item(i).thai_sound,
-            english_sound: data.rows.item(i).english_sound
+            english_sound: data.rows.item(i).english_sound,
+            specific_sound: data.rows.item(i).specific_sound
           });
         }
       }
@@ -192,7 +197,8 @@ export class DatabaseKnowledgeService {
             name: data.rows.item(i).name, 
             alphabet: data.rows.item(i).alphabet, 
             thai_sound: data.rows.item(i).thai_sound,
-            english_sound: data.rows.item(i).english_sound
+            english_sound: data.rows.item(i).english_sound,
+            specific_sound: data.rows.item(i).specific_sound
           });
         }
       }

@@ -133,7 +133,7 @@ export class State3Page implements OnInit {
     // let code = this.correctCards;
     for (var i = 0; i < data_sort_number.length; i++) {
       // $('<div class="col-mid" style="margin: auto;">' + data_sort_number[0].answer + '</div>')
-      $(`<div class="col-mid" style="margin: auto;"><img class="img-ngao" src="../../../../assets/img/24663.jpg" alt="" width="100px"></div>`)
+      $(`<div class="col-mid" style="margin: auto;"><img class="img-ngao" src="../../../../assets/img/shadow-number/shadow-number.png" alt="" width="100px"></div>`)
         .data('number', i+1)
         .appendTo('#cardSlots')
         .droppable({
@@ -167,8 +167,8 @@ export class State3Page implements OnInit {
       if (heart_status == 3) {
         $('#failMessage').show();
         $('#failMessage').animate({
-          left: '182px',
-          top: '70px',
+          left: '125px',
+          top: '30px',
           width: '500px',
           height: '300px',
           opacity: 1,
@@ -185,8 +185,8 @@ export class State3Page implements OnInit {
     if (correctCards == win) {
       $('#successMessage').show();
       $('#successMessage').animate({
-        left: '182px',
-        top: '70px',
+        left: '125px',
+        top: '30px',
         width: '500px',
         height: '300px',
         opacity: 1,

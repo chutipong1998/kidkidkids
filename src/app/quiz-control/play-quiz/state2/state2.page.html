@@ -21,13 +21,20 @@
   <div id="container">
     <ion-row>
       <ion-col class="col-top" >
-        <h1>เสียงนี้คือ</h1>
+        <h1 style="line-height: 0.1;">เสียงนี้คือ</h1>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col class="col-mid">
-        <img class="img-speaker" src="../../../../assets/img/speaker.png" alt="" srcset="">
-        <h5 class="txt">กดเพื่อฟังเสียง</h5>
+      <ion-col class="col-mid" style="text-align: -webkit-center;">
+        <div class="button-back">
+          <a (click)="listenToAnimalSound()">
+            <img src="../../../../assets/img/icons-speaker/btn-animal-audio.png" alt="">
+          </a>
+        </div>
+        <!-- <a (click)="listenToAnimalSound()">
+          <img class="img-speaker" src="../../../../assets/img/icons-speaker/btn-animal-audio.png" alt="" srcset="">
+        </a> -->
+        <!-- <h5 class="txt">กดเพื่อฟังเสียง</h5> -->
       </ion-col>
     </ion-row>
     <ion-row>
