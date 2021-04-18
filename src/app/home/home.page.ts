@@ -40,14 +40,6 @@ export class HomePage implements OnInit {
 
     // load data knowledge
     this.loadDataKnowledge();
-
-    this.nativeAudio.preloadComplex('testsss', 'assets/audio/letters-sound/th/1.m4a', 1, 1, 0).then((res) => {
-      console.log('loading2...');
-      console.log(res);
-    }, (err) => {
-      console.log('error');
-      console.log(err);
-    });
   }
 
   loadSound() {
@@ -89,16 +81,6 @@ export class HomePage implements OnInit {
       });
       this.statusSound = true;
     }
-  }
-
-  ListenSound() {
-    this.nativeAudio.play('testsss').then((res) => {
-      console.log('playing testsss');
-      console.log(res);
-    }, (err) => {
-      console.log('testsss playing error');
-      console.log(err);
-    });
   }
 
   loadDataScore() {

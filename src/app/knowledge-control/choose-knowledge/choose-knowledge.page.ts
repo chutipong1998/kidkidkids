@@ -1,5 +1,7 @@
+import { async } from '@angular/core/testing';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NativeAudio } from '@ionic-native/native-audio/ngx';
 import { NavController } from '@ionic/angular';
 import { DatabaseKnowledgeService } from 'src/app/services/database/knowledge/database-knowledge.service';
 
@@ -386,7 +388,7 @@ export class ChooseKnowledgePage implements OnInit {
 
 
 
-  constructor(public navCtrl: NavController, private route: Router, private db: DatabaseKnowledgeService,) {
+  constructor(public navCtrl: NavController, private route: Router, private db: DatabaseKnowledgeService, private nativeAudio: NativeAudio) {
 
     // console.log('len(dataString) =', this.dataString.length);
     // console.log('len(dataString)/6 =', this.dataString.length/6);
@@ -473,8 +475,8 @@ export class ChooseKnowledgePage implements OnInit {
           
         }
       }
-      console.log('dataString =');
-      console.log(this.dataString);
+      // console.log('dataString =');
+      // console.log(this.dataString);
       // console.log(this.dataString.length);
     }
     // console.log('string =', this.dataString.length);
@@ -526,7 +528,10 @@ export class ChooseKnowledgePage implements OnInit {
             console.log('thai:', res);
             this.data = res;
             this.showData(this.data)
+            this.loadSound(this.data, topic)
           });
+          console.log('data =');
+          console.log(this.data);
         }
       });
     } else if (topic == 'number') {
@@ -572,8 +577,22 @@ export class ChooseKnowledgePage implements OnInit {
     }
   }
 
+  loadSound(data: any, topic: string) {
+    if (topic == 'thaiAlphabet') {
+      for (let i = 0; i < data.length; i++) {
+        this.nativeAudio.preloadComplex(data[i].thai_sound, data[i].thai_sound, 1, 1, 0).then((res) => {
+          console.log('loading...');
+          console.log(res);
+        }, (err) => {
+          console.log('error');
+          console.log(err);
+        });
+      }
+    }
+  }
+
   getDataStringValue(list: any) {
-    console.log('list =', list);
+    // console.log('list =', list);
     localStorage.setItem('list', JSON.stringify(list));
   }
 
@@ -582,12 +601,24 @@ export class ChooseKnowledgePage implements OnInit {
     this.navCtrl.pop();
   }
 
-  playKnowledge() {
+  playKnowledge(list: any) {
     if (this.topic !== 'thaiAlphabet' && this.topic !== 'englishAlphabet') {
+      localStorage.setItem('list', JSON.stringify(list));
       this.route.navigateByUrl('/play-knowledge');
       console.log('go to play knowledge.');
     } else {
-      console.log('Alp');
+      if (this.topic == 'thaiAlphabet') {
+        console.log(list.thai_sound);
+        this.nativeAudio.play(list.thai_sound).then((res) => {
+          console.log('playing animalSound');
+          console.log(res);
+        }, (err) => {
+          console.log('animalSound playing error');
+          console.log(err);
+        });
+      } else {
+        console.log('EngAlp');
+      }
     }
   }
 
