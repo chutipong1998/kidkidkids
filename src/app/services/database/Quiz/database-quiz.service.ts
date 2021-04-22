@@ -124,12 +124,9 @@ export class DatabaseQuizService {
   }
 
   loadLisanimals() {
-    console.log('listAnimal');
-    // let lisanimals: Listen[] = [];
     this.random = this.random_number();
 
     if (this.random == 1) {
-      console.log('ramdom = 1');
       return this.database.executeSql('SELECT * FROM LISTENANIMAL', []).then(data => {
         let lisanimals: Listen[] = [];
         
@@ -149,7 +146,6 @@ export class DatabaseQuizService {
         this.lisanimal.next(lisanimals);
       });
     } else if (this.random == 2) {
-      console.log('ramdom = 2');
       return this.database.executeSql('SELECT * FROM LISTENANIMAL_V2', []).then(data => {
         let lisanimals: Listen[] = [];
         
@@ -172,12 +168,9 @@ export class DatabaseQuizService {
   }
 
   loadListThaiAlps() {
-    console.log('ListThaiAlps');
-    // let listhaiAlps: Listen[] = [];
     this.random = this.random_number();
 
     if (this.random == 1) {
-      console.log('ramdom = 1');
       return this.database.executeSql('SELECT * FROM LISTENTHAIALPHABET', []).then(data => {
         let listhaiAlps: Listen[] = [];
         
@@ -198,7 +191,6 @@ export class DatabaseQuizService {
         this.listhaiAlp.next(listhaiAlps);
       });
     } else if (this.random == 2) {
-      console.log('ramdom = 2');
       return this.database.executeSql('SELECT * FROM LISTENTHAIALPHABET_V2', []).then(data => {
         let listhaiAlps: Listen[] = [];
         
@@ -222,12 +214,9 @@ export class DatabaseQuizService {
   }
 
   loadListFruits() {
-    console.log('ListFruit');
-    // let lisfruits: Listen[] = [];
     this.random = this.random_number();
 
     if (this.random == 1) {
-      console.log('ramdom = 1');
       return this.database.executeSql('SELECT * FROM LISTENFRUIT', []).then(data => {
         let lisfruits: Listen[] = [];
         
@@ -248,7 +237,6 @@ export class DatabaseQuizService {
         this.lisfruit.next(lisfruits);
       });
     } else if (this.random == 2) {
-      console.log('ramdom = 2');
       return this.database.executeSql('SELECT * FROM LISTENFRUIT_V2', []).then(data => {
         let lisfruits: Listen[] = [];
         
@@ -272,13 +260,9 @@ export class DatabaseQuizService {
   }
 
   loadDragDropAnimal() {
-    console.log('DragDropAnimal');
-    console.log('rnd =', this.random);
-    // let draganimal: Dragdrop[] = [];
     this.random = this.random_number();
 
     if (this.random == 1) {
-      console.log('ramdom = 1');
       return this.database.executeSql('SELECT * FROM DRAGDROPANIMAL', []).then(data => {
         let draganimal: Dragdrop[] = [];
         
@@ -299,7 +283,6 @@ export class DatabaseQuizService {
         this.draganimal.next(draganimal);
       });
     } else if (this.random == 2) {
-      console.log('ramdom = 2');
       return this.database.executeSql('SELECT * FROM DRAGDROPANIMAL_V2', []).then(data => {
         let draganimal: Dragdrop[] = [];
         
@@ -323,12 +306,9 @@ export class DatabaseQuizService {
   }
 
   loadDragDropFruit() {
-    console.log('DragDropFruit');
-    // let dragfruit: Dragdrop[] = [];
     this.random = this.random_number();
 
     if (this.random == 1) {
-      console.log('ramdom = 1');
       return this.database.executeSql('SELECT * FROM DRAGDROPFRUIT', []).then(data => {
         let dragfruit: Dragdrop[] = [];
         
@@ -349,7 +329,6 @@ export class DatabaseQuizService {
         this.dragfruit.next(dragfruit);
       });
     } else if (this.random == 2) {
-      console.log('ramdom = 2');
       return this.database.executeSql('SELECT * FROM DRAGDROPFRUIT_V2', []).then(data => {
         let dragfruit: Dragdrop[] = [];
         
@@ -373,12 +352,9 @@ export class DatabaseQuizService {
   }
 
   loadDragDropNumber() {
-    console.log('DragDropNumber');
-    // let dragnumber: Dragdrop[] = [];
     this.random = this.random_number();
 
     if (this.random == 1) {
-      console.log('ramdom = 1');
       return this.database.executeSql('SELECT * FROM DRAGDROPNUMBER', []).then(data => {
         let dragnumber: Dragdrop[] = [];
         
@@ -399,7 +375,6 @@ export class DatabaseQuizService {
         this.dragnumber.next(dragnumber);
       });
     } else if (this.random == 2) {
-      console.log('ramdom = 2');
       return this.database.executeSql('SELECT * FROM DRAGDROPNUMBER_V2', []).then(data => {
         let dragnumber: Dragdrop[] = [];
         
@@ -423,12 +398,9 @@ export class DatabaseQuizService {
   }
 
   loadSortNumber() {
-    console.log('SortNumber');
-    // let sort_number: SortNumber[] = [];
     this.random = this.random_number();
 
     if (this.random == 1) {
-      console.log('ramdom = 1');
       return this.database.executeSql('SELECT * FROM SORTNUMBER', []).then(data => {
         let sort_number: SortNumber[] = [];
   
@@ -447,7 +419,6 @@ export class DatabaseQuizService {
         this.sort_number.next(sort_number)
       });
     } else if (this.random == 2) {
-      console.log('ramdom = 2');
       return this.database.executeSql('SELECT * FROM SORTNUMBER_V2', []).then(data => {
         let sort_number: SortNumber[] = [];
   
@@ -469,12 +440,9 @@ export class DatabaseQuizService {
   }
 
   loadMatchAnimalSound() {
-    console.log('MatchAnimalSound');
-    // let match_animal_sound: MatchAnimalSound[] = [];
     this.random = this.random_number()
 
     if (this.random == 1) {
-      console.log('ramdom = 1');
       return this.database.executeSql('SELECT * FROM MATCHANIMALSOUND', []).then(data => {
         let match_animal_sound: MatchAnimalSound[] = [];
   
@@ -493,7 +461,6 @@ export class DatabaseQuizService {
         this.match_animal_sound.next(match_animal_sound)
       });
     } else if (this.random == 2) {
-      console.log('ramdom = 2');
       return this.database.executeSql('SELECT * FROM MATCHANIMALSOUND_V2', []).then(data => {
         let match_animal_sound: MatchAnimalSound[] = [];
   

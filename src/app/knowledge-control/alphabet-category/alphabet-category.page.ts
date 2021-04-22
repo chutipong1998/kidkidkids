@@ -18,7 +18,6 @@ export class AlphabetCategoryPage implements OnInit {
   getTopic(topic) {
     this.topic = topic;
     localStorage.setItem('topic', this.topic);
-    // console.log(this.topic);
   }
 
   goback() {

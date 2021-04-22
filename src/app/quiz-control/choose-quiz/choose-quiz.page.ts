@@ -20,7 +20,6 @@ export class ChooseQuizPage implements OnInit {
 
   ngOnInit() {
     this.quiz = localStorage.getItem('quiz');
-    // console.log('quiz =', this.quiz);
 
     if (this.quiz === 'ลากวาง') {
       this.topic = 'ตัวเลข';

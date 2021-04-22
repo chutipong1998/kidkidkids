@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 
 @Component({
@@ -8,22 +9,13 @@ import { NavController } from '@ionic/angular';
 })
 export class MainPagePage implements OnInit {
 
-  // data: any;
-
-  constructor(public navCtrl: NavController) {}
+  constructor(private route: Router) {}
 
   ngOnInit() {
   }
 
   goback() {
-    this.navCtrl.pop();
+    this.route.navigateByUrl('/home');
   }
-
-  // read_data(){
-  //   fetch('./assets/data/data.json').then(res => res.json())
-  //   .then(json => {
-  //     this.data = json;
-  //   });
-  // }
 
 }

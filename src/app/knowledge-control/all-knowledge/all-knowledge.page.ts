@@ -1,5 +1,5 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-all-knowledge',
@@ -9,8 +9,9 @@ import { NavController } from '@ionic/angular';
 export class AllKnowledgePage implements OnInit {
 
   topic: string;
-
-  constructor(public navCtrl: NavController) { }
+  
+  constructor(public route: Router) {
+  }
 
   ngOnInit() {
   }
@@ -21,7 +22,7 @@ export class AllKnowledgePage implements OnInit {
   }
 
   goback() {
-    this.navCtrl.pop();
+    this.route.navigate(['home'])
   }
 
 }

@@ -200,6 +200,8 @@ export class State2Page implements OnInit {
         }
         console.log('listen');
         console.log(this.listen);
+
+        this.loadSound();
         // this.pushData(this.listen)
         // localStorage.setItem('category', '')
       });
@@ -213,6 +215,8 @@ export class State2Page implements OnInit {
         }
         console.log('listen');
         console.log(this.listen);
+
+        this.loadSound();
         // this.pushData(this.listen)
         // localStorage.setItem('category', '')
       });
@@ -220,7 +224,7 @@ export class State2Page implements OnInit {
   }
 
   loadSound() {
-    this.nativeAudio.preloadComplex(this.listen[0].sound, this.listen[0].sound, 1, 1, 0).then((res) => {
+    this.nativeAudio.preloadSimple(this.listen[0].sound, this.listen[0].sound).then((res) => {
       console.log('loading...');
       console.log(res);
     }, (err) => {

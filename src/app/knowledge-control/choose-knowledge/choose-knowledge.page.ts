@@ -12,365 +12,6 @@ import { DatabaseKnowledgeService } from 'src/app/services/database/knowledge/da
 })
 export class ChooseKnowledgePage implements OnInit {
 
-  // mock = [
-  //   {
-  //     id: 1,
-  //     name: 'thaiAlphabet',
-  //     datatop: [
-  //       {
-  //         id: 1,
-  //         alphabet: '../../../assets/img/letters/thai/1.png'
-  //       },
-  //       {
-  //         id: 2,
-  //         alphabet: '../../../assets/img/letters/thai/1.png'
-  //       },
-  //       {
-  //         id: 3,
-  //         alphabet: '../../../assets/img/letters/thai/1.png'
-  //       },
-  //     ],
-  //     databuttom: [
-  //       {
-  //         id: 4,
-  //         alphabet: '../../../assets/img/letters/thai/1.png'
-  //       },
-  //       {
-  //         id: 5,
-  //         alphabet: '../../../assets/img/letters/thai/1.png'
-  //       },
-  //       {
-  //         id: 6,
-  //         alphabet: '../../../assets/img/letters/thai/1.png'
-  //       },
-  //     ]
-  //   },
-  //   {
-  //     id: 2,
-  //     name: 'englishAlphabet',
-  //     datatop: [
-  //       {
-  //         id: 1,
-  //         alphabet: '../../../assets/img/letters/eng/Gg.png'
-  //       },
-  //       {
-  //         id: 2,
-  //         alphabet: '../../../assets/img/letters/eng/Hh.png'
-  //       },
-  //       {
-  //         id: 3,
-  //         alphabet: '../../../assets/img/letters/eng/Ii.png'
-  //       },
-  //     ],
-  //     databuttom: [
-  //       {
-  //         id: 4,
-  //         alphabet: '../../../assets/img/letters/eng/Jj.png'
-  //       },
-  //       {
-  //         id: 5,
-  //         alphabet: '../../../assets/img/letters/eng/Kk.png'
-  //       },
-  //       {
-  //         id: 6,
-  //         alphabet: '../../../assets/img/letters/eng/Ff.png'
-  //       },
-  //     ]
-  //   },
-  //   {
-  //     id: 3,
-  //     name: 'number',
-  //     datatop: [
-  //       {
-  //         id: 1,
-  //         alphabet: '../../../assets/img/number/one.png'
-  //       },
-  //       {
-  //         id: 2,
-  //         alphabet: '../../../assets/img/number/two.png'
-  //       },
-  //       {
-  //         id: 3,
-  //         alphabet: '../../../assets/img/number/three.png'
-  //       },
-  //     ],
-  //     databuttom: [
-  //       {
-  //         id: 4,
-  //         alphabet: '../../../assets/img/number/four.png'
-  //       },
-  //       {
-  //         id: 5,
-  //         alphabet: '../../../assets/img/number/five.png'
-  //       },
-  //       {
-  //         id: 6,
-  //         alphabet: '../../../assets/img/number/six.png'
-  //       },
-  //     ]
-  //   },
-  //   {
-  //     id: 4,
-  //     name: 'animal',
-  //     datatop: [
-  //       {
-  //         id: 1,
-  //         alphabet: '../../../assets/img/animal/bird.png'
-  //       },
-  //       {
-  //         id: 2,
-  //         alphabet: '../../../assets/img/animal/dog.png'
-  //       },
-  //       {
-  //         id: 3,
-  //         alphabet: '../../../assets/img/animal/horse.png'
-  //       },
-  //     ],
-  //     databuttom: [
-  //       {
-  //         id: 4,
-  //         alphabet: '../../../assets/img/animal/monkey.png'
-  //       },
-  //       {
-  //         id: 5,
-  //         alphabet: '../../../assets/img/animal/elephant.png'
-  //       },
-  //       {
-  //         id: 6,
-  //         alphabet: '../../../assets/img/animal/Pig.png'
-  //       },
-  //     ]
-  //   },
-  //   {
-  //     id: 5,
-  //     name: 'fruit',
-  //     datatop: [
-  //       {
-  //         id: 1,
-  //         alphabet: '../../../assets/img/fruit/apple.png'
-  //       },
-  //       {
-  //         id: 2,
-  //         alphabet: '../../../assets/img/fruit/orange.png'
-  //       },
-  //       {
-  //         id: 3,
-  //         alphabet: '../../../assets/img/fruit/strawberry.png'
-  //       },
-  //     ],
-  //     databuttom: [
-  //       {
-  //         id: 4,
-  //         alphabet: '../../../assets/img/fruit/mango.png'
-  //       },
-  //       {
-  //         id: 5,
-  //         alphabet: '../../../assets/img/fruit/watermelon.png'
-  //       },
-  //       {
-  //         id: 6,
-  //         alphabet: '../../../assets/img/fruit/banana.png'
-  //       },
-  //     ]
-  //   },
-  //   {
-  //     id: 6,
-  //     name: 'vehicle',
-  //     datatop: [
-  //       {
-  //         id: 1,
-  //         alphabet: '../../../assets/img/vehicle/ship.png'
-  //       },
-  //       {
-  //         id: 2,
-  //         alphabet: '../../../assets/img/vehicle/bus.png'
-  //       },
-  //       {
-  //         id: 3,
-  //         alphabet: '../../../assets/img/vehicle/taxi.png'
-  //       },
-  //     ],
-  //     databuttom: [
-  //       {
-  //         id: 4,
-  //         alphabet: '../../../assets/img/vehicle/bike.png'
-  //       },
-  //       {
-  //         id: 5,
-  //         alphabet: '../../../assets/img/vehicle/Motorcycles.png'
-  //       },
-  //       {
-  //         id: 6,
-  //         alphabet: '../../../assets/img/vehicle/plane.png'
-  //       },
-  //     ]
-  //   },
-  // ]
-
-  // d = [
-  //   {
-  //     id: 1,
-  //     data: [
-  //       {
-  //         id: 1,
-  //         alphabet: '../../../assets/img/letters/eng/Gg.png'
-  //       },
-  //       {
-  //         id: 2,
-  //         alphabet: '../../../assets/img/letters/eng/Hh.png'
-  //       },
-  //       {
-  //         id: 3,
-  //         alphabet: '../../../assets/img/letters/eng/Ii.png'
-  //       },
-  //       {
-  //         id: 4,
-  //         alphabet: '../../../assets/img/letters/eng/Jj.png'
-  //       },
-  //       {
-  //         id: 5,
-  //         alphabet: '../../../assets/img/letters/eng/Kk.png'
-  //       },
-  //       {
-  //         id: 6,
-  //         alphabet: '../../../assets/img/letters/eng/Ll.png'
-  //       },
-  //     ]
-  //   },
-  //   {
-  //     id: 2,
-  //     data: [
-  //       {
-  //         id: 1,
-  //         alphabet: '../../../assets/img/letters/thai/1.png'
-  //       },
-  //       {
-  //         id: 2,
-  //         alphabet: '../../../assets/img/letters/thai/2.png'
-  //       },
-  //       {
-  //         id: 3,
-  //         alphabet: '../../../assets/img/letters/thai/3.png'
-  //       },
-  //       {
-  //         id: 4,
-  //         alphabet: '../../../assets/img/letters/thai/4.png'
-  //       },
-  //       {
-  //         id: 5,
-  //         alphabet: '../../../assets/img/letters/thai/5.png'
-  //       },
-  //       {
-  //         id: 6,
-  //         alphabet: '../../../assets/img/letters/thai/6.png'
-  //       },
-  //     ]
-  //   },
-  //   {
-  //     id: 3,
-  //     data: [
-  //       {
-  //         id: 1,
-  //         alphabet: '../../../assets/img/fruit/apple.png'
-  //       },
-  //       {
-  //         id: 2,
-  //         alphabet: '../../../assets/img/fruit/orange.png'
-  //       },
-  //       {
-  //         id: 3,
-  //         alphabet: '../../../assets/img/fruit/strawberry.png'
-  //       },
-  //       {
-  //         id: 4,
-  //         alphabet: '../../../assets/img/fruit/mango.png'
-  //       },
-  //       {
-  //         id: 5,
-  //         alphabet: '../../../assets/img/fruit/watermelon.png'
-  //       },
-  //       {
-  //         id: 6,
-  //         alphabet: '../../../assets/img/fruit/banana.png'
-  //       },
-  //     ]
-  //   }
-  // ]
-
-  // data = [
-  //   {
-  //     id: 1,
-  //     alphabet: '../../../assets/img/letters/eng/Gg.png'
-  //   },
-  //   {
-  //     id: 2,
-  //     alphabet: '../../../assets/img/letters/eng/Hh.png'
-  //   },
-  //   {
-  //     id: 3,
-  //     alphabet: '../../../assets/img/letters/eng/Ii.png'
-  //   },
-  //   {
-  //     id: 4,
-  //     alphabet: '../../../assets/img/letters/eng/Jj.png'
-  //   },
-  //   {
-  //     id: 5,
-  //     alphabet: '../../../assets/img/letters/eng/Kk.png'
-  //   },
-  //   {
-  //     id: 6,
-  //     alphabet: '../../../assets/img/letters/eng/Ll.png'
-  //   },
-  //   {
-  //     id: 1,
-  //     alphabet: '../../../assets/img/letters/thai/1.png'
-  //   },
-  //   {
-  //     id: 2,
-  //     alphabet: '../../../assets/img/letters/thai/2.png'
-  //   },
-  //   {
-  //     id: 3,
-  //     alphabet: '../../../assets/img/letters/thai/3.png'
-  //   },
-  //   {
-  //     id: 4,
-  //     alphabet: '../../../assets/img/letters/thai/4.png'
-  //   },
-  //   {
-  //     id: 5,
-  //     alphabet: '../../../assets/img/letters/thai/5.png'
-  //   },
-  //   {
-  //     id: 6,
-  //     alphabet: '../../../assets/img/letters/thai/6.png'
-  //   },{
-  //     id: 1,
-  //     alphabet: '../../../assets/img/fruit/apple.png'
-  //   },
-  //   {
-  //     id: 2,
-  //     alphabet: '../../../assets/img/fruit/orange.png'
-  //   },
-  //   {
-  //     id: 3,
-  //     alphabet: '../../../assets/img/fruit/strawberry.png'
-  //   },
-  //   {
-  //     id: 4,
-  //     alphabet: '../../../assets/img/fruit/mango.png'
-  //   },
-  //   {
-  //     id: 5,
-  //     alphabet: '../../../assets/img/fruit/watermelon.png'
-  //   },
-  //   {
-  //     id: 6,
-  //     alphabet: '../../../assets/img/fruit/banana.png'
-  //   },
-  // ]
-
   topic: string;
 
   info: any = [];
@@ -386,7 +27,8 @@ export class ChooseKnowledgePage implements OnInit {
     {id: 1, txt: 'sdv'},
   ]
 
-
+  statusSound: boolean;
+  x: string;
 
   constructor(public navCtrl: NavController, private route: Router, private db: DatabaseKnowledgeService, private nativeAudio: NativeAudio) {
 
@@ -432,30 +74,28 @@ export class ChooseKnowledgePage implements OnInit {
 
   ngOnInit() {
     this.topic = localStorage.getItem('topic');
-    // console.log('topic = ' + this.topic);
 
-    // console.log('mod1 =', 26%6);
-
+    this.x = localStorage.getItem('statusSound');
+    this.statusSound = JSON.parse(this.x);
 
     this.getData(this.topic);
+
+    this.nativeAudio.stop('test2').then((res) => {
+      console.log('stop test2');
+      console.log(res);
+    }, (err) => {
+      console.log('test2 stop error');
+      console.log(err);
+    });
+    this.statusSound = true;
+    localStorage.setItem('statusSound', JSON.stringify(this.statusSound));
   }
 
   showData(data: any) {
-    // console.log('data =', data);
-    // console.log('data/6 =', data.length/6);
-
-    // console.log('mod2 =', 44%6);
-    
     for (let i = 0; i < data.length/6; i++) {
-      console.log('ind =', i);
       for (let j = 0; j < 6; j++) {
         if (data[j + (6*i)] !== undefined) {
-          this.info.push(data[j + (6*i)])
-          // if (i == 0) {
-          //   this.info.push(data[j])
-          // } else {
-          //   this.info.push(data[j + (6*i)])
-          // }
+          this.info.push(data[j + (6*i)]);
         } else {
           const d = {
             id: j+1,
@@ -463,7 +103,6 @@ export class ChooseKnowledgePage implements OnInit {
           };
           this.info.push(d);
         }
-        // console.log('info =', this.info);
         if (this.info.length == 6) {
           const dataObj = {
             id: i+1,
@@ -475,39 +114,7 @@ export class ChooseKnowledgePage implements OnInit {
           
         }
       }
-      // console.log('dataString =');
-      // console.log(this.dataString);
-      // console.log(this.dataString.length);
     }
-    // console.log('string =', this.dataString.length);
-    // console.log('data string:', this.dataString);
-    // for (let j = 0; j < this.dataString.length; j++) {
-    //   if (this.dataString.length < 3) {
-    //     for (let i = 0; i < 6; i++) {
-    //       const d = {
-    //         id: i+1,
-    //         alphabet: ''
-    //       };
-    //       this.info.push(d);
-    //       if (this.info.length == 6) {
-    //         const dataObj = {
-    //           id: 3,
-    //           data: this.info,
-    //         };
-    //         this.dataString.push(dataObj)
-    //         this.info = []
-    //       }
-    //       // const dataObj = {
-    //       //   id: i+1,
-    //       //   data: {
-    //       //     id: i+1,
-    //       //     alphabet: ''
-    //       //   },
-    //       // };
-    //       // this.dataString.push(dataObj)
-    //     }
-    //   }
-    // }
   }
 
   getData(topic: string) {
@@ -518,6 +125,7 @@ export class ChooseKnowledgePage implements OnInit {
             console.log('eng:', res);
             this.data = res;
             this.showData(this.data)
+            this.loadSound(this.data, topic)
           });
         }
       });
@@ -580,9 +188,17 @@ export class ChooseKnowledgePage implements OnInit {
   loadSound(data: any, topic: string) {
     if (topic == 'thaiAlphabet') {
       for (let i = 0; i < data.length; i++) {
-        this.nativeAudio.preloadComplex(data[i].thai_sound, data[i].thai_sound, 1, 1, 0).then((res) => {
-          console.log('loading...');
-          console.log(res);
+        this.nativeAudio.preloadSimple(data[i].thai_sound, data[i].thai_sound).then((res) => {
+          console.log((i+1)+'.','loading ', data[i].thai_sound, res);
+        }, (err) => {
+          console.log('error');
+          console.log(err);
+        });
+      }
+    } else if (topic == 'englishAlphabet') {
+      for (let i = 0; i < data.length; i++) {
+        this.nativeAudio.preloadSimple(data[i].english_sound, data[i].english_sound).then((res) => {
+          console.log((i+1)+'.','loading ', data[i].english_sound, res);
         }, (err) => {
           console.log('error');
           console.log(err);
@@ -592,34 +208,48 @@ export class ChooseKnowledgePage implements OnInit {
   }
 
   getDataStringValue(list: any) {
-    // console.log('list =', list);
     localStorage.setItem('list', JSON.stringify(list));
   }
 
   goback() {
-    console.log('back');
-    this.navCtrl.pop();
+    if (this.topic == 'thaiAlphabet' || this.topic == 'englishAlphabet') {
+      this.route.navigate(['alphabet-category']);
+    } else {
+      this.route.navigate(['all-knowledge']);
+    }
+
+    this.nativeAudio.loop('test2').then((res) => {
+      console.log('playing test2');
+      console.log(res);
+    }, (err) => {
+      console.log('test2 playing error');
+      console.log(err);
+    });
+    this.statusSound = false;
+    localStorage.setItem('statusSound', JSON.stringify(this.statusSound));
   }
 
   playKnowledge(list: any) {
     if (this.topic !== 'thaiAlphabet' && this.topic !== 'englishAlphabet') {
       localStorage.setItem('list', JSON.stringify(list));
       this.route.navigateByUrl('/play-knowledge');
-      console.log('go to play knowledge.');
     } else {
       if (this.topic == 'thaiAlphabet') {
-        console.log(list.thai_sound);
-        this.nativeAudio.play(list.thai_sound).then((res) => {
-          console.log('playing animalSound');
-          console.log(res);
-        }, (err) => {
-          console.log('animalSound playing error');
-          console.log(err);
-        });
-      } else {
-        console.log('EngAlp');
+        this.playSound(list.thai_sound)
+      } else if (this.topic == 'englishAlphabet') {
+        this.playSound(list.english_sound)
       }
     }
+  }
+
+  playSound(sound_id: string) {
+    this.nativeAudio.play(sound_id).then((res) => {
+      console.log('playing animalSound');
+      console.log(res);
+    }, (err) => {
+      console.log('animalSound playing error');
+      console.log(err);
+    });
   }
 
 }

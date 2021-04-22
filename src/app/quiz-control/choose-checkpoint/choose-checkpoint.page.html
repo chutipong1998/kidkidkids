@@ -39,12 +39,6 @@
           <a class="btn pass" (click)="getState('3')" (click)="gotostate()">3</a>
         </ng-template>
       </ion-col>
-      <!-- <ion-col>
-        <button class="btn pass" routerLink="/state4" (click)="getState('4')">4</button>
-      </ion-col>
-      <ion-col>
-        <button class="btn disable" routerLink="/state1" (click)="getState('5')" disabled="true"><ion-icon name="lock-closed"></ion-icon></button>
-      </ion-col> -->
     </ion-row>
     <div style="padding: 30px;"></div>
     <ion-row style="text-align: left; margin-left: 10%;">
@@ -56,28 +50,6 @@
           <a class="btn pass" (click)="getState('4')" (click)="gotostate()">4</a>
         </ng-template>
       </ion-col>
-      <!-- <ion-col>
-        <div *ngIf="sc.score_state4 === 0;">
-          <button class="btn disable" disabled="true"><ion-icon name="lock-closed"></ion-icon></button>
-        </div>
-        <ng-template #Score4>
-          <a class="btn pass" (click)="getState('5')" (click)="gotostate()">5</a>
-        </ng-template>
-      </ion-col> -->
-      <!-- <ion-col>
-        <div *ngIf="sc.score_state5 === 0; else Score5">
-          <button class="btn disable" disabled="true"><ion-icon name="lock-closed"></ion-icon></button>
-        </div>
-        <ng-template #Score5>
-          <a class="btn pass" (click)="getState('6')" (click)="gotostate()">6</a>
-        </ng-template>
-      </ion-col> -->
-      <!-- <ion-col>
-        <button class="btn disable" routerLink="/state1" (click)="getState('9')" disabled="true"><ion-icon name="lock-closed"></ion-icon></button>
-      </ion-col>
-      <ion-col>
-        <button class="btn disable" routerLink="/state1" (click)="getState('10')" disabled="true"><ion-icon name="lock-closed"></ion-icon></button>
-      </ion-col> -->
     </ion-row>
   </div>
 </ion-content>
