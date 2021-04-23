@@ -207,9 +207,24 @@ export class State4Page implements OnInit {
       ui.draggable.position({ of: $(this), my: 'left top', at: 'left top' });
       ui.draggable.draggable('option', 'revert', false);
       correctCards++;
+
+      if (correctCards == 1) {
+        $('#successMessage').show();
+        $('#successMessage').animate({
+          left: '125px',
+          top: '30px',
+          width: '500px',
+          height: '300px',
+          opacity: 1,
+        });
+        var congrate_sound = new Audio('assets/audio/congrate-sound.mp3');
+        congrate_sound.play();
+      }
     } else {
       heart[heart_status].img = '../../../../assets/img/heart-border.png',
       heart_status++;
+      var wrong_answer = new Audio('assets/audio/wrong-answer.m4a');
+      wrong_answer.play();
       if (heart_status == 3) {
         $('#failMessage').show();
         $('#failMessage').animate({
@@ -219,18 +234,9 @@ export class State4Page implements OnInit {
           height: '300px',
           opacity: 1,
         });
+        var sad_sound = new Audio('assets/audio/sad-sound.mp3');
+        sad_sound.play();
       }
-    }
-
-    if (correctCards == 1) {
-      $('#successMessage').show();
-      $('#successMessage').animate({
-        left: '125px',
-        top: '30px',
-        width: '500px',
-        height: '300px',
-        opacity: 1,
-      });
     }
   }
 

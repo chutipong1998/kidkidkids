@@ -101,9 +101,9 @@ export class State2Page implements OnInit {
   }
 
   getAns(i: string) {
-    let alp;
+    // let alp;
     if (this.listen[0].answer == i) {
-      alp = this.listen[Number(i)-1].alphabet
+      // alp = this.listen[Number(i)-1].alphabet
       $('#successMessage').show();
       $('#successMessage').animate({
         left: '125px',
@@ -112,9 +112,15 @@ export class State2Page implements OnInit {
         height: '300px',
         opacity: 1,
       });
+
+      var congrate_sound = new Audio('assets/audio/congrate-sound.mp3');
+      congrate_sound.play();
     } else {
       this.heart[this.heart_status].img = '../../../../assets/img/heart-border.png',
       this.heart_status++;
+
+      var wrong_answer = new Audio('assets/audio/wrong-answer.m4a');
+      wrong_answer.play();
 
       if (this.heart_status ==3) {
         $('#failMessage').show();
@@ -125,6 +131,9 @@ export class State2Page implements OnInit {
           height: '300px',
           opacity: 1,
         });
+
+        var sad_sound = new Audio('assets/audio/sad-sound.mp3');
+        sad_sound.play();
       }
     }
   }
