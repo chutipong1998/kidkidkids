@@ -2,36 +2,6 @@
     --background: url(../../../../assets/img/background/bg-page-th.png) 0 0/100% 100% no-repeat;
 }
 
-// #container {
-//     text-align: center;
-  
-//     position: absolute;
-//     left: 0;
-//     right: 0;
-//     top: 50%;
-//     transform: translateY(-50%);
-//   }
-  
-//   #container strong {
-//     font-size: 20px;
-//     line-height: 26px;
-//   }
-  
-//   #container p {
-//     font-size: 16px;
-//     line-height: 22px;
-  
-//     color: #8c8c8c;
-  
-//     margin: 0;
-//   }
-  
-//   #container a {
-//     text-decoration: none;
-//   }
-
-//sjdhgkjsrghskj
-
 .img {
     width: 55%;
     height: auto;
@@ -121,7 +91,6 @@
     width: 120px;
     height: 120px;
     padding: 7px;
-    // margin-left: 11px;
 }
 
 .home {
@@ -130,6 +99,7 @@
     height: 25%;
     font-size: 28px;
     background-color: lightblue;
+    border-radius: 8px;
   }
   
   .replay {
@@ -137,6 +107,27 @@
     height: 25%;
     font-size: 28px;
     background-color: darkorange;
+    border-radius: 8px;
+  }
+
+  .no {
+    width: 35%;
+    height: 25%;
+    font-size: 28px;
+    background-color: limegreen;
+    border-radius: 8px;
+    font-family: 'Sanamdeklen';
+    color: white;
+  }
+  
+  .yes {
+    width: 35%;
+    height: 25%;
+    font-size: 28px;
+    background-color: mediumvioletred;
+    border-radius: 8px;
+    font-family: 'Sanamdeklen';
+    color: white;
   }
   
   .img-congrate {
@@ -173,7 +164,7 @@
     -webkit-text-stroke-color: black;
   }
   
-  #successMessage, #failMessage {
+  #successMessage, #failMessage, #resetGame {
     position: absolute;
     left: 580px;
     top: 250px;

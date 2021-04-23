@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DatabaseQuizService } from 'src/app/services/database/Quiz/database-quiz.service';
 import { MatchAnimalSound } from '../../../model/quiz/matchAnimalSound';
+import { NativeAudio } from '@ionic-native/native-audio/ngx';
 
 import * as $ from 'jquery'
 import 'jquery-ui-dist/jquery-ui';
-import { NativeAudio } from '@ionic-native/native-audio/ngx';
 
 declare var require: any
 (window as any).jQuery = $;
@@ -29,26 +29,32 @@ export class State4Page implements OnInit {
   score: number;
   dataScore: any = [];
   category: string;
-
   state: string;
   level: string;
-
   heart: any;
-
   match_sound: MatchAnimalSound[] = [];
-  // data_match_sound_left: Match_animal_sound[] = [];
-  // data_match_sound_right: Match_animal_sound[] = [];
+  statusSound: boolean;
 
-  constructor(private db: DatabaseQuizService, private route: Router, private nativeAudio: NativeAudio) { }
+  constructor(
+    private db: DatabaseQuizService, 
+    private route: Router, 
+    private nativeAudio: NativeAudio
+  ) { }
 
   ngOnInit() {
     this.hide_alert();
-
     this.level = localStorage.getItem('state');
-    // console.log('level =', this.level);
-
     this.dataScore = JSON.parse(localStorage.getItem('score'));
-    // console.log('datasc =', this.dataScore);
+
+    this.nativeAudio.stop('test2').then((res) => {
+      console.log('stop test2');
+      console.log(res);
+    }, (err) => {
+      console.log('test2 stop error');
+      console.log(err);
+    });
+    this.statusSound = true;
+    localStorage.setItem('statusSound', JSON.stringify(this.statusSound));
 
     this.checkScore(this.level, this.dataScore);
 
@@ -58,10 +64,6 @@ export class State4Page implements OnInit {
       }
     });
   }
-
-  // random_number() {
-  //   return Math.floor(Math.random() * 2) + 1;
-  // }
 
   hide_alert() {
     $('#successMessage').hide();
@@ -79,6 +81,18 @@ export class State4Page implements OnInit {
       width: 0,
       height: 0,
     });
+
+    this.continueGame();
+  }
+
+  continueGame() {
+    $('#resetGame').hide();
+    $('#resetGame').css({
+      left: '580px',
+      top: '250px',
+      width: 0,
+      height: 0,
+    });
   }
 
   getDataQuiz() {
@@ -86,11 +100,8 @@ export class State4Page implements OnInit {
       for (let i = 0; i < res.length; i++) {
         if (res[i].state === this.level) {
           this.match_sound.push(res[i])
-          // this.drag_drop(this.match_sound);
         }
       }
-      console.log('dmsl =');
-      console.log(this.match_sound);
       await this.drag_drop(this.match_sound);
 
       await this.nativeAudio.preloadComplex(this.match_sound[0].sound, this.match_sound[0].sound, 1, 1, 0).then((res) => {
@@ -121,17 +132,10 @@ export class State4Page implements OnInit {
     $('#cardPileLeftBottom').html('');
     $('#cardPileRightBottom').html('');
     $('#cardSlots').html('');
-
-    // Create the pile of shuffled cards
-    // console.log('len =', match_sound);
-    // console.log('len1 =', match_sound[0].answer);
     
-    console.log('len =', match_sound.length);
     for (var i = 0; i < match_sound.length; i++) {
-      console.log('i =', i);
       if (i%2 == 0) {
         if (i%4 == 0) {
-          console.log('ซ้ายบน =', i%4);
           $(`<div style="text-align: center; margin: auto"><img src="${match_sound[i].alphabet}" alt="" width="100px"></div>`)
           .data('number', i+1)
           .attr('id', 'card' + match_sound[i].id)
@@ -142,7 +146,6 @@ export class State4Page implements OnInit {
             revert: true,
           });
         } else if (i%4 == 2) {
-          console.log('ซ้ายล่าง =', i%4);
           $(`<div style="text-align: center; margin: auto"><img src="${match_sound[i].alphabet}" alt="" width="100px"></div>`)
           .data('number', i+1)
           .attr('id', 'card' + match_sound[i].id)
@@ -155,7 +158,6 @@ export class State4Page implements OnInit {
         }
       } else {
         if (i%4 == 1) {
-          console.log('ขวาบน =', i%4);
           $(`<div style="text-align: center; margin: auto"><img src="${match_sound[i].alphabet}" alt="" width="100px"></div>`)
           .data('number', i+1)
           .attr('id', 'card' + match_sound[i].id)
@@ -166,7 +168,6 @@ export class State4Page implements OnInit {
             revert: true,
           });
         } else if (i%4 == 3) {
-          console.log('ขวาล่าง =', i%4);
           $(`<div style="text-align: center; margin: auto"><img src="${match_sound[i].alphabet}" alt="" width="100px"></div>`)
           .data('number', i+1)
           .attr('id', 'card' + match_sound[i].id)
@@ -180,9 +181,7 @@ export class State4Page implements OnInit {
       }
     }
 
-    // let code = this.correctCards;
     for (var i = 0; i < 1; i++) {
-      // $('<div class="col-mid" style="margin: auto;">' + match_sound[0].answer + '</div>')
       if (match_sound.length != 0) {
         $(`<div class="col-mid" style="margin: auto;"><img class="img-ngao" src="../../../../assets/img/shadow-animals/box-shadow.png" alt="" width="100px"></div>`)
           .data('number', match_sound[i].answer)
@@ -201,9 +200,6 @@ export class State4Page implements OnInit {
     var slotNumber = $(this).data('number');
     var cardNumber = ui.draggable.data('number');
 
-    console.log('slotNumber =', slotNumber);
-    console.log('cardNumber =', cardNumber);
-
     if (slotNumber == cardNumber) {
       // ui.draggable.addClass('correct');
       // ui.draggable.draggable('disable');
@@ -212,10 +208,8 @@ export class State4Page implements OnInit {
       ui.draggable.draggable('option', 'revert', false);
       correctCards++;
     } else {
-      console.log('heart_statusBf =', heart_status);
       heart[heart_status].img = '../../../../assets/img/heart-border.png',
       heart_status++;
-      console.log('heart_statusAt =', heart_status);
       if (heart_status == 3) {
         $('#failMessage').show();
         $('#failMessage').animate({
@@ -227,12 +221,6 @@ export class State4Page implements OnInit {
         });
       }
     }
-
-    console.log('correctCards');
-    console.log(correctCards);
-
-
-    // this.card_correct;
 
     if (correctCards == 1) {
       $('#successMessage').show();
@@ -271,9 +259,6 @@ export class State4Page implements OnInit {
   }
 
   updateData(id: string, scoreState: string, score: number) {
-    // let alphabets = this.dataScore['alphabet'].split(',');
-    // alphabets = alphabets.map(alphabet => alphabet.trim());
-
     let total;
     if (scoreState == 'score_state1') {
       total = score
@@ -297,7 +282,6 @@ export class State4Page implements OnInit {
             + score
     }
     
- 
     this.db.updateData(id, scoreState, score, total)
     .then(_ => {
       console.log('update complete!!');
@@ -305,18 +289,13 @@ export class State4Page implements OnInit {
   }
 
   gotoCheckpoint() {
-    console.log('heart_statusFn =', heart_status);
     let score = 100 - (20*heart_status);
-    console.log('dataScore:');
-    console.log(this.dataScore[0].id);
-    console.log('state =');
-    console.log(this.state);
     
     if (score > this.score) {
       this.updateData(this.dataScore[0].id, this.state, score);
     }
-    // localStorage.setItem('state', '');
     this.route.navigateByUrl('/choose-checkpoint');
+    this.playBgSound();
   }
 
   fail() {
@@ -324,9 +303,8 @@ export class State4Page implements OnInit {
       heart[i].img = '../../../../assets/img/heart.png';
     }
     this.heart = heart;
-    console.log('heartf =');
-    console.log(this.heart);
     this.route.navigateByUrl('/choose-checkpoint');
+    this.playBgSound();
   }
 
   listenToAnimalSound(){
@@ -337,6 +315,29 @@ export class State4Page implements OnInit {
       console.log('animalSound playing error');
       console.log(err);
     });
+  }
+
+  resetGame() {
+    $('#resetGame').show();
+    $('#resetGame').animate({
+      left: '125px',
+      top: '30px',
+      width: '500px',
+      height: '300px',
+      opacity: 1,
+    });
+  }
+
+  playBgSound() {
+    this.nativeAudio.loop('test2').then((res) => {
+      console.log('playing test2');
+      console.log(res);
+    }, (err) => {
+      console.log('test2 playing error');
+      console.log(err);
+    });
+    this.statusSound = false;
+    localStorage.setItem('statusSound', JSON.stringify(this.statusSound));
   }
 
 }

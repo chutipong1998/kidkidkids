@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { DatabaseQuizService } from 'src/app/services/database/Quiz/database-quiz.service';
 import { Dragdrop } from '../../../model/quiz/dragdrop';
+import { NativeAudio } from '@ionic-native/native-audio/ngx';
 
 import * as $ from 'jquery'
 import 'jquery-ui-dist/jquery-ui';
@@ -27,34 +28,38 @@ let heart = [
 export class State1Page implements OnInit {
 
   dragdrop: Dragdrop[] = [];
-
   score: number;
   dataScore: any = [];
   category: string;
-
   state: string;
   level: string;
-
   heart: any;
   random: number;
+  statusSound: boolean;
 
-  constructor(private db: DatabaseQuizService, private route: Router) {
+  constructor(
+    private db: DatabaseQuizService, 
+    private route: Router,
+    private nativeAudio: NativeAudio) {
   }
 
   ngOnInit() {
 
     this.heart = heart;
-
     this.category = localStorage.getItem('category');
-    console.log('category =', this.category);
-
     this.level = localStorage.getItem('state');
-    console.log('level =', this.level);
-
     this.dataScore = JSON.parse(localStorage.getItem('score'));
-    console.log('datasc =', this.dataScore);
+    this.checkScore(this.level, this.dataScore);
 
-    this.checkScore(this.level, this.dataScore)
+    this.nativeAudio.stop('test2').then((res) => {
+      console.log('stop test2');
+      console.log(res);
+    }, (err) => {
+      console.log('test2 stop error');
+      console.log(err);
+    });
+    this.statusSound = true;
+    localStorage.setItem('statusSound', JSON.stringify(this.statusSound));
 
     this.db.getDatabaseState().subscribe(ready => {
       if(ready) {
@@ -64,10 +69,6 @@ export class State1Page implements OnInit {
 
     this.hideAlert();
   }
-
-  // random_number() {
-  //   return Math.floor(Math.random() * 2) + 1;
-  // }
 
   hideAlert() {
     $('#successMessage').hide();
@@ -85,6 +86,18 @@ export class State1Page implements OnInit {
       width: 0,
       height: 0,
     });
+
+    this.continueGame();
+  }
+
+  continueGame() {
+    $('#resetGame').hide();
+    $('#resetGame').css({
+      left: '580px',
+      top: '250px',
+      width: 0,
+      height: 0,
+    });
   }
 
   getDataQuiz(category: string) {
@@ -96,11 +109,6 @@ export class State1Page implements OnInit {
             this.DragDrop(this.dragdrop);
           }
         }
-        console.log('dragdrop =');
-        console.log(this.dragdrop);
-
-        // this.pushData(this.listen)
-        // localStorage.setItem('category', '')
       });
     } else if (category == 'ผลไม้') {
       this.db.getDragFruit().subscribe(res => {
@@ -110,11 +118,6 @@ export class State1Page implements OnInit {
             this.DragDrop(this.dragdrop);
           }
         }
-        console.log('dragdrop =');
-        console.log(this.dragdrop);
-
-        // this.pushData(this.listen)
-        // localStorage.setItem('category', '')
       });
     } else if (category == 'ตัวเลข') {
       this.db.getDragNumber().subscribe(res => {
@@ -124,11 +127,6 @@ export class State1Page implements OnInit {
             this.DragDrop(this.dragdrop);
           }
         }
-        console.log('dragdrop =');
-        console.log(this.dragdrop);
-
-        // this.pushData(this.listen)
-        // localStorage.setItem('category', '')
       });
     }
   }
@@ -139,11 +137,6 @@ export class State1Page implements OnInit {
     }
     
     this.heart = heart;
-    console.log('heartf =');
-    console.log(this.heart);
-
-    console.log('heart_status =', heart_status);
-
     this.hideAlert();
 
     // Reset the game
@@ -183,9 +176,6 @@ export class State1Page implements OnInit {
     var slotNumber = $(this).data('number');
     var cardNumber = ui.draggable.data('number');
 
-    console.log('slotNumber =', slotNumber);
-    console.log('cardNumber =', cardNumber);
-
     if (slotNumber == cardNumber) {
       // ui.draggable.addClass('correct');
       // ui.draggable.draggable('disable');
@@ -194,9 +184,6 @@ export class State1Page implements OnInit {
       ui.draggable.draggable('option', 'revert', false);
       correctCards++;
     }
-
-    console.log('correctCards');
-    console.log(correctCards);
 
     if (correctCards == 1) {
       $('#successMessage').show();
@@ -208,10 +195,8 @@ export class State1Page implements OnInit {
         opacity: 1,
       });
     } else {
-      console.log('heart_statusBf =', heart_status);
       heart[heart_status].img = '../../../../assets/img/heart-border.png',
       heart_status++;
-      console.log('heart_statusAt =', heart_status);
       if (heart_status == 3) {
         $('#failMessage').show();
         $('#failMessage').animate({
@@ -226,9 +211,6 @@ export class State1Page implements OnInit {
   }
 
   updateData(id: string, scoreState: string, score: number) {
-    // let alphabets = this.dataScore['alphabet'].split(',');
-    // alphabets = alphabets.map(alphabet => alphabet.trim());
-
     let total;
     if (scoreState == 'score_state1') {
       total = score
@@ -260,18 +242,16 @@ export class State1Page implements OnInit {
   }
 
   gotoCheckpoint() {
-    console.log('heart_statusFn =', heart_status);
     let score = 100 - (20*heart_status);
-    console.log('dataScore:');
     console.log(this.dataScore[0].id);
-    console.log('state =');
     console.log(this.state);
     
     if (score > this.score) {
       this.updateData(this.dataScore[0].id, this.state, score);
     }
-    // localStorage.setItem('state', '');
     this.route.navigateByUrl('/choose-checkpoint');
+
+    this.playBgSound();
   }
 
   fail() {
@@ -279,9 +259,8 @@ export class State1Page implements OnInit {
       heart[i].img = '../../../../assets/img/heart.png';
     }
     this.heart = heart;
-    console.log('heartf =');
-    console.log(this.heart);
     this.route.navigateByUrl('/choose-checkpoint');
+    this.playBgSound();
   }
 
   checkScore(level: string, datascore: any) {
@@ -306,6 +285,29 @@ export class State1Page implements OnInit {
         this.state = 'score_state6';
       }
     }
+  }
+
+  resetGame() {
+    $('#resetGame').show();
+    $('#resetGame').animate({
+      left: '125px',
+      top: '30px',
+      width: '500px',
+      height: '300px',
+      opacity: 1,
+    });
+  }
+
+  playBgSound() {
+    this.nativeAudio.loop('test2').then((res) => {
+      console.log('playing test2');
+      console.log(res);
+    }, (err) => {
+      console.log('test2 playing error');
+      console.log(err);
+    });
+    this.statusSound = false;
+    localStorage.setItem('statusSound', JSON.stringify(this.statusSound));
   }
 
 }

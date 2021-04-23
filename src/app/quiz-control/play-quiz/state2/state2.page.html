@@ -1,7 +1,7 @@
 <ion-content padding class="bg-choose-checkpoint">
   <ion-row class="header" style="height: 14%;">
     <ion-col style="height: fit-content;">
-      <a class="btn" routerLink="/choose-checkpoint"><ion-icon name="home"></ion-icon></a>
+      <a class="btn" (click)="resetGame()"><ion-icon name="home"></ion-icon></a>
     </ion-col>
 
     <ion-col></ion-col>
@@ -31,10 +31,6 @@
             <img src="../../../../assets/img/icons-speaker/btn-animal-audio.png" alt="">
           </a>
         </div>
-        <!-- <a (click)="listenToAnimalSound()">
-          <img class="img-speaker" src="../../../../assets/img/icons-speaker/btn-animal-audio.png" alt="" srcset="">
-        </a> -->
-        <!-- <h5 class="txt">กดเพื่อฟังเสียง</h5> -->
       </ion-col>
     </ion-row>
     <ion-row>
@@ -46,6 +42,20 @@
         </div>
       </ion-col>
     </ion-row>
+
+    <div id="resetGame" style="text-align: center;">
+      <ion-row>
+        <ion-col style="text-align: right;"><img class="img-fail" src="../../../../assets/img/cry.png" alt=""></ion-col>
+        <ion-col style="text-align: center; margin-top: 7%;">
+          <span class="txt-congrate">แน่ใจหรือว่าต้องการเลิก?</span><br>
+          <label for="">
+            <span><button class="yes" (click)="playBgSound()" routerLink="/choose-checkpoint"><h3><strong>ใช่</strong></h3></button></span>
+            <span style="padding: 5%;"></span>
+            <span><button class="no" (click)="continueGame()"><h3><strong>ไม่</strong></h3></button></span>
+          </label>
+        </ion-col>
+      </ion-row>
+    </div>
 
     <div id="successMessage" style="text-align: center;">
       <ion-row>

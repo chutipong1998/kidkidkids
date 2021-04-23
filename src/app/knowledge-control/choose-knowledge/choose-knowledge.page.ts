@@ -28,7 +28,7 @@ export class ChooseKnowledgePage implements OnInit {
   ]
 
   statusSound: boolean;
-  x: string;
+  // x: string;
 
   constructor(public navCtrl: NavController, private route: Router, private db: DatabaseKnowledgeService, private nativeAudio: NativeAudio) {
 
@@ -75,8 +75,8 @@ export class ChooseKnowledgePage implements OnInit {
   ngOnInit() {
     this.topic = localStorage.getItem('topic');
 
-    this.x = localStorage.getItem('statusSound');
-    this.statusSound = JSON.parse(this.x);
+    // this.x = localStorage.getItem('statusSound');
+    // this.statusSound = JSON.parse(this.x);
 
     this.getData(this.topic);
 

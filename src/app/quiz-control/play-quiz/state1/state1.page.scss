@@ -42,6 +42,7 @@ img {
   height: 25%;
   font-size: 28px;
   background-color: lightblue;
+  border-radius: 8px;
 }
 
 .replay {
@@ -49,6 +50,27 @@ img {
   height: 25%;
   font-size: 28px;
   background-color: darkorange;
+  border-radius: 8px;
+}
+
+.no {
+  width: 35%;
+  height: 25%;
+  font-size: 28px;
+  background-color: limegreen;
+  border-radius: 8px;
+  font-family: 'Sanamdeklen';
+  color: white;
+}
+
+.yes {
+  width: 35%;
+  height: 25%;
+  font-size: 28px;
+  background-color: mediumvioletred;
+  border-radius: 8px;
+  font-family: 'Sanamdeklen';
+  color: white;
 }
 
 .img-congrate {
@@ -78,7 +100,7 @@ img {
   -webkit-text-stroke-color: black;
 }
 
-#successMessage, #failMessage {
+#successMessage, #failMessage, #resetGame {
   position: absolute;
   z-index: 100;
   background: white;

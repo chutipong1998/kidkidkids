@@ -5,6 +5,7 @@ import { SortNumber } from '../../../model/quiz/sortNumber';
 
 import * as $ from 'jquery'
 import 'jquery-ui-dist/jquery-ui';
+import { NativeAudio } from '@ionic-native/native-audio/ngx';
 
 declare var require: any
 (window as any).jQuery = $;
@@ -29,28 +30,35 @@ export class State3Page implements OnInit {
   score: number;
   dataScore: any = [];
   category: string;
-
   state: string;
   level: string;
-
   topic: string;
-
   heart: any;
-
   data_sort_number: SortNumber[] = [];
-  random: number;
+  statusSound: boolean;
 
-  constructor(private db: DatabaseQuizService, private route: Router) { }
+  constructor(
+    private db: DatabaseQuizService, 
+    private route: Router,
+    private nativeAudio: NativeAudio
+  ) { }
 
   ngOnInit() {
     this.hide_alert();
     this.heart = heart;
-
     this.level = localStorage.getItem('state');
-    console.log('level =', this.level);
 
     this.dataScore = JSON.parse(localStorage.getItem('score'));
-    console.log('datasc =', this.dataScore);
+
+    this.nativeAudio.stop('test2').then((res) => {
+      console.log('stop test2');
+      console.log(res);
+    }, (err) => {
+      console.log('test2 stop error');
+      console.log(err);
+    });
+    this.statusSound = true;
+    localStorage.setItem('statusSound', JSON.stringify(this.statusSound));
 
     this.checkScore(this.level, this.dataScore)
 
@@ -60,10 +68,6 @@ export class State3Page implements OnInit {
       }
     });
   }
-
-  // random_number() {
-  //   return Math.floor(Math.random() * 2) + 1;
-  // }
 
   hide_alert() {
     $('#successMessage').hide();
@@ -81,6 +85,18 @@ export class State3Page implements OnInit {
       width: 0,
       height: 0,
     });
+
+    this.continueGame();
+  }
+
+  continueGame() {
+    $('#resetGame').hide();
+    $('#resetGame').css({
+      left: '580px',
+      top: '250px',
+      width: 0,
+      height: 0,
+    });
   }
 
   getDataQuiz() {
@@ -91,8 +107,6 @@ export class State3Page implements OnInit {
           this.drag_drop(this.data_sort_number);
         }
       }
-      console.log('dsn =');
-      console.log(this.data_sort_number);
     });
 
   }
@@ -115,9 +129,6 @@ export class State3Page implements OnInit {
     $('#cardSlots').html('');
 
     // Create the pile of shuffled cards
-    console.log('len =', data_sort_number);
-    console.log('len1 =', data_sort_number[0].answer);
-    
     for (var i = 0; i < data_sort_number.length; i++) {
       $(`<div style="text-align: center; margin: auto"><img src="${data_sort_number[i].alphabet}" alt="" width="100px"></div>`)
       .data('number', data_sort_number[i].answer)
@@ -132,7 +143,6 @@ export class State3Page implements OnInit {
 
     // let code = this.correctCards;
     for (var i = 0; i < data_sort_number.length; i++) {
-      // $('<div class="col-mid" style="margin: auto;">' + data_sort_number[0].answer + '</div>')
       $(`<div class="col-mid" style="margin: auto;"><img class="img-ngao" src="../../../../assets/img/shadow-number/shadow-number.png" alt="" width="100px"></div>`)
         .data('number', i+1)
         .appendTo('#cardSlots')
@@ -149,9 +159,6 @@ export class State3Page implements OnInit {
     var slotNumber = $(this).data('number');
     var cardNumber = ui.draggable.data('number');
 
-    console.log('slotNumber =', slotNumber);
-    console.log('cardNumber =', cardNumber);
-
     if (slotNumber == cardNumber) {
       // ui.draggable.addClass('correct');
       // ui.draggable.draggable('disable');
@@ -160,10 +167,8 @@ export class State3Page implements OnInit {
       ui.draggable.draggable('option', 'revert', false);
       correctCards++;
     } else {
-      console.log('heart_statusBf =', heart_status);
       heart[heart_status].img = '../../../../assets/img/heart-border.png',
       heart_status++;
-      console.log('heart_statusAt =', heart_status);
       if (heart_status == 3) {
         $('#failMessage').show();
         $('#failMessage').animate({
@@ -175,12 +180,6 @@ export class State3Page implements OnInit {
         });
       }
     }
-
-    console.log('correctCards');
-    console.log(correctCards);
-
-
-    // this.card_correct;
 
     if (correctCards == win) {
       $('#successMessage').show();
@@ -195,9 +194,6 @@ export class State3Page implements OnInit {
   }
 
   updateData(id: string, scoreState: string, score: number) {
-    // let alphabets = this.dataScore['alphabet'].split(',');
-    // alphabets = alphabets.map(alphabet => alphabet.trim());
-
     let total;
     if (scoreState == 'score_state1') {
       total = score
@@ -229,21 +225,13 @@ export class State3Page implements OnInit {
   }
 
   gotoCheckpoint() {
-    console.log('heart_statusFn =', heart_status);
     let score = 100 - (20*heart_status);
-    console.log('dataScore:');
-    console.log(this.dataScore[0].id);
-    console.log('state =');
-    console.log(this.state);
-    console.log('state_score =');
-    console.log(this.score);
 
     if (score > this.score) {
       this.updateData(this.dataScore[0].id, this.state, score);
     }
-    
-    // localStorage.setItem('state', '');
     this.route.navigateByUrl('/choose-checkpoint');
+    this.playBgSound();
   }
 
   fail() {
@@ -251,9 +239,8 @@ export class State3Page implements OnInit {
       heart[i].img = '../../../../assets/img/heart.png';
     }
     this.heart = heart;
-    console.log('heartf =');
-    console.log(this.heart);
     this.route.navigateByUrl('/choose-checkpoint');
+    this.playBgSound();
   }
 
   checkScore(level: string, datascore: any) {
@@ -283,6 +270,29 @@ export class State3Page implements OnInit {
         this.topic = 'จงเรียงลำดับตัวเลขจากน้อยไปมากต่อไปนี้';
       }
     }
+  }
+
+  resetGame() {
+    $('#resetGame').show();
+    $('#resetGame').animate({
+      left: '125px',
+      top: '30px',
+      width: '500px',
+      height: '300px',
+      opacity: 1,
+    });
+  }
+
+  playBgSound() {
+    this.nativeAudio.loop('test2').then((res) => {
+      console.log('playing test2');
+      console.log(res);
+    }, (err) => {
+      console.log('test2 playing error');
+      console.log(err);
+    });
+    this.statusSound = false;
+    localStorage.setItem('statusSound', JSON.stringify(this.statusSound));
   }
 
 }

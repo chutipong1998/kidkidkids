@@ -5,6 +5,13 @@ import { NativeAudio } from '@ionic-native/native-audio/ngx';
 import { Knowledge } from '../model/knowledge/knowledge';
 import { Data } from '../model/quiz/data';
 
+import * as $ from 'jquery'
+import 'jquery-ui-dist/jquery-ui';
+
+declare var require: any
+(window as any).jQuery = $;
+require('jquery-ui-touch-punch');
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -23,8 +30,8 @@ export class HomePage implements OnInit {
     private knowdb: DatabaseKnowledgeService,
     private nativeAudio: NativeAudio
   ) {
-    this.x = localStorage.getItem('statusSound');
-    this.statusSound = JSON.parse(this.x);
+    // this.x = localStorage.getItem('statusSound');
+    // this.statusSound = JSON.parse(this.x);
   }
 
   ngOnInit() {
