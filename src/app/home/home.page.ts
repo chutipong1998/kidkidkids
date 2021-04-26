@@ -30,8 +30,6 @@ export class HomePage implements OnInit {
     private knowdb: DatabaseKnowledgeService,
     private nativeAudio: NativeAudio
   ) {
-    // this.x = localStorage.getItem('statusSound');
-    // this.statusSound = JSON.parse(this.x);
   }
 
   ngOnInit() {

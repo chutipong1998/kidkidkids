@@ -69,6 +69,16 @@ export class State3Page implements OnInit {
     });
   }
 
+  topicSound() {
+    this.nativeAudio.play('soundState3').then((res) => {
+      console.log('playing topic Sound');
+      console.log(res);
+    }, (err) => {
+      console.log('topic playing error');
+      console.log(err);
+    });
+  }
+
   hide_alert() {
     $('#successMessage').hide();
     $('#successMessage').css({
@@ -106,9 +116,22 @@ export class State3Page implements OnInit {
           this.data_sort_number.push(res[i]);
           this.drag_drop(this.data_sort_number);
         }
-      }
+      }this.loadSound();
+      this.topicSound();
+
     });
 
+  }
+
+  loadSound() {
+    this.nativeAudio.preloadSimple('soundState3', 'assets/audio/topic-sound/soundState3.mp3').then((res) => {
+      console.log('loading...');
+      console.log(res);
+      this.topicSound();
+    }, (err) => {
+      console.log('error');
+      console.log(err);
+    });
   }
 
   drag_drop(data_sort_number: any) {

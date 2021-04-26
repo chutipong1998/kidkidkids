@@ -17,7 +17,6 @@ export class PlayKnowledgePage implements OnInit {
   ngOnInit() {
     let s = localStorage.getItem('list');
     this.show = JSON.parse(s)
-    console.log(this.show);
 
     this.loadSound(this.show.thai_sound, this.show.english_sound);
 

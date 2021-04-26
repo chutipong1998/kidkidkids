@@ -102,17 +102,52 @@ export class State4Page implements OnInit {
           this.match_sound.push(res[i])
         }
       }
-      await this.drag_drop(this.match_sound);
+      this.drag_drop(this.match_sound);
+      this.loadSound();
+      this.topicSound();
 
-      await this.nativeAudio.preloadComplex(this.match_sound[0].sound, this.match_sound[0].sound, 1, 1, 0).then((res) => {
-        console.log('loading...');
-        console.log(res);
-      }, (err) => {
-        console.log('error');
-        console.log(err);
-      });
+
+      // await this.nativeAudio.preloadComplex(this.match_sound[0].sound, this.match_sound[0].sound, 1, 1, 0).then((res) => {
+      //   console.log('loading...');
+      //   console.log(res);
+      // }, (err) => {
+      //   console.log('error');
+      //   console.log(err);
+      // });
     });
 
+  }
+
+  loadSound() {
+    this.nativeAudio.preloadSimple('soundState4', 'assets/audio/topic-sound/soundState4.mp3').then((res) => {
+      console.log('loading...');
+      console.log(res);
+      this.topicSound();
+    }, (err) => {
+      console.log('error');
+      console.log(err);
+    });
+
+    this.nativeAudio.preloadSimple(this.match_sound[0].sound, this.match_sound[0].sound).then((res) => {
+      console.log('loading...');
+      console.log(res);
+    }, (err) => {
+      console.log('error');
+      console.log(err);
+    });
+  }
+
+  topicSound() {
+    this.nativeAudio.play('soundState4').then((res) => {
+      console.log('playing topic Sound');
+      console.log(res);
+      setTimeout( () => {
+        this.listenToAnimalSound();
+      }, 3600);
+    }, (err) => {
+      console.log('topic playing error');
+      console.log(err);
+    });
   }
 
   drag_drop(match_sound: any) {

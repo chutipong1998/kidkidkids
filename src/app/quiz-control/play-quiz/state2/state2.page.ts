@@ -1,3 +1,4 @@
+import { async } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { DatabaseQuizService } from 'src/app/services/database/Quiz/database-quiz.service';
@@ -65,9 +66,22 @@ export class State2Page implements OnInit {
       if(ready) {
         this.getDataQuiz(this.category);
       }
-    })
+    });
 
     this.hideAlert();
+  }
+
+  topicSound() {
+    this.nativeAudio.play('soundState2').then((res) => {
+      console.log('playing topic Sound');
+      console.log(res);
+      setTimeout( () => {
+        this.listenSound();
+      }, 2100);
+    }, (err) => {
+      console.log('topic playing error');
+      console.log(err);
+    });
   }
 
   hideAlert() {
@@ -182,6 +196,7 @@ export class State2Page implements OnInit {
         }
 
         this.loadSound();
+        this.topicSound();
       });
     } else if (category == 'ตัวอักษรภาษาไทย') {
       this.db.getLisThaiAlp().subscribe(res => {
@@ -191,6 +206,7 @@ export class State2Page implements OnInit {
           }
         }
         this.loadSound();
+        this.topicSound();
       });
     } else if (category == 'ผลไม้') {
       this.db.getLisFruit().subscribe(res => {
@@ -200,11 +216,21 @@ export class State2Page implements OnInit {
           }
         }
         this.loadSound();
+        this.topicSound();
       });
     }
   }
 
   loadSound() {
+    this.nativeAudio.preloadSimple('soundState2', 'assets/audio/topic-sound/soundState2.mp3').then((res) => {
+      console.log('loading...');
+      console.log(res);
+      this.topicSound();
+    }, (err) => {
+      console.log('error');
+      console.log(err);
+    });
+
     this.nativeAudio.preloadSimple(this.listen[0].sound, this.listen[0].sound).then((res) => {
       console.log('loading...');
       console.log(res);
@@ -263,7 +289,7 @@ export class State2Page implements OnInit {
     });
   }
 
-  listenToAnimalSound(){
+  listenSound(){
     this.nativeAudio.play(this.listen[0].sound).then((res) => {
       console.log('playing animalSound');
       console.log(res);
