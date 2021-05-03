@@ -12,7 +12,6 @@ declare var require: any
 require('jquery-ui-touch-punch');
 
 let correctCards = 0;
-let wrong_sound: any;
 let heart_status = 0;
 let heart = [
   {id: '1', img: '../../../../assets/img/heart.png'},
@@ -34,7 +33,6 @@ export class State1Page implements OnInit {
   state: string;
   level: string;
   heart: any;
-  random: number;
   statusSound: boolean;
 
   constructor(
@@ -242,7 +240,7 @@ export class State1Page implements OnInit {
             + score
     }
     
- 
+
     this.db.updateData(id, scoreState, score, total)
     .then(_ => {
       console.log('update complete!!');

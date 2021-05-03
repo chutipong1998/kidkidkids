@@ -107,8 +107,6 @@ export class ChooseKnowledgePage implements OnInit {
           };
           this.dataString.push(dataObj)
           this.info = []
-          
-          
         }
       }
     }

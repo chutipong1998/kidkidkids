@@ -33,7 +33,6 @@ export class State2Page implements OnInit {
   dataScore: any = [];
   heart: any;
   heart_status: number;
-  random: number;
   statusSound: boolean;
 
   constructor(

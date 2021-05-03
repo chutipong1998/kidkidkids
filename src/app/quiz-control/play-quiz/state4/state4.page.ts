@@ -105,15 +105,6 @@ export class State4Page implements OnInit {
       this.drag_drop(this.match_sound);
       this.loadSound();
       this.topicSound();
-
-
-      // await this.nativeAudio.preloadComplex(this.match_sound[0].sound, this.match_sound[0].sound, 1, 1, 0).then((res) => {
-      //   console.log('loading...');
-      //   console.log(res);
-      // }, (err) => {
-      //   console.log('error');
-      //   console.log(err);
-      // });
     });
 
   }
