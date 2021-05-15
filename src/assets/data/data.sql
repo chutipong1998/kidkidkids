@@ -343,7 +343,7 @@ INSERT or IGNORE INTO "FRUIT" VALUES ('fruit07','fruit','../../../assets/img/fru
 INSERT or IGNORE INTO "FRUIT" VALUES ('fruit08','fruit','../../../assets/img/fruit/08-piapple.png','assets/audio/fruit-sound/th/pineapple.m4a','assets/audio/fruit-sound/en/pineapple.m4a',NULL);
 INSERT or IGNORE INTO "FRUIT" VALUES ('fruit09','fruit','../../../assets/img/fruit/09-watermalon.png','assets/audio/fruit-sound/th/watermelon.m4a','assets/audio/fruit-sound/en/watermelon.m4a',NULL);
 INSERT or IGNORE INTO "FRUIT" VALUES ('fruit10','fruit','../../../assets/img/fruit/10-orange.png','assets/audio/fruit-sound/th/orange.m4a','assets/audio/fruit-sound/en/orange.m4a',NULL);
-INSERT or IGNORE INTO "FRUIT" VALUES ('fruit11','fruit','../../../assets/img/fruit/11-mango.png','assets/audio/fruit-sound/th/mango.m4a','assets/audio/fruit-sound/th/mango.m4a',NULL);
+INSERT or IGNORE INTO "FRUIT" VALUES ('fruit11','fruit','../../../assets/img/fruit/11-mango.png','assets/audio/fruit-sound/th/mango.m4a','assets/audio/fruit-sound/en/mango.m4a',NULL);
 INSERT or IGNORE INTO "FRUIT" VALUES ('fruit12','fruit','../../../assets/img/fruit/12-mangosateen.png','assets/audio/fruit-sound/th/mangosteen.m4a','assets/audio/fruit-sound/en/mangosteen.m4a',NULL);
 INSERT or IGNORE INTO "FRUIT" VALUES ('fruit13','fruit','../../../assets/img/fruit/13-kiwi.png','assets/audio/fruit-sound/th/kiwi.m4a','assets/audio/fruit-sound/en/kiwi.m4a',NULL);
 INSERT or IGNORE INTO "FRUIT" VALUES ('fruit14','fruit','../../../assets/img/fruit/14-durian.png','assets/audio/fruit-sound/th/durian.m4a','assets/audio/fruit-sound/en/durian.m4a',NULL);

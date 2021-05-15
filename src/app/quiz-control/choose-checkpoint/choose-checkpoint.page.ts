@@ -38,10 +38,6 @@ export class ChooseCheckpointPage implements OnInit {
     this.navCtrl.pop();
   }
 
-  getState(state: string) {
-    localStorage.setItem('state', state)
-  }
-
   getData(quiz: string, category: string) {
     this.db.getData().subscribe(res => {
       for (let i = 0; i < res.length; i++) {
@@ -63,14 +59,18 @@ export class ChooseCheckpointPage implements OnInit {
     });
   }
 
-  gotostate() {
+  gotostate(state: string) {
     if (this.quiz === 'ลากวาง') {
+      localStorage.setItem('state', state)
       this.route.navigateByUrl('/state1');
     } else if (this.quiz == 'ฟังเสียงเพื่อตอบคำถาม') {
+      localStorage.setItem('state', state)
       this.route.navigateByUrl('/state2');
     } else if (this.quiz == 'เรียงลำดับตัวเลข') {
+      localStorage.setItem('state', state)
       this.route.navigateByUrl('/state3');
     } else if (this.quiz == 'จับคู่เสียงของสัตว์') {
+      localStorage.setItem('state', state)
       this.route.navigateByUrl('/state4');
     }
   }

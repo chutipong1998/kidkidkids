@@ -21,14 +21,14 @@
   <div id="container" *ngFor="let sc of dataSc">
     <ion-row>
       <ion-col>
-        <a class="btn pass" (click)="getState('1')" (click)="gotostate()">1</a>
+        <a class="btn pass" (click)="gotostate('1')">1</a>
       </ion-col>
       <ion-col>
         <div *ngIf="sc.score_state1 === 0; else Score1">
           <button class="btn disable" disabled="true"><ion-icon name="lock-closed"></ion-icon></button>
         </div>
         <ng-template #Score1>
-          <a class="btn pass" (click)="getState('2')" (click)="gotostate()">2</a>
+          <a class="btn pass" (click)="gotostate('2')">2</a>
         </ng-template>
       </ion-col>
       <ion-col>
@@ -36,7 +36,7 @@
           <button class="btn disable" disabled="true"><ion-icon name="lock-closed"></ion-icon></button>
         </div>
         <ng-template #Score2>
-          <a class="btn pass" (click)="getState('3')" (click)="gotostate()">3</a>
+          <a class="btn pass" (click)="gotostate('3')">3</a>
         </ng-template>
       </ion-col>
     </ion-row>
@@ -47,7 +47,7 @@
           <button class="btn disable" disabled="true"><ion-icon name="lock-closed"></ion-icon></button>
         </div>
         <ng-template #Score3>
-          <a class="btn pass" (click)="getState('4')" (click)="gotostate()">4</a>
+          <a class="btn pass" (click)="gotostate('4')">4</a>
         </ng-template>
       </ion-col>
     </ion-row>

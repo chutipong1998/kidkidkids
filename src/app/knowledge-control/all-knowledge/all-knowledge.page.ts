@@ -22,7 +22,7 @@ export class AllKnowledgePage implements OnInit {
   }
 
   goback() {
-    this.route.navigate(['home'])
+    this.route.navigate(['main-page'])
   }
 
 }

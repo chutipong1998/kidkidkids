@@ -119,8 +119,8 @@ export class ChooseKnowledgePage implements OnInit {
           this.db.getEngAlps().subscribe(res => {
             console.log('eng:', res);
             this.data = res;
-            this.showData(this.data)
-            this.loadSound(this.data, topic)
+            this.showData(this.data);
+            this.loadSound(this.data, topic);
           });
         }
       });
